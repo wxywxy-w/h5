@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <title>邀请得现金奖励</title>
+</head>
+
+<body>
+    <img src="./image/bg_icon.png" alt="">
+    <section class="activeRule" onclick="lookRule()">
+        <div>
+            <div></div>
+            <p>活动规则</p>
+
+        </div>
+
+
+    </section>
+
+    <div class="taskProgress">
+        <div>
+            <div class="title">
+                <em></em>
+                <p>当前任务进度</p>
+                <em></em>
+            </div>
+            <div class="content">
+                <div class="hasProgress">
+                    <p>已成功邀请好友购买4次</p>
+                    <div id="progressBar">
+                        <ul>
+                            <li>
+                                <img src="./image/defaultIcon.png" alt="">
+                                <img src="./image/activeIcon.png" alt="">
+                                <p>100元</p>
+                            </li>
+                            <li>
+                                <div>
+                                </div>
+                                <p>120元</p>
+                            </li>
+                            <li>
+                                <div>
+                                </div>
+                                <p>150元</p>
+                            </li>
+                            <li>
+                                <div>
+                                </div>
+                                <p>188元</p>
+                            </li>
+                            <li>
+                                <div>
+                                </div>
+                                <p>更高奖励</p>
+                            </li>
+                            <div class="line">
+                                <div></div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="noProgress">
+                    每邀请好友购买成功即可获得188元现金奖励
+                </div>
+
+            </div>
+            <button onclick="inviteGetCash()">
+                立即邀请好友
+            </button>
+
+        </div>
+
+    </div>
+    <div class="myCash">
+        <div>
+            <div class="title">
+                <em></em>
+                <p>我的奖励金额</p>
+                <em></em>
+
+            </div>
+            <div class="cash">
+
+            </div>
+            <div class="nocash">
+
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <section class="rule">
+        <h1>活动规则介绍：</h1>
+        <ul>
+            <li>1.活动时间：2019年8月1日至2019年10月1日</li>
+            <li>2.参与要求：只可vip用户参加</li>
+            <li>3.参与活动，邀请好友通过分享链接进入app内购买365元大礼包，累计1次购买获得100元，2次购买获得120元以此类推至188元</li>
+            <li>
+                4.活动分为4个等级，第4，7，9，10次成功购买可进阶，第4次 成功购买时，最低购买奖励为120元，第7次成功购买时，最低 购买奖励为150元，以此类推，最高等级等级为188元，既每次 好友成功购买365元大礼包，可获得188元，无次数上限
+            </li>
+            <li>5.购买成功后奖励会在每个月的结算日结算（同平台订单规则一 致）获得的现金奖励将以金币的形式发放到账户</li>
+            <li>
+                6.注意事项：礼包购买只有被邀请者购买时进入邀请者的链接， 并进入小绿蓝app进行购买，邀请者才获得奖励，与小绿蓝内的 团队模式无关
+            </li>
+            <li>7.在不违反国家相关法规的前提下,小绿蓝有权为本次活动进行解释</li>
+            <li>8.此活动与苹果公司无关</li>
+        </ul>
+
+    </section>
+    <section class="mask">
+        <div>
+            <div>
+
+            </div>
+            <div>
+                <h1>您当前的等级不足</h1>
+                <p>本权益为小绿蓝vip会员专享 需升级身份后才可领取</p>
+                <div class="btngroup">
+                    <button onclick="closeMaskModel()">暂不升级</button>
+                    <button onclick="setup()">立即升级</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+<script>
+    function lookRule() {
+        window.scrollTo(0, document.documentElement.clientHeight);
+
+    }
+    var http = 'https://xiaolvlan.walongkeji.com',
+        userId = '',
+        ticket = "",
+        memberType = '';
+    userId = GetQueryString('userId')
+    ticket = GetQueryString('ticket')
+    memberType = Number(GetQueryString('memberType'))
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg); //search,查询？后面的参数，并匹配正则
+        if (r != null) return decodeURIComponent(r[2]);
+        return null;
+    }
+
+    function showModel() {
+
+
+        var top = ($(window).height() - $('.mask>div>div:nth-child(2)').height()) / 2;
+        var left = ($(window).width() - $('.mask>div>div:nth-child(2)').width()) / 2;
+        var scrollTop = $(document).scrollTop();
+        var scrollLeft = $(document).scrollLeft();
+        $('.mask').css('height', ($('body').height() + 'px')).fadeIn()
+        $('.mask>div>div:nth-child(2)').css({
+            'top': top + scrollTop,
+            left: left + scrollLeft
+        }).fadeIn();
+    }
+
+    function closeMaskModel() {
+        $('.mask>div>div:nth-child(2)').fadeOut();
+        $('.mask').fadeOut()
+    }
+
+    function setup() {
+        //任务中心
+        let data = {
+            name: 'setup',
+            url: window.location.origin + '/active/MissionCenter/index.html?userId=' + userId + '&ticket=' + ticket + '&memberType=' + memberType,
+        }
+
+        if (/android/i.test(navigator.userAgent)) {
+            try {
+                window.android.setup(JSON.stringify(data));
+            } catch (e) {
+                console.log('与android链接中断')
+            }
+        } else if (/ios|iphone|ipod|pad/i.test(navigator.userAgent)) {
+            window.location.href = window.location.origin + '/active/MissionCenter/index.html?userId=' + userId + '&ticket=' + ticket + '&memberType=' + memberType
+        }
+        closeMaskModel()
+
+    }
+
+    function inviteGetCash() {
+        if (memberType && memberType > 1) {
+            let data = {
+                name: "inviteGetCash",
+                url: window.location.origin + "/active/VIP/privilege/privilegeCenter/index.html",
+                title: '邀请得现金奖励'
+            }
+            if (/android/i.test(navigator.userAgent)) {
+                try {
+                    window.android.inviteGetCash(JSON.stringify(data));
+                } catch (e) {
+                    console.log('与android链接中断')
+
+                }
+            } else if (/ios|iphone|ipod|pad/i.test(navigator.userAgent)) {
+                try {
+                    window.webkit.messageHandlers.inviteGetCash.postMessage(data);
+                } catch (e) {
+                    console.log('与ios链接中断')
+                }
+            }
+
+
+
+        } else {
+            showModel()
+        }
+
+    }
+
+
+    // 获取总共购买的次数，根据相应次数渲染页面
+    function getBuyCount() {
+        console.log(666);
+        $.ajax({
+            url: http + "/walletGold/auth/order365Reward",
+            type: "get",
+            beforeSend: function(request) {
+                request.setRequestHeader('userId', userId);
+                request.setRequestHeader('ticket', ticket);
+            },
+            success: function(res) {
+                if (res.code == 0) {
+                    renderPage(res.data)
+                }
+            }
+        });
+    }
+
+    function renderPage(opt) {
+        let progressArr = ['100元', '120元', '150元', '188元', '更高奖励']
+        $('.hasProgress>p').text("已成功邀请好友购买" + opt.count + "次")
+            // 1-4-7-9-10
+            // opt.count = 10
+            // opt.sum = 1586
+        if (opt.count >= 10) {
+            //如果购买次数大于等于10永远获得188元大礼包
+            $('.noProgress').show()
+        } else {
+            $('.hasProgress').css('display', 'block')
+            var html = ''
+
+            if (opt.count >= 0 && opt.count <= 4) {
+                let progressArr = ['100元', '120元', '150元', '188元', '更高奖励']
+                progressArr.forEach((e, i) => {
+                    html += `
+                            <li>
+                                <img src="` + (opt.count > i ? './image/activeIcon.png' : './image/defaultIcon.png') + `" alt="">
+                                <p class="` + (opt.count > i ? 'activeColor' : '') + `" >` + e + `</p>
+                            </li>
+                    `
+
+                });
+                html += `<div class="line"><div></div></div>`
+                $('#progressBar ul').html('')
+                $('#progressBar ul').append(html)
+                let _width = (opt.count - 1) / 4 * ($('#progressBar .line').width())
+                console.log(_width);
+
+                $('#progressBar .line>div').animate({
+                    width: _width
+                }, 1000)
+
+
+            } else if (opt.count >= 5 && opt.count <= 7) {
+                let progressArr = ['120元', '150元', '188元', '更高奖励']
+                progressArr.forEach((e, i) => {
+                    html += `
+                            <li>
+                                <img src="` + (opt.count - 4 > i ? './image/activeIcon.png' : './image/defaultIcon.png') + `" alt="">
+                                <p class="` + (opt.count - 4 > i ? 'activeColor' : '') + `" >` + e + `</p>
+                            </li>
+                    `
+
+                });
+                html += `<div class="line"><div></div></div>`
+                $('#progressBar ul').html('')
+                $('#progressBar ul').append(html)
+                let _width = (opt.count - 5) / 3 * ($('#progressBar .line').width())
+                console.log(_width);
+
+                $('#progressBar .line>div').animate({
+                    width: _width
+                }, 1000)
+
+            } else if (opt.count >= 8 && opt.count <= 9) {
+                let progressArr = ['150元', '188元', '更高奖励']
+                progressArr.forEach((e, i) => {
+                    html += `
+                            <li>
+                                <img src="` + (opt.count - 7 > i ? './image/activeIcon.png' : './image/defaultIcon.png') + `" alt="">
+                                <p class="` + (opt.count - 7 > i ? 'activeColor' : '') + `" >` + e + `</p>
+                            </li>
+                    `
+
+                });
+                html += `<div class="line"><div></div></div>`
+                $('#progressBar ul').html('')
+                $('#progressBar ul').append(html)
+                let _width = (opt.count - 8) / 2 * ($('#progressBar .line').width())
+                console.log(_width);
+
+                $('#progressBar .line>div').animate({
+                    width: _width
+                }, 1000)
+
+            }
+            // var html = ''
+            // let spliceNum = 0
+            // if (opt.count % 4 == 0) {
+            //     spliceNum = Math.ceil(opt.count / 4) - 1
+            // } else {
+            //     spliceNum = Math.floor(opt.count / 4)
+            // }
+            // Math.floor(opt.count / 4)
+            // progressArr.splice(0, spliceNum) //筛选数组，根据数组长度判断阶段
+            // console.log(progressArr.length);
+            // console.log(Math.floor(opt.count / 4));
+
+
+            // progressArr.forEach((e, i) => {
+            //     html += `
+            //                 <li>
+            //                     <img src="` + (((opt.count % 4 == 0 ? (opt.count == 0 ? -1 : (progressArr.length - 1)) : (opt.count % 4))) > i ? './image/activeIcon.png' : './image/defaultIcon.png') + `" alt="">
+            //                     <p class="` + (((opt.count % 4 == 0 ? (opt.count == 0 ? -1 : (progressArr.length - 1)) : (opt.count % 4))) > i ? 'activeColor' : '') + `" >` + e + `</p>
+            //                 </li>
+            //         `
+            // });
+            // html += `<div class="line"><div></div></div>`
+            // $('#progressBar ul').html('')
+            // $('#progressBar ul').append(html)
+            // let _width = (((opt.count % 4 == 0 ? (opt.count == 0 ? 0 : (progressArr.length - 2)) : (opt.count % 4) - 1)) / (progressArr.length - 1)) * ($('#progressBar .line').width())
+            // console.log(_width);
+
+            // $('#progressBar .line>div').animate({
+            //     width: _width
+            // }, 1000)
+        }
+
+
+        if (opt.sum == 0) {
+            $('.nocash').show()
+        } else {
+            $('.cash').text('已获得现金奖励' + (opt.sum / 100) + '元').show()
+        }
+
+
+
+
+
+    }
+    getBuyCount()
+</script>
+
+</html>

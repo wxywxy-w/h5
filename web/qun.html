@@ -1,0 +1,121 @@
+
+<!doctype html>
+<html style="font-size: 52.0833px;">
+
+<head style="box-sizing: border-box;">
+
+
+  <meta charset="utf-8" />
+  <title>小绿篮发单登录</title>
+  <meta name="viewport" content="width=360,maximum-scale=1.1,user-scalable=no">
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta content="telephone=no" name="format-detection" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!--    <script src="--><!--js/jquery-1.9.1.min.js"></script>-->
+  <style>
+
+    table{
+      border-collapse: collapse;
+    }
+
+    tr{
+      border-bottom: 1px solid red;
+    }
+    #knowbtn button{background:#fff;color:#000000;font-size:13px;border-radius:6px;width:50%;height:35px;margin:0 auto;position:fixed;bottom:20%;left:50%;margin-left:-25%;z-index:1200}
+  </style>
+</head>
+
+<body     style="font-family: microsoftyahei; font-size: 20px; margin: auto; min-height: 100%; background-color: #ffffff; max-width: 100%;text-align:center">
+<div    style="background: blue;height: 46px">
+  <input type="button" style="text-align: center;background: white;height: 30px;width: 60px;float:right;margin-top: 8px;margin-right: 10px" value="提交" onclick="clickSubmit()"/>
+
+
+</div>
+
+<div    id="store_tbody" style="text-align:center;padding-left: 20px;padding-right: 20px" class="container">
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="https://mobile-ui1.0-compress.js"></script>
+
+<script type="text/javascript">
+
+
+  function clickSubmit(){
+    var value=confirm("确定要提交吗？")
+    if (value==true){
+   //   var inputs = document.getElementsByTagName("input");//获取所有的input标签对象
+      var spCodesTemp = "";
+      $('input:checkbox[name=checkItem]:checked').each(function(i){
+        if(0==i){
+          spCodesTemp = $(this).val();
+        }else{
+          spCodesTemp += (","+$(this).val());
+        }
+      });
+     // $("#txt_spCodes").val(spCodesTemp);
+    sessionStorage.setItem("selcetqun",spCodesTemp);
+      window.location.href = 'set.html';
+    } ;
+  }
+
+  $(function(){
+    loadData();
+  });
+
+
+  function loadData(){
+    var userId=sessionStorage.getItem("userId");
+    if (userId==null){
+      window.location.href = 'index.html';
+    } ;
+    $.ajax({
+
+      type : "get",
+      dataType : "json",
+      async:false,
+      url : "http://47.96.183.68:8081/initWx/getGroupList",
+
+      data:{
+        userId:userId
+      },
+
+      success : function(data){
+        console.log(data.code);
+        if(data.success==true){
+          var result=data.data;
+          if (result!=null) {
+            $("#store_tbody").empty();  //表格头清空
+            for(i=0;i<result.length; i++)
+            {
+              var _trs="<tr style=\"border-bottom:1px solid #FF0000\">";
+              _trs+= '<td style=\"text-align:center;padding-left: 20px;padding-right: 20px\">'+result[i].nickName+'</td>';
+              _trs+="<div style=\"height: 50px\"></div>";
+              _trs+= '<td><input type=\"checkbox\" name=\"checkItem\" class=\"checkItem\"value="'+result[i].userName+'"/> </td>'
+              _trs+="</tr>";
+              console.log(_trs);
+              $("#store_tbody").append(_trs)
+            }
+
+          }
+
+
+          // $.toast("短信验证码已发送", "text");
+        }else if(data.success==false){
+           myToast(data.message);
+        }else{
+
+          // $.toast(data.msg, "text");
+        }
+      }
+    })
+
+  }
+</script>
+
+</body>
+
+</html>

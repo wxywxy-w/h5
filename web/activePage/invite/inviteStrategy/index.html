@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <title>活动规则</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+        text-align: center;
+    }
+    
+    html,
+    body {
+        width: 100%;
+        /* height: 100%; */
+    }
+    
+    body {
+        background: linear-gradient(rgba(255, 160, 95, 1) 0%, rgba(255, 219, 149, 1) 50%, rgba(255, 160, 95, 1) 100%);
+    }
+    
+    .flex_center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .headerimg {
+        width: 100%;
+    }
+    
+    .headerimg img {
+        width: 100%;
+        height: 10.026667rem;
+    }
+    
+    ul {
+        width: 100%;
+        padding: 0 .4rem;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-top: -3.12rem;
+    }
+    
+    ul li {
+        margin-bottom: .533333rem;
+        width: 9.2rem;
+        padding: .266667rem .44rem .493333rem .44rem;
+        border-radius: .266667rem;
+        background: #fff;
+        color: #000;
+    }
+    
+    li>div {
+        width: 100%;
+        margin-bottom: .533333rem;
+    }
+    
+    li>div img {
+        width: .64rem;
+        height: .64rem;
+    }
+    
+    li>div h6 {
+        padding: 0 .266667rem;
+        font-size: .426667rem;
+        color: rgba(139, 101, 37, 1)
+    }
+    
+    .icon_box {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .icon_box>div {
+        width: 1.733333rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-right: .44rem;
+    }
+    
+    .icon_box>div:nth-child(4) {
+        margin-right: 0 !important;
+    }
+    
+    .icon_box>div img {
+        width: 1.733333rem;
+        height: 1.733333rem;
+    }
+    
+    .icon_box>div p {
+        font-size: .32rem;
+        color: rgba(128, 128, 128, 1)
+    }
+    
+    .tip {
+        width: 8.133333rem;
+        font-size: .32rem;
+        color: rgba(128, 128, 128, 1);
+        margin-top: .533333rem;
+        margin-bottom: .533333rem;
+    }
+    
+    .poster {
+        width: 8.133333rem;
+        height: 11.973333rem;
+    }
+    
+    .share {
+        width: 3.52rem;
+        height: 1.173333rem;
+        background: linear-gradient(90deg, rgba(254, 142, 46, 1), rgba(241, 90, 55, 1));
+        border-radius: .586667rem;
+        margin-top: .266667rem;
+        font-size: .373333rem;
+        border: none;
+        color: rgba(255, 255, 255, 1);
+    }
+    
+    .bottom_tip {
+        width: 8.133333rem;
+        height: 2.346667rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 .533333rem;
+        background: rgba(255, 250, 236, 1);
+        border-radius: .266667rem;
+        margin-top: .266667rem;
+    }
+    
+    .bottom_tip>img {
+        height: 2.346667rem;
+    }
+    
+    .bottom_tip>div {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    
+    .bottom_tip>div:nth-child(2n) {
+        align-items: flex-end;
+    }
+    
+    .bottom_tip>div:nth-child(2n) p {
+        text-align: right !important;
+    }
+    
+    .bottom_tip>div>p:nth-child(1) {
+        font-size: .373333rem;
+        color: rgba(255, 159, 28, 1);
+        line-height: .533333rem;
+    }
+    
+    .bottom_tip>div>p:nth-child(2) {
+        text-align: left;
+        font-size: .32rem;
+        color: rgba(128, 128, 128, 1);
+        line-height: .4rem;
+        width: 3.813333rem;
+    }
+</style>
+
+<body>
+    <div class='headerimg flex_center'>
+        <img src="./image/invitation_strategy_image_top.png" alt="">
+    </div>
+    <ul>
+        <li>
+            <div class='flex_center'>
+                <img src="./image/invitation_title_decoration.png" alt="">
+                <h6>邀好友 赚金币怎么玩</h6>
+                <img src="./image/invitation_title_decoration.png" alt="">
+            </div>
+            <section class='icon_box'>
+                <div>
+                    <img src="./image/invitation_strategy_icon_process_one.png" alt="">
+                    <p>1.向新用户 发出邀请</p>
+                </div>
+                <div>
+                    <img src="./image/invitation_strategy_icon_process_two.png" alt="">
+                    <p>2.生成邀请 海报</p>
+                </div>
+                <div>
+                    <img src="./image/invitation_strategy_icon_process_three.png" alt="">
+                    <p>3.好友扫码 下载注册</p>
+                </div>
+                <div>
+                    <img src="./image/invitation_strategy_icon_process_four.png" alt="">
+                    <p>4.获得do米 奖励</p>
+                </div>
+                <div>
+                    <img src="./image/invitation_strategy_icon_process_five.png" alt="">
+                    <p>5.好友看中 商品下单</p>
+                </div>
+                <div>
+                    <img src="./image/invitation_strategy_icon_process_six.png" alt="">
+                    <p>6.您的金币 奖励到账</p>
+                </div>
+                <div>
+                    <img src="./image/invitation_strategy_icon_process_seven.png" alt="">
+                    <p>7.换取商品 或提取</p>
+                </div>
+            </section>
+
+
+        </li>
+        <li>
+            <div class='flex_center'>
+                <img src="./image/invitation_title_decoration.png" alt="">
+                <h6>如何快速邀请好友</h6>
+                <img src="./image/invitation_title_decoration.png" alt="">
+            </div>
+            <p class='tip'>
+                温馨提示：直接点击微信，朋友圈，或者将邀请带有二维 码的邀请海报发给好友。微信直接分享成功率最高哦！
+            </p>
+            <img src="./image/invitation_strategy_image_poster_ing.png" alt="" class='poster'>
+            <button class='share' onclick='sharePoster()'>立即去分享</button>
+        </li>
+        <li>
+            <div class='flex_center'>
+                <img src="./image/invitation_title_decoration.png" alt="">
+                <h6>奖励为啥不到账</h6>
+                <img src="./image/invitation_title_decoration.png" alt="">
+            </div>
+            <p class='tip'>
+                温馨提示：被邀请的好友需同时满足注册APP和购物下单 成功成功才会获得金币奖励
+            </p>
+            <section class='bottom_tip'>
+                <div>
+                    <p>do米未到账</p>
+                    <p>请询问好友有没有注册成功 并填写你的邀请码</p>
+                </div>
+                <img src="./image/invitation_strategy_image_bottom_one.png" alt="">
+            </section>
+            <section class='bottom_tip'>
+                <img src="./image/invitation_strategy_image_bottom_two.png" alt="">
+                <div>
+                    <p>金币未到账</p>
+                    <p>请询问好友有没有确认收货 是否出现退换货的情况</p>
+                </div>
+            </section>
+            <section class='bottom_tip'>
+                <div>
+                    <p>刷新奖励页面</p>
+                    <p>可能是数据还未实时更新 请静等一会数据就会出现哦</p>
+                </div>
+                <img src="./image/invitation_strategy_image_bottom_three.png" alt="">
+            </section>
+
+        </li>
+    </ul>
+
+</body>
+<script>
+    function sharePoster() {
+        if (/android/i.test(navigator.userAgent)) {
+            try {
+                window.android.sharePoster();
+            } catch (e) {
+                console.log('与android链接中断')
+
+            }
+        } else if (/ios|iphone|ipod|pad/i.test(navigator.userAgent)) {
+            try {
+                window.webkit.messageHandlers.sharePoster.postMessage({
+                    "name": "sharePoster"
+                });
+            } catch (e) {
+                console.log('与ios链接中断')
+            }
+        }
+
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <title>下载邀请页</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+    }
+
+    html,
+    body {
+        width: 100%;
+        /* height: 100%; */
+    }
+
+    .head {
+        background-color: #ff9f1c;
+    }
+
+    .titleImg>img {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .an_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+    }
+
+    .btn {
+        width: 6.9rem;
+        height: 1.2rem;
+        border-radius: 44px;
+        font-size: 0.50rem;
+        color: #E03420;
+        border: none;
+        background: linear-gradient(0deg, rgba(255, 228, 0, 1), rgba(250, 237, 94, 1));
+    }
+
+    .newperson>p {
+        font-size: 0.45rem;
+        right: 0.3rem;
+    }
+
+    .invitation {
+        margin-bottom: 1.9rem;
+        /* display: none; */
+    }
+
+    .invitImg {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .invitImg>img {
+        width: 8.5rem;
+        height: 4.5rem;
+    }
+
+    .invit {
+        position: relative;
+        top: -4.0rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .invit>img {
+        width: 0.6rem;
+        height: 0.6rem;
+    }
+
+    .invit>span {
+        font-size: 0.45rem;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: rgba(238, 143, 13, 1);
+    }
+
+    .yqm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: -1.0rem;
+        left: 1.6rem;
+    }
+
+    .invit_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -2.5rem;
+    }
+
+    .btninvit {
+        width: 3.0rem;
+        height: 0.8rem;
+        border-radius: 44px;
+        font-size: 0.40rem;
+        color: #ffffff;
+        border: none;
+        background: linear-gradient(90deg, rgba(255, 159, 28, 1), rgba(241, 90, 55, 1));
+    }
+
+    .invit_btn>p {
+        font-size: 0.45rem;
+        right: 0.3rem;
+    }
+
+    .collsteps {
+        background: rgba(255, 238, 214, 1);
+        border-radius: 20px;
+        width: 8.5rem;
+    }
+
+    .stepsImg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 0.4rem
+    }
+
+    .stepsImg>img {
+        width: 0.6rem;
+        height: 0.6rem;
+    }
+
+    .stepsImg>p {
+        font-size: 0.5rem;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: rgba(238, 143, 13, 1);
+    }
+
+    .money {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 400;
+        color: rgba(238, 143, 13, 1);
+        margin-top: 0.4rem;
+    }
+
+    .steps {
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 0.4rem;
+        align-items: center;
+    }
+
+    .two {
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 0.4rem;
+        align-items: center;
+    }
+
+    .steps>img {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    .writ {
+        display: flex;
+        flex-direction: column;
+        width: 2.8rem;
+        margin-left: 0.4rem;
+    }
+
+    .copywrit {
+        margin-right: 0.4rem;
+    }
+
+    .writ>.Size {
+        font-size: 0.5rem;
+    }
+
+    .ps {
+        color: #808080;
+
+    }
+
+    .writing {
+        align-items: center;
+        display: flex;
+        margin-top: 0.7rem;
+        flex-direction: column;
+        color: #FFF5E8;
+    }
+
+    .writing>p {
+        font-size: 0.6rem;
+        color: #FFF5E8;
+    }
+
+    .d_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .btn {
+        width: 6.9rem;
+        height: 1.2rem;
+        border-radius: 44px;
+        font-size: 0.50rem;
+        color: #E03420;
+        border: none;
+        margin-top: -1.3rem;
+        background: linear-gradient(0deg, rgba(255, 228, 0, 1), rgba(250, 237, 94, 1));
+    }
+
+    .xlulan {
+        background: #E03420;
+    }
+
+    .xll>p {
+        font-size: 0.45rem;
+        right: 0.3rem;
+    }
+
+    .ljbz {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .proje {
+        width: 8.5rem;
+        /* height: 0.6rem; */
+        position: relative;
+        top: -0.7rem;
+    }
+
+    .Img {
+        left: 0.6rem;
+    }
+
+    .fzcg {
+        background: linear-gradient(90deg, rgba(255, 159, 28, 1), rgba(241, 90, 55, 1));
+        border-radius: 0.67rem;
+        color: white;
+        text-align: center;
+        display: none;
+        position: absolute;
+        margin-top: -1.3rem;
+        margin-right: 3.6rem;
+        padding: 0.1rem;
+    }
+
+    .modelbox {
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        background: rgba(0, 0, 0, 1);
+        opacity: 0.5;
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 0.42rem;
+    }
+
+    .modelbox img {
+        width: 1.19rem;
+        height: 1.64rem;
+    }
+
+    .modelbox p {
+        width: 2rem;
+        height: 0.86rem;
+        font-size: 0.39rem;
+        font-family: SourceHanSansSC-Light;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 1);
+        line-height: 0.486rem;
+        margin-top: 1.2rem;
+        position: relative;
+        right: 0.5rem;
+    }
+
+    #isshowbox {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        display: none;
+        z-index: 99;
+    }
+</style>
+
+<body>
+    <div class="head">
+        <!--头部图片-->
+        <div class="titleImg">
+            <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/http/img/download/image/download_page_top_banner.png"
+                alt="" />
+        </div>
+        <!--按钮-->
+        <div class="an_btn">
+            <button type="button" class="btn xlulan">
+            </button>
+            <button type="button" class="btn newperson" onclick="xiaolvlanLJSQ()">
+                <p>点我去小绿蓝立即省钱</p>
+            </button>
+        </div>
+        <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/http/img/download/image/download_page_nav_projection.png"
+            class="proje Img" alt="" />
+
+        <!--邀请码-->
+        <div class="invitation">
+            <div class="invitImg">
+                <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/http/img/download/image/download_page_invitation_background.png"
+                    alt="" />
+            </div>
+            <div class="invit">
+                <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/http/img/download/image/download_page_title_dec_left.png"
+                    alt="" />
+                <span>小绿蓝注册邀请码</span>
+                <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/http/img/download/image/download_page_title_dec_right.png"
+                    alt="" />
+            </div>
+
+            <div class="invit_btn">
+                <p class="yqm"></p>
+                <button type="button" data-clipboard-text='xiaolvlancode=1127' data-clipboard-target='.yqm'
+                    data-clipboard-action="copy" class="btninvit">复制邀请码</button>
+                <p class="fzcg">复制成功</p>
+            </div>
+        </div>
+
+
+        <!--领额步骤-->
+        <div class="ljbz">
+            <div class="collsteps">
+                <div class="stepsImg">
+                    <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/http/img/download/image/download_page_title_dec_left.png"
+                        alt="" />
+                    <p>购物就领大额优惠券</p>
+                    <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/http/img/download/image/download_page_title_dec_right.png"
+                        alt="" />
+                </div>
+                <p class="money">掌握省钱利器,天天都可以省</p>
+
+                <div class="steps one">
+                    <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/http/img/download/image/download_page_tep_one.png"
+                        alt="" />
+                    <div class="writ copywriting">
+                        <p class="Size">/</p>
+                        <p class="Size">01</p>
+                        <p>在淘宝、天猫、拼多多,挑选宝贝,复制商品标题。</p>
+                    </div>
+                </div>
+
+                <div class="steps two">
+                    <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/http/img/download/image/download_page_tep_twe.png"
+                        alt="" />
+                    <div class="writ copywrit">
+                        <p class="Size">＼</p>
+                        <p class="Size">02</p>
+                        <p>进入小绿蓝APP,点击立即搜索,选择想要的商品.</p>
+                        <span class="ps">(ps:相似商品,说不 定更优惠哦～）</span>
+                    </div>
+                </div>
+
+                <div class="steps three">
+                    <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/http/img/download/image/download_page_tep_three.png"
+                        alt="" />
+                    <div class="writ copywriting">
+                        <p class="Size">/</p>
+                        <p class="Size">03</p>
+                        <p>查看返利及优惠券金额,点击立即购买。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="writing">
+            <p>从现在开始</p>
+            <p>用小绿蓝,不花冤枉钱</p>
+            <span>据非最新消息称,上海某用户用小绿蓝一月省了上万元。</span>
+            <div class="d_btn">
+                <button type="button" class="btn xlulan">
+                </button>
+                <button type="button" class="btn xll" onclick="xiaolvlanLJSQ()">
+                    <p>点我去小绿蓝立即省钱</p>
+                </button>
+            </div>
+            <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/http/img/download/image/download_page_nav_projection.png"
+                class="proje proImg" alt="" />
+        </div>
+
+        <div id='isshowbox' onclick='closebox()'>
+            <div class='modelbox'>
+                <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/http/img/download/image/download_arrow@2x.png"
+                    alt="">
+                <p>请打开<br>浏览器下载</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    var text;
+    //点击复制邀请码
+    var copyClipboard = new ClipboardJS('.btninvit', {
+        text: function () {
+            return text;
+        }
+    });
+    copyClipboard.on('success', function (e) {
+        $(".fzcg").show();
+        setTimeout(function () {
+            $(".fzcg").hide()
+        }, 5000);
+    });
+    copyClipboard.on('error', function (e) {
+        console.log(e);
+    });
+
+    //获取url中的参数 
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg); //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值 
+    }
+    if (getUrlParam('xiaolvlancode')) {
+        var params = getUrlParam('xiaolvlancode');
+        text = 'xiaolvlancode=' + params;
+        // console.log(params)
+        $(".qym").html('邀请码:' + params);
+    }
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg); //search,查询？后面的参数，并匹配正则
+        if (r != null) return decodeURIComponent(r[2]);
+        return null;
+    }
+    $(function () {
+        var http = 'https://xiaolvlan.walongkeji.com',
+            webAddress = 'http://test.laifadan.com',
+            userId = '',
+            ticket = "",
+            recommenderId = '',
+            memberType = ""
+        userId = GetQueryString('userId')
+        ticket = GetQueryString('ticket')
+        memberType = Number(GetQueryString('memberType'))
+        $(document).ready(function () {
+            switch (memberType) {
+                case 1:
+                    // console.log(memberType);
+                    $('.invitation').show()
+                    break;
+
+                default:
+                    $('.invitation').hide()
+                    break;
+            }
+        })
+    })
+
+    var u = navigator.userAgent
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+    function xiaolvlanLJSQ() {
+        if (!isweixing()) {
+
+            // 判断是否ios手机
+            if (isiOS) {
+                if (u.indexOf('iPhone') > -1) {
+                    // console.log(isiOS); //ios手机
+                    window.location = "https://itunes.apple.com/us/app/小绿蓝/id1457141684?l=zh&ls=1&mt=8";
+                }
+                // else {
+                //   alert('您使用的设备不支持此下载，请在Android 设备上下载小绿蓝APP Android版')
+                // }
+            };
+            //判断安卓手机
+            if (isAndroid) {
+                // console.log(isAndroid); //安卓手机
+                isHasAndroidApp('xiaolvlan://app/open',
+                    "https://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/download/xiaolvlan.apk")
+            }
+        }
+    }
+
+    //判断是否是在微信中
+    function isweixing() {
+        if (/MicroMessenger/gi.test(u)) {
+            // 引导用户在浏览器中打开
+            document.getElementById('isshowbox').style.height = document.body.scrollHeight + 'px'
+            document.getElementById('isshowbox').style.display = 'block'
+            return true;
+            //判断监听协议
+        }
+    }
+
+    //判断手机上是否安装了app如果安装直接打开 如果没有安装跳转下载页
+    function isHasAndroidApp(agreement, url) {
+        var t = 1000,
+            hasApp = true;
+        setTimeout(function () {
+            if (hasApp) {} else {
+                window.location.href = url; //如果手机上不存在该应用，则跳转至该链接。  
+            }
+            document.body.removeChild(ifr);
+        }, 2000);
+        var t1 = Date.now();
+        var ifr = document.createElement("iframe");
+        ifr.setAttribute('src', agreement);
+        ifr.setAttribute(
+            'style', 'display:none');
+        document.body.appendChild(ifr);
+        setTimeout(function () {
+            var t2 = Date.now();
+            if (!t1 || t2 - t1 < t + 100) {
+                hasApp = false;
+            }
+        }, t);
+    };
+
+    // 关闭model框
+    function closebox() {
+        document.getElementById('isshowbox').style.display = 'none'
+    }
+    //监听页面切换， 防止用户切换到app返回到H5页面发现仍然跳转到了下载页面
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            // 页面被挂起 ,用户切换到后台时 刷新页面
+            window.location.reload()
+
+        } else {
+            // 页面呼出
+        }
+    });
+</script>
+
+</html>

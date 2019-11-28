@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+  <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+  <link rel="stylesheet" href="./css/index.css">
+  <title>邀请有礼</title>
+</head>
+
+<body>
+  <img src="./image/invitation_image_top.png" alt="" class='banner'>
+  <div class='toRule' onclick='routerRule()'>
+    活动规则
+  </div>
+  <div class="flex_center flex_column">
+    <div class='card inviteinfo'>
+      <div class='notice'>
+        <img src="./image/invitation_icon_notice.png" alt="">
+        <ul style='width: 100%'>
+          <li style='text-align: center'>李**已到账10000金币</li>
+          <li style='text-align: center'>张**已到账10000金币</li>
+          <li style='text-align: center'>祝**已到账10000金币</li>
+          <li style='text-align: center'>吴**已到账10000金币</li>
+          <li style='text-align: center'>杨**已到账10000金币</li>
+        </ul>
+      </div>
+      <div class='title'>
+        <img src="./image/invitation_title_decoration(1).png" alt="">
+        <p>我的邀请信息</p>
+        <img src="./image/invitation_title_decoration(1).png" alt="">
+      </div>
+      <div class='info' onclick='routerToMyInviteInfo()'>
+        <div>
+          <p>
+            <span class='inviteNum'></span>
+            <span>人</span>
+          </p>
+          <span>已邀请</span>
+        </div>
+        <div>
+          <p>
+            <span class='estimateReward'></span>
+            <span>金币</span>
+          </p>
+          <span>待得奖励</span>
+        </div>
+        <div>
+          <p>
+            <span class='settleReward'></span>
+            <span>金币</span>
+          </p>
+          <span>已得奖励</span>
+        </div>
+
+      </div>
+
+
+
+    </div>
+    <div class='card invitcode'>
+      <div class='title'>
+        <img src="./image/invitation_title_decoration(1).png" alt="">
+        <p>我的邀请信息</p>
+        <img src="./image/invitation_title_decoration(1).png" alt="">
+      </div>
+      <div class='copycode'>
+        <p class='usercode'></p>
+        <button class='clipboard' data-clipboard-text='' data-clipboard-action="copy">复制</button>
+      </div>
+      <div class='getaward'>
+        <p></p>
+        <p>立即领赏</p>
+        <p></p>
+      </div>
+      <div class='sharestyle flex_center' onclick="sharePoster()">
+        <div class='flex_center flex_column'>
+          <img src="./image/invitation_share_icon_circle_of_friends.png" alt="">
+          <span>朋友圈</span>
+        </div>
+
+        <div class='flex_center flex_column'>
+          <img src="./image/invitation_share_icon_wechat.png" alt="">
+          <span>微信</span>
+        </div>
+        <div class='flex_center flex_column'>
+          <img src="./image/invitation_share_icon_facetoface.png" alt="">
+          <span>面对面邀请</span>
+        </div>
+
+      </div>
+    </div>
+    <img src="./image/invitation_image_entrance_of_strategy.png" alt="" class='strategybg' onclick='routertostrate()'>
+
+    <div class='inviteRank card'>
+      <div class='title'>
+        <img src="./image/invitation_title_decoration(1).png" alt="">
+        <p>邀新排行榜</p>
+        <img src="./image/invitation_title_decoration(1).png" alt="">
+      </div>
+      <div class='ranklist'>
+        <div class='listheader flex_center'>
+          <p class='flex_center' style='width: 45%'>会员昵称</p>
+          <p class="flex_center" style='width: 20%'>邀请人数</p>
+          <p class='flex_center' style='width: 35%'>所得奖励</p>
+        </div>
+        <div class='myrank flex_center'>
+          <section class='bg'></section>
+          <div style='width: 45%'>
+            <img src="./image/invitation_icon_mine_head.png" alt="" class='mineHead'>
+            <div class='flex_center flex_column rankdata'>
+              <span>我的排名</span>
+              <p>
+                <span>No.</span>
+                <span class='rownum'></span>
+              </p>
+            </div>
+          </div>
+          <div style='width: 20%' class='inviteNum'></div>
+          <div class="getgold" style='width: 35%'>
+            <span class='settleReward'></span>
+            <img src="./image/invitation_icon_gold_money.png" alt="" class='goldmoney'>
+          </div>
+
+        </div>
+        <ul>
+        </ul>
+      </div>
+      </table>
+
+    </div>
+
+  </div>
+  <div class='tipbox'>
+    <div>
+      <div></div>
+      <p class='ctx'>
+      </p>
+
+    </div>
+
+
+  </div>
+
+
+
+</body>
+<script src="./js/index.js"></script>
+
+</html>

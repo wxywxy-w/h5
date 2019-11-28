@@ -1,0 +1,411 @@
+<!--双十一红包-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <title>双十一红包</title>
+
+    <style>
+        .doubleEleven {
+            background-color: #f9013d;
+            width: 100%;
+            height: 100%;
+        }
+
+        .haed_t {
+            margin-bottom: 0.8rem;
+        }
+
+        .haed_t .logo,
+        .Bottompicture>img {
+            width: 100%;
+        }
+
+        .wenAn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -5rem;
+            animation: myfirst 0.6s infinite;
+        }
+
+        @keyframes myfirst {
+            0% {
+                transform: translate(0px, 0px);
+            }
+
+            50% {
+                transform: translate(0px, -5px);
+            }
+
+            100% {
+                transform: translate(0px, 0px);
+            }
+        }
+
+        .wenAn>button {
+            font-size: 0.45rem;
+            color: #BB0024;
+            width: 8.5rem;
+            height: 1.4rem;
+            background: rgba(255, 255, 0, 1);
+            box-shadow: 0px 8px 0px 0px rgba(187, 0, 36, 0.75);
+            border: 1px solid rgba(255, 255, 0, 1);
+            border-radius: 48px;
+            outline: none;
+        }
+
+        .haed_c,
+        .haed_b {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 0.5rem;
+        }
+
+        .Everyday {
+            width: 6.9rem;
+        }
+
+        .yellow {
+            display: flex;
+            justify-content: center;
+            width: 8.9rem;
+            background: rgba(255, 198, 0, 1);
+            border-radius: 12px;
+        }
+
+        .white {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 8.4rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 12px;
+            margin-top: 0.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .white>p {
+            font-size: 0.45rem;
+            line-height: 1.0rem;
+            color: red;
+        }
+
+        .progress {
+            width: 8.0rem;
+            background: rgba(255, 255, 255, 1);
+            margin-bottom: 0.5rem;
+        }
+
+        .Pink {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 7.5rem;
+            background-color: #FFEBF0;
+            border: 2px dashed rgba(222, 0, 31, 1);
+            border-radius: 10px;
+            margin-bottom: 0.4rem;
+        }
+
+        .lingqu {
+            font-size: 0.45rem;
+            margin-top: 0.4rem;
+            color: rgba(222, 0, 31, 1);
+            margin-bottom: 0.4rem;
+        }
+
+        .enevn {
+            font-size: 0.35rem;
+            margin-left: 0.6rem;
+        }
+
+        .shuzi {
+            width: 17px;
+            height: 17px;
+            font-size: 0.35rem;
+            color: rgba(255, 255, 255, 1);
+            background: rgba(222, 0, 31, 1);
+            border-radius: 50%;
+            margin-right: 0.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 0.5rem;
+        }
+
+        .riqi {
+            font-size: 0.2rem;
+            color: rgba(147, 147, 147, 1);
+            margin-bottom: 0.3rem;
+            margin-left: 0.4rem;
+
+        }
+
+        .riqi_i {
+            font-size: 0.2rem;
+            color: rgba(147, 147, 147, 1);
+            margin-bottom: 0.3rem;
+            margin-left: 0.6rem;
+
+        }
+
+        .two {
+            margin-right: 2.1rem;
+        }
+
+        .date ul {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.2rem;
+        }
+
+        .date ul li {
+            lex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 1.944444rem;
+            margin-bottom: 0.555556rem;
+            border: 1px solid rgba(222, 0, 31, 1);
+            border-radius: 12px;
+            margin-right: 0.3rem;
+            color: red;
+        }
+
+        .fa {
+            position: relative;
+            right: 1.1rem;
+        }
+
+        .copywriting {
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            flex-direction: column;
+            background-color: white;
+            margin-bottom: 0.3rem;
+            margin-top: -0.17rem;
+            border-radius: 5px 5px 20px 20px;
+        }
+
+        .tishi {
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            outline: 0;
+            -webkit-overflow-scrolling: touch;
+            background-color: rgb(0, 0, 0);
+            filter: alpha(opacity=20);
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+        }
+
+        .backimg {
+            width: 8.6rem;
+            margin-left: 0.7rem;
+        }
+
+        .backimg>img {
+            width: 100%;
+            height: 4.575rem;
+        }
+
+        .btn {
+            width: 7.0rem;
+            height: 1.0rem;
+            background: rgba(249, 1, 61, 1);
+            border-radius: 44px;
+            font-size: 0.45rem;
+            color: white;
+            margin-left: 0.9rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(249, 1, 61, 1);
+            outline: none;
+        }
+
+        .fzcg {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            width: 7.0rem;
+            height: 1.0rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            position: relative;
+            top: -31.5rem;
+            left: 1.5rem;
+            font-size: 0.35rem;
+
+        }
+
+        .wanAncopy {
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            flex-direction: column;
+            font-size: 0.35rem;
+            line-height: 0.6rem;
+            margin-top: 0.4rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .logoimg {
+            position: relative;
+            width: 3.5rem;
+            top: -6.7rem;
+            left: 3.3rem;
+            border: none;
+        }
+
+        /* .act_img {
+            margin-left: 0.2rem;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="doubleEleven">
+        <div class="haed_t">
+            <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/web/img/ElevenRedenvelopes/image/double_eleven_red_envelope_top_banner .png"
+                class="logo">
+            <!-- <button onclick="tocopy()"> -->
+            <img src=" http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/web/img/ElevenRedenvelopes/image/double_eleven_red_envelope_top_button.png"
+                onclick="tocopy()" class=" logoimg">
+            <!-- </button> -->
+            <div class="wenAn">
+                <button onclick="tocopy()">点击复制,去淘宝打开,抽大额红包</button>
+            </div>
+        </div>
+        <div class="haed_c">
+            <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/web/img/ElevenRedenvelopes/image/double_eleven_red_envelope_title_get_red_envelope.png"
+                class="Everyday">
+            <div class="yellow">
+                <div class="white">
+                    <p>开始时间: 10月21日-11月11日</p>
+                    <p>使用时间: 11月11日</p>
+                    <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/web/img/ElevenRedenvelopes/image/double_eleven_red_envelope_icon_progress_bar.png"
+                        class="progress" />
+                    <div class="Pink">
+                        <p class="lingqu">领红包购物省钱</p>
+                        <div class="act_img">
+                            <p class="shuzi">1</p>
+                            <p class="enevn">每日领红包,直接当钱花,最高可领1111元</p>
+                            <p class="riqi">10.21-11.11期间天天都可以上小绿蓝领红包哦～</p>
+                        </div>
+                        <div class="two">
+                            <p class="shuzi">2</p>
+                            <p class="enevn">
+                                红包加倍,一定记得准点抢
+                            </p>
+                            <p class="riqi_i">以下日期红包将加倍发放</p>
+                        </div>
+                        <div class="date">
+                            <ul>
+                                <li>10月21</li>
+                                <li>10月24</li>
+                                <li>10月28</li>
+                                <li>11月01</li>
+                                <li>11月04</li>
+                                <li>10月07</li>
+                                <li class="fa">11月10</li>
+                                <li class="fa">11月11</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="haed_b">
+            <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/web/img/ElevenRedenvelopes/image/double_eleven_red_envelope_title_lead_members.png"
+                class="Everyday">
+            <div class="yellow">
+                <div class="white">
+                    <p>发放时间:11月06日-11月11日</p>
+                    <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/web/img/ElevenRedenvelopes/image/double_eleven_red_envelope_lead_members_banner.png"
+                        class="progress" />
+
+                </div>
+            </div>
+        </div>
+
+        <div class="Bottompicture">
+            <img
+                src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/web/img/ElevenRedenvelopes/image/double_eleven_red_envelope_bottom_background.png" />
+        </div>
+
+        <!--弹窗-->
+        <div class="tishi" style="display: none;">
+            <div class="backimg">
+                <img
+                    src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/web/img/ElevenRedenvelopes/image/double_eleven_red_envelope_top_background.png" />
+                <div class="copywriting">
+                    <div class="wanAncopy">
+                        <p>超级亿万紅包等妳拆</p>
+                        <p>越早领,红包越大～</p>
+                        <p>復制此條信息£PQBJYJklPRl£</p>
+                        <p>手機淘寳àρρ打開即可搶红包</p>
+                    </div>
+                    <button class="btn" onclick="Close()" copywriting="£PQBJYJklPRl£">复制去淘宝打开</button>
+                </div>
+            </div>
+        </div>
+        <p class="fzcg" style="display: none;">复制成功,打开淘宝抽大额红包</p>
+    </div>
+    <script>
+        $(".tishi").click(function (e) {
+            if ($(e.target).attr('class') == 'tishi') {
+                $(".tishi").hide();
+            }
+        })
+        //显示遮罩弹窗
+        function tocopy() {
+            $(".tishi").toggle();
+        }
+        //关闭遮罩弹窗
+        function Close() {
+            $(".tishi").hide();
+        }
+        var hbClipboard = new ClipboardJS('.btn', {
+            text: function () {
+                return $(".btn").attr("copywriting");
+            }
+        });
+        hbClipboard.on('success', function (e) {
+            $(".fzcg").show();
+            setTimeout(function () {
+                $(".fzcg").hide()
+            }, 5000);
+        });
+        hbClipboard.on('error', function (e) {
+            console.log(e);
+        });
+    </script>
+</body>
+
+</html>

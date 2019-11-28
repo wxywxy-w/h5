@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/clipboard.min.js"></script>
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <title>下载页</title>
+</head>
+<style>
+    .haed_t {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 4.5rem;
+    }
+
+    .haed_t .logo {
+        width: 4.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .haed_t .xll {
+        width: 2.4375rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .haed_t>p {
+        font-size: 0.45rem;
+        color: #333333;
+    }
+
+    .centen {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin-top: 1.7rem;
+    }
+
+    .centen .YQM {
+        font-size: 0.45rem;
+    }
+
+    .btn {
+        width: 1.5rem;
+        background: rgba(255, 250, 249, 1);
+        border: 2px solid rgba(241, 90, 54, 1);
+        border-radius: 21px;
+        color: #F15A36;
+        margin-left: 0.5rem;
+    }
+
+    .download {
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+        margin-top: 0.8rem;
+    }
+
+    .download>button {
+        width: 4.0rem;
+        height: 1.1rem;
+        background: rgba(241, 90, 54, 1);
+        border-radius: 38px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(241, 90, 54, 1);
+    }
+
+    .download>button>img {
+        width: 0.7rem;
+        margin-right: 0.3rem;
+    }
+
+    .download>button>p {
+        color: white;
+        font-size: 0.37rem;
+    }
+
+    .hzwl {
+        text-align: center;
+        margin-top: 4.3rem;
+        font-size: 0.40rem;
+        color: #333333;
+    }
+</style>
+
+<body>
+    <div class="head">
+        <div class="haed_t">
+            <img src="./image/logo.png" class="logo">
+            <img src="./image/img-xiaolvlan.png" class="xll" />
+            <p>小绿蓝作为一款导购平台，每天为用户推荐</p>
+            <p>海量大额优惠券，不但省钱还能赚钱。</p>
+        </div>
+        <div class="centen">
+            <p class="YQM">邀请码 : 6545</p>
+            <button type="button" yqm="6545" class="btn">复制</button>
+        </div>
+        <div class="download">
+            <!-- onclick="qqContact()" onclick="wechatContact()"data-clipboard-text='' data-clipboard-action="copy" -->
+            <button class='ios flex-center' id='iosClipboard'>
+                <img src="./image/iocn_ios.png" alt="">
+                <p id="iphonebtn" class="iphone">iphone 下载</p>
+            </button>
+            <button class='android flex-center' id='andClipboard'>
+                <img src="./image/iocn_android.png" alt="">
+                <p id="Androidbtn" class="Android">Android 下载</p>
+            </button>
+        </div>
+        <p class="hzwl">杭州瓦珑科技有限公司</p>
+
+</body>
+<script>
+    var copyClipboard = new ClipboardJS('.btn', {
+        text: function () {
+            return $(".btn").attr("yqm");
+        }
+    });
+    copyClipboard.on('success', function (e) {
+        alert("复制成功!");
+    });
+    copyClipboard.on('error', function (e) {
+        console.log(e);
+    });
+</script>
+
+</html>

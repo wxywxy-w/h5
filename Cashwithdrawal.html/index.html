@@ -1,0 +1,339 @@
+<!--申请返利小助手-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <title>返利小助手</title>
+
+    <style>
+        .cashwith_herd {
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .cashwithImg {
+            padding: 0.4rem;
+        }
+
+        .cashwithImg>img {
+            width: 9rem;
+        }
+
+        .zhye {
+            margin-bottom: 0.6rem;
+        }
+
+        .money {
+            font-size: 0.5rem;
+        }
+
+        .scize {
+            position: relative;
+            top: -3.4rem;
+            padding: 0.4rem;
+            color: white;
+            font-size: 0.4rem;
+        }
+
+        .Cashwith {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            float: right;
+            left: 0.39rem;
+            background: linear-gradient(90deg, rgba(255, 216, 162, 1), rgba(255, 159, 28, 1));
+            box-shadow: 0px 4px 6px 0px rgba(255, 147, 0, 0.1);
+            border-radius: 30px 0px 0px 30px;
+            width: 1.6rem;
+            height: 0.7rem;
+            border: 1px solid rgba(255, 159, 28, 1);
+            color: #fff;
+        }
+
+        .minimum {
+            font-size: 0.3rem;
+        }
+
+        .price {
+            width: 100%;
+            height: 35px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0px 0px 20px 20px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            top: -3.18rem;
+            color: rgba(255, 159, 28, 1);
+        }
+
+        .price>img {
+            width: 0.5rem;
+            padding: 0.2rem;
+        }
+
+        .Alipay {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            margin-top: -3.0rem;
+            padding-left: 1.3rem;
+            font-size: 0.4rem;
+        }
+
+        .Alipay>ul {
+            display: flex;
+            padding-left: 0.7rem;
+            padding: 0.3rem;
+        }
+
+        .Alipay>ul>input {
+            border: none;
+        }
+
+        .backimg {
+            width: 100%;
+            border: 2px solid #f5f5f5;
+        }
+
+        .txmoney {
+            background-color: white;
+            margin-top: 0.4rem;
+            width: 100%;
+            padding: 0.4rem;
+            padding-left: 1.3rem;
+            font-size: 0.4rem;
+        }
+
+        .record {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .tixian {
+            margin-bottom: 0.4rem;
+        }
+
+        .record>img {
+            width: 3.5rem;
+            height: 3.5rem;
+            text-align: center;
+        }
+
+        .wenAn>ul {
+            padding: 0.7rem;
+            font-size: 0.3rem;
+        }
+
+        .wenAn>ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .backsolide {
+            width: 100%;
+            border: 1px solid #f5f5f5;
+        }
+
+        .T_money {
+            margin-right: 3.8rem;
+        }
+
+        .txtanchuang {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            outline: 0;
+            -webkit-overflow-scrolling: touch;
+            background-color: rgb(0, 0, 0);
+            filter: alpha(opacity=20);
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+        }
+
+        .txtanchuang>p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 8.0rem;
+            height: 1rem;
+            font-size: 0.4rem;
+            background: rgba(255, 159, 28, 1);
+            border-radius: 20px 20px 0px 0px;
+            color: white;
+        }
+
+        .ul_li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 8.0rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0px 0px 20px 20px;
+        }
+
+        .ul_li>ul {
+            display: flex;
+            padding: 0.4rem;
+            font-size: 0.4rem;
+        }
+
+        .btnshow {
+            padding-bottom: 0.5rem;
+        }
+
+        .cancel {
+            width: 2rem;
+            height: 1rem;
+            border: 2px solid rgba(255, 159, 28, 1);
+            border-radius: 32px;
+            background-color: white;
+            margin-right: 1.3rem;
+            color: #FF9F1C;
+        }
+
+        .confirm {
+            width: 2rem;
+            height: 1rem;
+            border: 2px solid rgba(255, 159, 28, 1);
+            border-radius: 32px;
+            background-color: rgba(255, 159, 28, 1);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cashwith_herd">
+        <div class="cashwithImg">
+            <img src="./image/rebate_assistant_img_background.png" />
+            <div class="scize">
+                <p class="zhye">账户余额</p>
+                <span class="money">¥1546.00</span>
+                <button class="Cashwith" onclick="tocashwith()">提现 ></button>
+                <p class="minimum">最低提现金额1元</p>
+            </div>
+            <div class="price">
+                <img src="./image/rebate_assistant_icon_prompt.png" />
+                <p>提现金额将在1～2个工作日内到账</p>
+            </div>
+        </div>
+        <div class="Alipay">
+            <p class="tixian">绑定支付宝</p>
+            <div class="backimg"></div>
+            <ul>
+                <li>真实姓名:</li>
+                <li><input class="username" placeholder="请输入真是姓名"></input></li>
+            </ul>
+            <ul>
+                <li>支付宝账号:</li>
+                <li><input class="username" placeholder="请输入支付宝账号"></input></li>
+            </ul>
+
+        </div>
+
+        <div class="txmoney">
+            <p class="tixian">提现记录</p>
+            <div class="backimg"></div>
+            <div class="record" style="display: none;">
+                <img src="./image/rebate_assistant_img_no_record.png">
+                <p>暂时还没有提现记录</p>
+            </div>
+            <div class="wenAn">
+                <ul>
+                    <li>
+                        <span class="T_money">提现金额¥10.00</span>
+                        <span>提现中</span>
+                    </li>
+                    <li>
+                        <span>支付宝账号:18278981828</span>
+                        <span>2019-10-10 23:59</span>
+                    </li>
+                </ul>
+                <div class="backsolide"></div>
+                <ul>
+                    <li>
+                        <span class="T_money">提现金额¥10.00</span>
+                        <span>提现成功</span>
+                    </li>
+                    <li>
+                        <span>支付宝账号19827364544</span>
+                        <span>2019-10-10 23:59</span>
+                    </li>
+                </ul>
+                <div class="backsolide"></div>
+                <ul>
+                    <li>
+                        <span class="T_money">提现金额¥10.00</span>
+                        <span>提现失败</span>
+                    </li>
+                    <li>
+                        <span>支付宝账号19827364544</span>
+                        <span>2019-10-10 23:59</span>
+                    </li>
+                    <p>失败原因:违规操作</p>
+                </ul>
+            </div>
+        </div>
+
+        <!--申请提现弹窗-->
+        <div class="txtanchuang" style="display:none;">
+            <p>申请提现</p>
+            <div class="ul_li">
+                <ul>
+                    <li><span>提现金额</span></li>
+                    <li><span>¥最低提现金额1元</span></li>
+                </ul>
+                <ul>
+                    <li><span>提现支付宝</span></li>
+                    <li><span>15812345678</span></li>
+                </ul>
+
+                <div class="btnshow">
+                    <button class="cancel" onclick="tocancel()">取消</button>
+                    <button class="confirm">确认提现</button>
+                </div>
+
+                <!--
+                    <div>
+                       
+                    </div>
+                -->
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function tocashwith() {
+        $(".txtanchuang").show();
+        // console.log(".btn");
+    }
+
+    function tocancel() {
+        $(".txtanchuang").hide()
+    }
+</script>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>幸运大转盘</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/mobile-detect/1.3.7/mobile-detect.min.js"></script>
+    <script src="https://cdn.bootcss.com/mobile-detect/1.3.7/mobile-detect.js"></script>
+    <!-- <link rel="stylesheet" href="css/dora.css"/>
+    <script src="js/dora.min.js"></script> -->
+</head>
+<style>
+    * {
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+    }
+    
+    .RulesofActivity {
+        width: 2.346667rem;
+        height: .8rem;
+        text-align: center;
+        position: absolute;
+        top: 1.106667rem;
+        right: 0;
+        background: rgba(0, 0, 0, 1);
+        opacity: 0.6;
+        border-radius: .4rem 0px 0px .4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #Rulebtn {
+        padding-left: .066667rem;
+        font-size: .32rem;
+        color: rgba(254, 254, 254, 1);
+    }
+    
+    .rules-block {
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 99;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+    
+    .rules-block>div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    
+    .rules-block>div>div:nth-child(1) {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 1);
+        opacity: 0.6;
+        z-index: 666;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .rules-block>div>div:nth-child(2) {
+        width: 7.04rem;
+        border-radius: .266667rem;
+        background: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .rules-title {
+        height: 1.173333rem;
+        width: 100%;
+        line-height: 1.173333rem;
+        font-size: .426667rem;
+        color: rgba(241, 90, 55, 1);
+        text-align: center;
+    }
+    
+    .rules-block ul {
+        width: 6.226667rem;
+        height: 6.773333rem;
+        overflow-y: scroll;
+        margin-bottom: .266667rem;
+    }
+    
+    .rules-block ul li {
+        font-size: .32rem;
+        color: rgba(51, 51, 51, 1);
+        line-height: .373333rem;
+        margin-bottom: .2rem;
+    }
+    
+    .rules-footer button {
+        border: none;
+        width: 6.24rem;
+        height: .8rem;
+        background: linear-gradient(180deg, rgba(255, 56, 56, 1), rgba(255, 109, 89, 1));
+        border-radius: .4rem;
+        margin-bottom: .373333rem;
+        font-size: .373333rem;
+        color: rgba(255, 255, 255, 1);
+    }
+    
+    .title img {
+        width: 10rem;
+        height: 6.933333rem;
+    }
+    
+    .wheel-box {
+        margin-top: 5.44rem;
+    }
+    
+    .freeLotteryDraw {
+        margin-top: .266667rem;
+        margin-bottom: .453333rem;
+        font-size: .32rem;
+        color: rgba(255, 233, 92, 1);
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="game">
+        <div id="pop" style="width: 100%;height: 100%;background: rgba(0,0,0,0.55);position:fixed;z-index: 99;text-align: center;display: none">
+            <div id="popBg" class="pop">
+                <span id="tips" style="font-size: 18px;color: white;margin: 10px;position: relative;top: 53%">你好阿德</span>
+                <img id="confirm" src="img/record.png" style="top: 77%;left:10%;position: absolute;width: 35%">
+                <img id="back" src="img/return.png" style="top: 77%;right:10%;position: absolute;width: 35%">
+            </div>
+        </div>
+        <div class="title" style="text-align: center;position: absolute;top: 0;">
+            <img src="img/game-title.png">
+        </div>
+        <div class="RulesofActivity" onclick="openModel()">
+            <p id="Rulebtn">活动规则 ></p>
+        </div>
+        <div class="rules-block" id="rules;">
+
+            <div>
+                <div></div>
+                <div style='z-index: 667'>
+                    <h1 class="rules-title">抽奖规则</h1>
+                    <ul>
+                        <li>1.抽奖方式为40do米一次,中奖率100%。</li>
+                        <li>2.Do米为小绿蓝平台货币,可用于兑换do米商品,抽奖所用。</li>
+                        <li>3.果干，蚕丝面膜，凉席，口非口力，iphoneX为实物商品，只要抽中即可免费领取此商品，无需邮费等任何费用。</li>
+                        <li>4.苹果没有以任何方式参与比赛或抽奖活动，且苹果公司不是赞助商，产生任何责任纠纷与苹果公司无关。</li>
+                        <li>5.若经举报或者平台技术监测到用户存在作弊行为（包括单不限于洗钱，虚假交易，赌博，恶意套现，作弊等），则用户在本次活动中的资格自动取消，已经获得的实物商品亦将会自动失效，如已使用该实物商品兑换平台有权不发货并退款，若用户的作弊行为给其他用户，合作伙伴或平台造成所示，用户需要承担相应的法律责任。</li>
+                        <li>6.一切解释权归小绿蓝所有。</li>
+                    </ul>
+                    <div class="rules-footer">
+                        <button id="rulesbtn" type="button" class="rules-btn" onclick="closeModel()">我知道了</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!--<div class="luckDrawCount">你有<span></span>次抽奖机会</div>-->
+        <div style="width: 100%;display:flex;justify-content:center">
+            <div class="wheel-box">
+                <div id="wheel"></div>
+                <div id="arrow"></div>
+            </div>
+        </div>
+        <p class='freeLotteryDraw'>免费抽将次数还剩<span>0</span>次</p>
+        <div style="text-align: center;">
+            <img id="record" src="img/game-button.png" style="width: 5.333333rem;height: .933333rem;margin-bottom: .666667rem">
+        </div>
+    </div>
+</body>
+
+<script>
+</script>
+<script src="js/game.js"></script>
+
+</html>

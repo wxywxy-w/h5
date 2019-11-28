@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>小绿蓝精选</title>
+  <link rel="myGoods" href="./css/goods.css" />
+</head>
+<body>
+
+<div    style="background: #C30D23;height: 120px;text-align: center;vertical-align:middle;line-height:120px;display:none">
+  <span style="color: white;text-align: center;font-size: 35px;">小绿蓝精选</span>
+
+  </div>
+
+
+<div class="l-page">
+  <ul id="list" style="padding: 0;background:white">
+  </ul>
+</div>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-mockjax/1.6.2/jquery.mockjax.js"></script>
+<script type="text/javascript">
+  //作为一个对象的w和h属性返回视口的尺寸
+  function getViewportSize(w){
+    //使用指定的窗口， 如果不带参数则使用当前窗口
+    w = w || window;
+
+    //除了IE8及更早的版本以外，其他浏览器都能用
+    if(w.innerWidth != null)
+      return {w: w.innerWidth, h: w.innerHeight};
+
+    //对标准模式下的IE（或任意浏览器）
+    var d = w.document;
+    if(document.compatMode == "CSS1Compat")
+      return {w: d.documentElement.clientWidth, h: d.documentElement.clientHeight};
+
+    //对怪异模式下的浏览器
+    return {w: d.body.clientWidth, h: d.body.clientHeight};
+  }
+  var page=1;
+
+  function searchItems() {
+    page=1;
+    document.getElementById("list").innerHTML = "";
+    loadDataDynamic();
+  }
+
+  function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null)
+      return unescape(r[2]);
+    return "";
+  }
+
+  $(function(){
+    getGoodsIds();
+    // test();
+
+  });
+
+  var map;
+
+
+
+  function getGoodsIds() {
+    var url=GetQueryString('mark');
+    if (url==''){
+      return ;
+    }
+    $.ajax({
+      type : "get",
+      dataType : "json",
+      async:false,
+      url : "https://apitest.walongkeji.com/shortUrl/get/"+url,
+      data:{
+        url:url
+      },
+      success : function(data){
+        console.log(data.code);
+        if(data.success==true){
+          if (data.code=='0') {
+           var goodsItems=data.data;
+
+           if (goodsItems.length>0){
+             map= JSON.parse(goodsItems);
+      //       goodsIds;
+             // $.map(map,function(key,value){
+             //   console.log(key+":"+value);
+             //
+             // });
+             var goodsIds='';
+             map.forEach(function(item){
+               goodsIds+=item.itemId;
+               goodsIds+=',';
+             });
+             goodsIds= goodsIds.substring(0,goodsIds.length-1);
+           //  goodsIds+='%5d';
+           } ;
+          loadDataDynamic(goodsIds);
+          }
+          // $.toast("短信验证码已发送", "text");
+        }else if(data.success==false){
+
+        }else{
+          // $.toast(data.msg, "text");
+        }
+      }
+    })
+    ;
+  }
+
+
+
+  //检测滚动条是否滚动到页面底部
+  function isScrollToPageBottom(){
+    //文档高度
+    var documentHeight = document.documentElement.offsetHeight;
+    var viewPortHeight = getViewportSize().h;
+    var scrollHeight = window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop || 0;
+
+    return documentHeight - viewPortHeight - scrollHeight < 20;
+  }
+
+  //商品模板
+  function getGoodsTemplate(goods){
+    return "<li style='clear: both;margin-bottom: 20px;list-style: none;padding-top: 20px;background: white'>" +
+      "<div  style='float: left;width: 40%;margin-bottom: 2%'>" +
+      "<img width='100%' height='100%' src='" + goods.goodsThumbnailUrl + "'>" +
+      "</div>" +
+      "<div  style='float: right;width: 58%;background: white;'>" +
+
+      "<div class='info-name' >" +
+      "<span style='display:block;font-size: 35px;word-break:normal; width:auto; word-wrap : break-word ;white-space:pre-wrap;'>" + goods.goodsName + "</span></div>" +
+      "<div style='top: 20%'>" +
+      "<div style='margin-top: 20px;float: left;width: 48%'>" +
+      "<span style='color: #9b9b9b;font-size: 30px'><del>原价:￥" +　(goods.minGroupPrice/100).toFixed(2) +"</del></span>" +
+      "</div>" +
+      "<div class='info-star 'style='text-align:right;margin-top: 20px;float: right;width:38%;margin-right: 10px'><span style='font-size: 30px;color: #9b9b9b'>" + goods.soldQuantity + "已购</span></div>" +
+      "</div>"+
+
+      "<div style='margin-top: 18%'>" +
+      "<div style='margin-bottom: 20px;margin-top: 5px;float: left;display:inline-block;text-align: center'><span style='color: red;font-size: 40px'>券后:￥<strong>" + ((goods.minGroupPrice-goods.couponDiscount)/100).toFixed(2) + "</strong></span></div>" +
+      "<div style='float: right;height:80px;text-align: center;display:inline-block; '>" +
+       "<img style='position: relative;height: 80px;'  src='img/img_coup.png'>"+
+      "<span style='position:relative;text-align: center;height:80px;color: white;font-size: 35px;top:-30%;left: -50%'><strong '>" + goods.couponDiscount/100 + "</strong>元</span>" +
+      "</div>" +
+      "</div>"+
+      "<div style='clear:both;width: 100%;margin-top: 40%'>" +
+      "<div style='float: left;text-align: left;width: 50%'>" +
+      "<img style='position: absolute;text-align: center;height: 55px'  src='img/red-bg.png'>"+
+      "<span style='position:absolute;color: white;font-size: 30px;text-align: center;padding-left: 15px;padding-top: 8px;padding-bottom: 8px'>评估赚 " + goods.predictPromotion + " 金币</span>" +
+      "</div>" +
+      "<div style='float: right;text-align: left;width: 50%;background: blue'>" +
+      "<img style='position: absolute;text-align: center;height: 55px'  src='img/red-bg.png'>"+
+      "<span style='position:absolute;color: white;font-size: 30px;text-align: center;padding-left: 15px;padding-top: 8px;padding-bottom: 8px'>升级赚 " + goods.memberPromotion + " 金币</span>" +
+      "</div>" +
+      "</div>"+
+
+      "</div>" +
+     "<div style='clear:both;height: 15px;background: #F0F0F0;margin-top: 10px;width: 100%;'></div>"+
+      // "<div class='pic-wrap leftFloat' style='clear: both;margin-bottom: 20px'>" +
+      // // "<input type='checkbox' style='margin-left: 20px;width: 50px;height: 50px;' name='checkItem' class='checkItem' value='"+goods.goodsId+"'/>" +
+      // "</div>"+
+
+      "</li>";
+  }
+
+  // //初始化的时候默给list加载100条数据
+  // $.ajax("http://122.112.237.84:8088/goods/searchGoods?sortType =1&page=1").done(function(result){
+  //   var userId=sessionStorage.getItem("userId");
+  //   // if (userId==null){
+  //   //   window.location.href = 'index.html';
+  //   // } ;
+  //   if(result.status){
+  //     var html = "";
+  //     result.data.forEach(function(goods){
+  //       html += getGoodsTemplate(goods);
+  //     });
+  //     $("#list").append(html);
+  //   }
+  // });
+
+  function addLiClick() {
+    var itemli = document.getElementsByTagName("li");
+    for (var i = 0; i<itemli.length; i++){
+      (function(n){
+        itemli[i].onclick = function(){
+    //      alert("索引值："+n+"\n"+"内容："+itemli[n].innerHTML);    //  \n换行
+          window.location.href = map[n].itemUrl; ;
+        }
+      })(i)
+    }
+    };
+
+  //加载数据
+  function loadDataDynamic(goodsIds){
+    //先显示正在加载中
+    if( $("#loadingLi").length === 0)
+      $("#list").append("<li id='loadingLi' class='loading'></li>");
+    else{
+     // $("#loadingLi").text("正在加载...").removeClass("space");
+    }
+    var loadingLi = document.getElementById("loadingLi");
+    loadingLi.scrollIntoView();
+    //加载数据,数据加载完成后需要移除加载提示
+    var hasData = false, msg = "";
+    if (goodsIds=='')
+      return;
+    $.ajax("https://apitest.walongkeji.com/goods/searchGoods?platformType=2&sortType =1&page="+page+"&goodsIdList="+goodsIds).done(function(result){
+      if(result.success){
+      //  if(result.data > 0){
+          hasData = true;
+          var html = "";
+          result.data.forEach(function(goods){
+            html += getGoodsTemplate(goods);
+          });
+          $("#list").append(html);
+          ++page;
+        }else{
+          msg = "数据已加载到底了"
+        }
+    //  }
+      $("#list").append(loadingLi);
+      addLiClick();
+    }).fail(function(){
+      msg = "数据加载失败!";
+    }).always(function(){
+      !hasData && setTimeout(function(){
+        $(document.body).scrollTop(document.body.scrollTop -40);
+      }, 500);
+      msg && $("#loadingLi").text(msg);
+      //重新监听滚动
+      setTimeout(watchScroll, 900);
+    });
+  }
+
+
+  //如果滚动条滚动到页面底部，需要加载新的数据,并且显示加载提示
+  function watchScroll(){
+    if(!isScrollToPageBottom()){
+      setTimeout( arguments.callee, 900);
+      return;            }
+    loadDataDynamic();
+  };
+
+  //开始检测滚动条
+  watchScroll();
+
+
+
+</script>
+</body>
+</html>

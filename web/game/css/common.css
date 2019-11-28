@@ -1,0 +1,37 @@
+/*
+* @Author: 鍥藉簡
+* @Date:   2018-3-13 13:42:41
+* @Last Modified by:   鍥藉簡
+* @Last Modified time: 2018-04-11 19:56:55
+*/
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:    #949494;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    #949494;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    #949494;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color:    #949494;
+}
+html{width: 100% !important;height: 100% !important;background: none !important;}
+body{background: #fff;width: 100%;height: 100%;min-height: 100%;}
+.container{width: 100%;height: 100%;position: absolute;top: 0;right: 0; bottom: 0;left: 0;color: #fff;}
+.head{width: 100%;}
+.head img{width: 100%;display: block;}
+.page{padding-bottom: 15px;}
+.page .text{font-size: 16px;color: #fff;font-weight: 400;text-align: center}
+.page__bd{position: relative;width: 100%;}
+.page__bd_spacing{width: 90%;margin:0 auto;}
+.leftpic{position: absolute;top: 0;left: 0;width: 80px;}
+.ktfont{width: 85%;margin:0 auto;display: block;padding-top: 24px;}
+.form{margin:0 auto;border-radius: 6px;padding: 0% 5%;}
+.form p{ padding-left: 15px;border: 1px solid #929292;border-radius: 25px;background: #ffffff; overflow: hidden;#949494}
+.phoneitem{margin-right:0;}
+.myinput{width:100%;height: 44px;font-size: 14px;border: 0;outline: none;background: #ffffff; color: #000000;font: 16px/1.5 "Microsoft YaHei",Arial; }
+.form .mybtn{background: blue;font-size: 15px;height: 44px;line-height: 44px;border-radius: 25px;color: #FFF;}
+.form .weui-flex__item{position: relative;margin-bottom: 25px;}
+.form .yzm{width: 100%;height: 44px;}
+.form .yzmbtn{padding: 0 14px;min-width: 120px;}

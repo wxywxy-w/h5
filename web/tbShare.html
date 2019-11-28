@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <title>小绿蓝精选</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style: none;
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+    }
+    
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        background: rgba(255, 255, 255, 1);
+        padding-bottom: .64rem;
+    }
+    
+    .installbar {
+        width: 100%;
+        height: 1.173333rem;
+        background: rgba(254, 238, 235, 1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 .4rem;
+        font-size: .373333rem;
+    }
+    
+    .installbar>div {
+        display: flex;
+        align-items: center;
+    }
+    
+    .installbar img {
+        width: .64rem;
+        height: .64rem;
+        margin-right: 5px;
+    }
+    
+    .installbar button {
+        border: none;
+        width: 1.76rem;
+        height: .586667rem;
+        border-radius: .293333rem;
+        border: 1px solid rgba(241, 90, 55, 1);
+        font-size: .32rem;
+        color: rgba(241, 90, 55, 1);
+        background: rgba(254, 238, 235, 1);
+    }
+    
+    .main {
+        padding: 0 .4rem;
+    }
+    
+    .pic {
+        width: 100%;
+        margin: .266667rem 0;
+    }
+    
+    .pic>img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .content>p {
+        width: 100%;
+        font-size: .373333rem;
+        color: rgba(51, 51, 51, 1);
+        line-height: .533333rem;
+    }
+    
+    .price {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 1.173333rem;
+    }
+    
+    .price>div:nth-child(1) {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    
+    .afterTheDiscount {
+        font-size: .533333rem;
+        font-weight: 500;
+        color: rgba(241, 90, 55, 1);
+        position: relative;
+        bottom: -0.08rem;
+        margin-right: 0.1rem;
+    }
+    
+    .beforeTheDiscount {
+        font-size: .373333rem;
+        position: relative;
+        color: rgba(128, 128, 128, 1)
+    }
+    
+    .line {
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        background: rgba(128, 128, 128, 1);
+    }
+    
+    .securities {
+        height: 1.173333rem;
+        width: 4.04rem;
+        background-image: url('./image/detail_coupons_middle_right.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        color: rgba(255, 255, 255, 1);
+        padding-left: .8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .securities>P {
+        display: none;
+        /* font-size: .4rem; */
+    }
+    
+    .securities>div {
+        /* display: none; */
+    }
+    
+    ._price>span:nth-child(1) {
+        font-size: .586667rem;
+    }
+    
+    ._price span {
+        font-size: .373333rem;
+    }
+    
+    ._date {
+        font-size: .266667rem;
+        position: relative;
+        top: -0.05rem;
+        color: rgba(255, 255, 255, 1);
+    }
+    
+    .TbPassword {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: .533333rem;
+        margin-bottom: .973333rem;
+    }
+    
+    .TbPassword p {
+        width: 7.04rem;
+        height: .8rem;
+        background: rgba(240, 240, 240, 1);
+        border-radius: .053333rem;
+        text-align: center;
+        line-height: 0.8rem;
+        color: rgba(128, 128, 128, 1)
+    }
+    
+    .TbPassword button {
+        width: 1.76rem;
+        height: .8rem;
+        border: .026667rem solid rgba(241, 90, 55, 1);
+        border-radius: .4rem;
+        color: rgba(241, 90, 55, 1);
+        font-size: .373333rem;
+        background: #fff;
+    }
+    
+    .tip {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        font-size: .32rem;
+        color: rgba(128, 128, 128, 1);
+        font-weight: 400;
+        height: .533333rem;
+        line-height: .533333rem;
+    }
+    
+    .tip img {
+        width: .533333rem;
+        height: .533333rem;
+        margin: 0 3px;
+    }
+    
+    #none {
+        width: 100%;
+        height: .64rem;
+        opacity: 0;
+    }
+</style>
+
+<body>
+    <div class='installbar'>
+        <div>
+            <img src="./image/applogo.png" alt="">
+            <span>小绿蓝——省钱、赚钱、小金库</span>
+        </div>
+        <button onclick='window.location.href= "http://laifadan.com/shareapp/shareapp.html"'>立即下载</button>
+    </div>
+    <div class='main'>
+        <div class='pic'>
+            <img src="" alt="">
+        </div>
+        <div class='content'>
+            <p></p>
+            <div class='price'>
+                <div>
+                    <p class='afterTheDiscount'>￥<span></span></p>
+                    <p class='beforeTheDiscount'>￥<span></span>
+                        <span class='line'></span>
+                    </p>
+                </div>
+                <div class='securities'>
+                    <div>
+                        <p class='_price'><span></span><span>元优惠券</span></p>
+                        <p class='_date'></p>
+
+                    </div>
+                    <p>
+                        无优惠券
+                    </p>
+
+                </div>
+
+            </div>
+            <div class='TbPassword'>
+                <p></p>
+                <button class='clipboard' data-clipboard-text='' data-clipboard-action="copy">复制</button>
+            </div>
+            <h6 class='tip'>复制上方口令，打开手机<img src="./image/tb.png" alt="">购买</h6>
+            <section id='none'>nono</section>
+
+        </div>
+    </div>
+
+
+
+</body>
+<script>
+    var goodsParams = {
+        goodsId: null,
+        goodsName: null,
+        optId: null,
+        memberType: null
+    }
+
+    var clipboard = new ClipboardJS('.clipboard');
+
+    var mark = getUrlParam('mark')
+    if (mark) {
+        getShortUrl(mark)
+    } else {
+        alert('网络出错!')
+
+    }
+    //获取url中的参数
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg); //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    }
+    // 获取短连接内容
+    function getShortUrl(a) {
+        $.get(" https://apitest.walongkeji.com/shortUrl/get/" + a,
+            function(data, textStatus, jqXHR) {
+                if (textStatus == 'success') {
+                    let _data = JSON.parse(data.data)
+                    $('.TbPassword>p').text(_data[0].tkl)
+                    $('.clipboard').attr('data-clipboard-text', _data[0].tkl)
+                    Object.keys(_data[0]).forEach(e => {
+                        Object.keys(goodsParams).forEach(_e => {
+                            if (e == _e) {
+                                goodsParams[_e] = _data[0][e]
+                            }
+                        })
+
+                    });
+                    getGoodsDetails(goodsParams)
+                }
+
+
+            }
+        );
+
+    }
+
+    function getGoodsDetails(i) {
+        $.get('https://apitest.walongkeji.com/tbk/getTbkGoodsDetail', i, function(data) {
+            if (data.code == 0) {
+                $('.pic>img').attr('src', data.data.goodsDTO.goodsImageUrl)
+                $('.content>p:nth-child(1)').text(data.data.goodsDTO.goodsName)
+                let __price
+                data.data.goodsDTO.hasCoupon ? $('.securities>p').hide().siblings().show() : $('.securities>p').show().siblings().hide()
+                __price = data.data.goodsDTO.hasCoupon ? (parseInt(data.data.goodsDTO.minGroupPrice) - parseInt(data.data.goodsDTO.couponDiscount)) : parseInt(data.data.goodsDTO.minGroupPrice)
+
+                let _date = formatDate(new Date(parseInt(data.data.goodsDTO.couponStartTime) * 1000).toLocaleDateString()) + '-' + formatDate(new Date(parseInt(data.data.goodsDTO.couponEndTime) * 1000).toLocaleDateString())
+                $('._price>span:nth-child(1)').text(parseInt(data.data.goodsDTO.couponDiscount) / 100).parent().siblings('._date').text(_date)
+                $('.afterTheDiscount span').text(__price / 100)
+                $('.beforeTheDiscount>span:nth-child(1)').text(parseInt(data.data.goodsDTO.minGroupPrice) / 100)
+
+            }
+
+
+
+        })
+
+
+    }
+
+    function formatDate(i) {
+        let _i = i.split('/').join('.')
+        return _i
+    }
+    clipboard.on('success', function(e) {
+        alert('复制成功！')
+
+        e.clearSelection();
+    });
+
+    clipboard.on('error', function(e) {
+        alert('复制失败！')
+    });
+</script>
+
+</html>

@@ -1,0 +1,92 @@
+
+<!doctype html>
+<html style="font-size: 52.0833px;">
+
+<head style="box-sizing: border-box;">
+
+
+  <meta charset="utf-8" />
+  <title>小绿篮发单登录</title>
+  <meta name="viewport" content="width=360,maximum-scale=1.1,user-scalable=no">
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta content="telephone=no" name="format-detection" />
+  <!--    <script src="--><!--js/jquery-1.9.1.min.js"></script>-->
+
+  <link rel="stylesheet" href="css/weui.min.css">
+  <link rel="stylesheet" href="css/jquery-weui.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    .bg{background:#000;opacity:0.6;width:100%;height:100%;min-height:100%;position:fixed;z-index:1000;top:0;left:0;right:0;bottom:0;}
+    .tippic{position:fixed;top:0;right:20px;z-index:1200;}
+    #knowbtn button{background:#fff;color:#000000;font-size:13px;border-radius:6px;width:50%;height:35px;margin:0 auto;position:fixed;bottom:20%;left:50%;margin-left:-25%;z-index:1200}
+  </style>
+</head>
+
+<body style="font-family: microsoftyahei; font-size: 20px; margin: auto; min-height: 100%; background-color: #ffffff; max-width: 100%;">
+
+
+<div id="container" class="container">
+  <div class="qrcode" style="text-align:center" ng-class="{hide: isScan || isAssociationLogin || isBrokenNetwork}">
+    <img class="img" height="250" width="250" id="img" mm-error="qrcodeException()" ng-class="{'qrcode_expired': isNeedRefresh}" mm-src="https://login.weixin.qq.com/qrcode/wdLvWu657Q==" mm-src-load="qrcodeLoad" mm-src-parallel="" mm-src-timeout="10" mm-src-retry-count="2" src="https://login.weixin.qq.com/qrcode/wdLvWu657Q=="/>
+
+  </div>
+  <div style="text-align:center" ng-class="{hide: isScan || isAssociationLogin || isBrokenNetwork}">
+    <p style="color:#0000ff"><strong>请先关闭除手机设备的其他微信</strong></p>
+  </div>
+</div>
+  <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+  <script type="text/javascript">
+
+
+    var   task=window.setInterval("loadData()",1000);;
+    $(function(){
+      loadData();
+
+    });
+
+
+    function loadData(){
+      var userId=sessionStorage.getItem("userId");
+      if (userId==null){
+        window.location.href = 'index.html';
+      } ;
+      $.ajax({
+        type : "post",
+        dataType : "json",
+        async:false,
+        url : "http://47.96.183.68:8081/initWx/getWxCode",
+
+        data:{
+          userId:userId
+        },
+
+        success : function(data){
+          console.log(data.code);
+          if(data.success==true){
+            var path=data.data;
+            var  img=document.getElementById("img");
+            if ( img.src!=path) {
+               img.src=path;
+            }
+            if (data.code=='101') {
+              window.clearInterval(task);
+              window.location.href = 'set.html';
+            }
+            // $.toast("短信验证码已发送", "text");
+          }else if(data.success==false){
+
+          }else{
+
+            // $.toast(data.msg, "text");
+          }
+        }
+      })
+
+    }
+  </script>
+</body>
+
+</html>

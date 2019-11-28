@@ -1,0 +1,350 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    overflow: hidden;
+}
+
+.tab {
+    height: 4.5rem;
+    background: linear-gradient(90deg, rgba(254, 119, 46, 1), rgba(236, 24, 19, 1));
+}
+
+.bjimg {
+    margin-top: -1.05rem;
+    margin-left: -0.5rem;
+}
+
+.bjimg .goodtop {
+    width: 2.1rem;
+    height: 1.2rem;
+}
+
+.tab .rob {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backimg {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top: 0.33rem;
+    margin-left: -0.1rem;
+}
+
+.backimg>img {
+    width: 1.9rem;
+    height: 1.1rem;
+}
+
+.onactive {
+    color: #f9ff04 !important;
+}
+
+.rob>ul>li>p {
+    font-family: PingFang-SC-Regular;
+    font-weight: 300;
+    opacity: 0.7;
+    line-height: 0.5rem;
+    color: #fff;
+}
+
+.rob .robtime>p {
+    position: relative;
+    top: 0.3rem;
+    left: 0.5rem;
+}
+
+ul,
+li {
+    list-style: none;
+    ;
+}
+
+.slide-box {
+    display: -webkit-box;
+    overflow-x: auto;
+    padding: 0.4rem;
+}
+
+.slide-item {
+    width: 1.8rem;
+    height: 1.5rem;
+    margin-right: 0.255rem;
+    text-align: center;
+}
+
+.slide-box:-webkit-scrollbar {
+    display: none;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -0.3rem;
+}
+
+.str {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.str>img {
+    width: 0.45rem;
+    height: 0.45rem;
+}
+
+.str>p {
+    font-size: 0.3rem;
+    font-family: PingFang-SC-Regular;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 1);
+    padding: 0.1rem;
+}
+
+.time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.time>p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1rem;
+}
+
+.time .bj {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: rgba(190, 24, 17, 1);
+    border-radius: 0.1rem;
+}
+
+.tail {
+    width: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.robbed {
+    width: 9.2rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 0.45rem;
+    display: flex;
+    align-items: center;
+    margin-top: -1.2rem;
+    margin-bottom: 1.555555rem;
+}
+
+.goodurl>img {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    margin: 0.3rem;
+}
+
+.r-bcw {
+    width: 100%;
+    height: 4.0rem;
+    display: flex;
+    align-self: end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.r-bcw .jing {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 0.15rem;
+    margin-top: -0.3rem;
+}
+
+.r-bcw>p {
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: #333333;
+    margin: 0.05rem;
+    width: 4.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    font-size: 0.4rem;
+    margin-top: -0.3rem;
+}
+
+.r-bcw .xiao {
+    width: 100%;
+    color: rgba(128, 128, 128, 1);
+    margin-top: -1.0rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.Alreadyrobbed .yq {
+    height: 0.43rem;
+    background: #FF5043;
+    border-radius: 0.2rem;
+    position: absolute;
+    left: 4.53rem;
+}
+
+.Alreadyrobbed .bf {
+    width: 2.9rem;
+    height: 0.43rem;
+    background: rgb(247, 220, 213);
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.4rem;
+    color: white;
+    overflow: hidden;
+}
+
+.bf>p {
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Alreadyrobbed .subsidy {
+    color: rgba(241, 90, 55, 1);
+    position: relative;
+    left: 2.5rem;
+    top: -0.3rem;
+}
+
+.money-m {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -0.17rem;
+    right: 0.45rem;
+}
+
+.money-m .money {
+    font-size: 0.47rem;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(241, 90, 55, 1);
+}
+
+.money-m .price {
+    text-decoration: line-through;
+    color: rgba(128, 128, 128, 1);
+}
+
+#btn {
+    width: 1.7rem;
+    height: 0.6rem;
+    background: linear-gradient(270deg, rgba(255, 143, 82, 1), rgba(255, 71, 71, 1));
+    box-shadow: 0px 4px 6px 0px rgba(234, 47, 45, 0.3);
+    border-radius: 22px;
+    color: white;
+    margin-left: 3.1rem;
+    position: relative;
+    top: -0.8rem;
+    border: 1px solid rgba(255, 159, 28, 1);
+}
+
+.Alreadyrobbed .btn {
+    width: 1.7rem;
+    height: 0.6rem;
+    background: linear-gradient(270deg, rgba(255, 143, 82, 1), rgba(255, 71, 71, 1));
+    box-shadow: 0px 4px 6px 0px rgba(234, 47, 45, 0.3);
+    border-radius: 22px;
+    color: white;
+    margin-left: 3.1rem;
+    position: relative;
+    top: -0.8rem;
+    border: 1px solid rgba(255, 159, 28, 1);
+}
+
+.Alreadyrobbed .btn-Y {
+    width: 1.7rem;
+    height: 0.6rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 22px;
+    color: rgba(255, 159, 28, 1);
+    margin-left: 3.1rem;
+    position: relative;
+    top: -0.8rem;
+    border: 1px solid #FF9F1C;
+}
+
+.money-y .price {
+    text-decoration: line-through;
+    color: rgba(128, 128, 128, 1);
+}
+
+.myProgress {
+    position: relative;
+    right: 3.1rem;
+    background-color: #FF5043;
+    border-radius: 20px;
+}
+
+div #loadbar {
+    width: 2.9rem;
+    height: 0.4rem;
+    text-align: center;
+    border-radius: 0.25rem;
+    margin-top: -2.5rem;
+}
+
+
+/*预约*/
+
+.appo_remind {
+    background: #FF9F1C;
+}
+
+
+/*预约完成*/
+
+.appo_done {
+    background: rgba(255, 255, 255, 1);
+}
+
+.djtz {
+    background-color: darkgray;
+    margin-top: -0.6rem;
+    width: 2.5rem;
+    height: 0.9rem;
+    margin-left: -3.3rem;
+    display: none;
+    padding: 0.2rem;
+}

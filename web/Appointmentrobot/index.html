@@ -1,0 +1,200 @@
+<!--预约机器人-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <title>预约机器人</title>
+
+    <style>
+        .App_herd {
+            width: 100%;
+            background: rgba(255, 179, 40, 1);
+        }
+
+        .bady {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+        }
+
+        .banner>img {
+            width: 100%;
+            background: rgba(255, 179, 40, 1);
+        }
+
+        .writtg {
+            text-align: center;
+            color: white;
+            font-size: 0.45rem;
+            font-family: PingFang SC;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .iphone {
+            width: 7.5rem;
+            height: 0.7rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 1);
+            border: 2px solid rgba(255, 150, 0, 1);
+            border-radius: 44px;
+            margin-left: 1.3rem;
+            font-size: 0.35rem;
+            padding: 0.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .iphone>button {
+            width: 2.9rem;
+            height: 0.8rem;
+            background: rgba(255, 150, 0, 1);
+            border-radius: 36px;
+        }
+
+        .lunbo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lunbo>img {
+            width: 100%;
+        }
+
+        ol,
+        li {
+            list-style: none;
+            ;
+        }
+
+        .mis-slider {
+            display: -webkit-box;
+            overflow-x: auto;
+            /*适应苹果*/
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* .mis-slide {
+            width: 100%;
+            border: 1px solid #ccc;
+            margin-right: 30px;
+        } */
+
+        /*隐藏掉滚动条*/
+        .mis-stage::-webkit-scrollbar {
+            display: none;
+        }
+
+        .zhushou {
+            font-size: 0.45rem;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="App_herd">
+        <div class="bady">
+            <div class="banner">
+                <img src="./image/make_appointment_top_banner.png" />
+            </div>
+
+            <div class="writtg">
+                <p>预约成功</p>
+                <p>我们将挑选1000名幸运用户永久免费</p>
+            </div>
+            <div class="iphone">
+                <p>请输入手机号码</p>
+                <button>立即预约</button>
+            </div>
+
+            <div class="lunbo">
+                <p class="zhushou">助手内容</p>
+                <div class="mis-stage">
+                    <!-- The element to select and apply miSlider to - the class is optional -->
+                    <ol class="mis-slider">
+                        <!-- The slider element - the class is optional -->
+                        <li class="mis-slide">
+                            <!-- A slide element - the class is optional -->
+                            <a href="#" class="mis-container">
+                                <!-- A slide container - this element is optional, if absent the plugin adds it automatically -->
+                                <figure>
+                                    <!-- Slide content - whatever you want -->
+                                    <img src="./image/make_appointment_img_one.png" alt="Pink Water Lillies">
+                                    <figcaption>Pink Water Lillies</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="mis-slide">
+                            <a href="#" class="mis-container">
+                                <figure>
+                                    <img src="./image/make_appointment_img_one.png" alt="Pond with Lillies">
+                                    <figcaption>Pond with Lillies</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="mis-slide">
+                            <a href="#" class="mis-container">
+                                <figure>
+                                    <img src="./image/make_appointment_img_one.png" alt="Hidden Pond">
+                                    <figcaption>Hidden Pond</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="mis-slide">
+                            <a href="#" class="mis-container">
+                                <figure>
+                                    <img src="./image/make_appointment_img_one.png" alt="Shrine">
+                                    <figcaption>Shrine</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<!-- Load jQuery -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<!-- 必要样式 -->
+<link href="css/mislider.css" rel="stylesheet">
+<link href="css/mislider-skin-cameo.css" rel="stylesheet">
+
+<script type="text/javascript" src="js/mislider.js"></script>
+<script type="text/javascript">
+    jQuery(function ($) {
+        var slider = $('.mis-stage').miSlider({
+            //  The height of the stage in px. Options: false or positive integer. false = height is calculated using maximum slide heights. Default: false
+            stageHeight: 380,
+            //  Number of slides visible at one time. Options: false or positive integer. false = Fit as many as possible.  Default: 1
+            slidesOnStage: false,
+            //  The location of the current slide on the stage. Options: 'left', 'right', 'center'. Defualt: 'left'
+            slidePosition: 'center',
+            //  The slide to start on. Options: 'beg', 'mid', 'end' or slide number starting at 1 - '1','2','3', etc. Defualt: 'beg'
+            slideStart: 'mid',
+            //  The relative percentage scaling factor of the current slide - other slides are scaled down. Options: positive number 100 or higher. 100 = No scaling. Defualt: 100
+            slideScaling: 150,
+            //  The vertical offset of the slide center as a percentage of slide height. Options:  positive or negative number. Neg value = up. Pos value = down. 0 = No offset. Default: 0
+            offsetV: -5,
+            //  Center slide contents vertically - Boolean. Default: false
+            centerV: true,
+            //  Opacity of the prev and next button navigation when not transitioning. Options: Number between 0 and 1. 0 (transparent) - 1 (opaque). Default: .5
+            navButtonsOpacity: 1
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <title>百团大战活动入口</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+    }
+    
+    html,
+    body {
+        width: 100%;
+        /* height: 100%; */
+    }
+    
+    body {
+        position: relative;
+        background-color: #ffd14f;
+    }
+    
+    .content {
+        width: 100%;
+        /* height: 100%; */
+        background-image: url('./image/group_enter_bg.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .applyPerson {
+        width: 7.04rem;
+        margin-top: 11.96rem;
+    }
+    
+    .applyPerson>p {
+        font-size: .32rem;
+        color: rgba(51, 51, 51, 1);
+        padding-bottom: .133333rem;
+    }
+    
+    .applyPerson div {
+        height: 1.546667rem;
+        width: 100%;
+        border-radius: .133333rem;
+        padding: .133333rem .32rem;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .opacity_mask {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 6;
+        background: rgba(241, 172, 36, 1);
+    }
+    
+    .applyPerson div ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        z-index: 10;
+        position: relative;
+    }
+    
+    .applyPerson div ul li {
+        width: .8rem;
+        height: 1.28rem;
+        line-height: 1.28rem;
+        text-align: center;
+        border-radius: .133333rem;
+        margin-right: .133333rem;
+        background-color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .applyPerson div ul li span {
+        font-size: .64rem;
+        color: rgba(51, 51, 51, 1);
+        z-index: 10;
+        position: relative;
+    }
+    
+    .top_mask {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        top: 0;
+        left: 0;
+        background: rgba(238, 238, 238, 1);
+        z-index: 9;
+    }
+    
+    .applyPerson div ul li:last-child {
+        margin: 0 !important;
+    }
+    
+    .applyPerson div ul li:last-child span {
+        font-size: .533333rem;
+        color: rgba(241, 91, 55, 1);
+    }
+    
+    .apply {
+        border: none;
+        margin-top: .933333rem;
+        margin-bottom: .64rem;
+        width: 7.04rem;
+        height: 1.173333rem;
+        line-height: 1.173333rem;
+        background: linear-gradient(90deg, rgba(254, 142, 46, 1) 0%, rgba(241, 90, 55, 1) 100%);
+        box-shadow: 0px .053333rem .16rem 0px rgba(247, 78, 56, 0.64);
+        border-radius: .586667rem;
+        font-size: .533333rem;
+        color: rgba(255, 255, 255, 1);
+    }
+    
+    .activeTime {
+        font-size: .32rem;
+        color: rgba(51, 51, 51, 1);
+        margin-bottom: .266667rem;
+    }
+    
+    .mask_model {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 665;
+        display: none;
+    }
+    
+    .mask_model>div {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .mask_model .opacity_bg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 1);
+        opacity: 0.8;
+    }
+    
+    .mask_model .main {
+        width: 8.133333rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 666;
+    }
+    
+    .mask_model .main>div {
+        width: 8.133333rem;
+        height: 6.533333rem;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .mask_model .main>div>section {
+        margin-top: 4.866667rem;
+        position: relative;
+        z-index: 667;
+    }
+    
+    .mask_model .main>div>img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 666;
+    }
+    
+    .mask_model .main>div>section>p {
+        font-size: .32rem;
+        font-weight: 500;
+        color: rgba(255, 114, 6, 1);
+        line-height: .373333rem;
+        text-shadow: 0px 2px 6px rgba(255, 177, 16, 0.28);
+    }
+    
+    .mask_model button {
+        border: none;
+        margin-top: .8rem;
+        width: 4.693333rem;
+        height: .8rem;
+        line-height: 0.8rem;
+        background: linear-gradient(90deg, rgba(253, 140, 46, 1) 0%, rgba(243, 76, 35, 1) 100%);
+        box-shadow: 0px .053333rem .16rem 0px rgba(247, 78, 56, 0.64);
+        border-radius: .4rem;
+        font-size: .373333rem;
+        color: rgba(247, 246, 246, 1);
+    }
+</style>
+
+<body>
+    <div class='content'>
+        <div class='applyPerson'>
+            <p>已报名</p>
+            <div>
+                <section class='opacity_mask'></section>
+                <ul>
+                    <li>
+                        <p class='top_mask'></p><span>0</span></li>
+                    <li>
+                        <p class='top_mask'></p><span>1</span></li>
+                    <li>
+                        <p class='top_mask'></p><span>2</span></li>
+                    <li>
+                        <p class='top_mask'></p><span>3</span></li>
+                    <li>
+                        <p class='top_mask'></p><span>4</span></li>
+                    <li>
+                        <p class='top_mask'></p><span>5</span></li>
+                    <li>
+                        <p class='top_mask'></p><span>人</span></li>
+                </ul>
+
+            </div>
+
+        </div>
+        <button class='apply' onclick="applyToRank()">报名参赛</button>
+        <p class='activeTime'>活动时间：6月20日-8月20日</p>
+
+    </div>
+    <div class='mask_model'>
+        <div>
+            <div class='opacity_bg'></div>
+            <div class='main'>
+                <div>
+                    <img src="./image/success_icon.png" alt="">
+                    <section>
+                        <p>团队开始时间</p>
+                        <p>6月20日8:00</p>
+                    </section>
+
+                </div>
+
+                <button onclick="outMask()">我知道了</button>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+<script>
+    function applyToRank() {
+        $('.mask_model').fadeIn()
+    }
+
+    function outMask() {
+        $('.mask_model').fadeOut()
+    }
+</script>
+
+</html>

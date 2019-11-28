@@ -1,0 +1,311 @@
+<!--申请返利小助手-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <title>申请返利小助手</title>
+
+    <style>
+        .sistant_herd {
+            overflow: hidden;
+        }
+
+        .sistantimg {
+            background: rgba(255, 159, 28, 1);
+            width: 100%;
+        }
+
+        .backimg>img {
+            width: 100%;
+            background: rgba(255, 159, 28, 1);
+        }
+
+        .weibu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .centen {
+            width: 9.3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0px 0px 10px 0px rgba(253, 182, 25, 1);
+            background: rgba(255, 231, 196, 1);
+            border-radius: 20px;
+        }
+
+        .a {
+            width: 8.5rem;
+            margin-top: -1.0rem;
+        }
+
+        .IMGP {
+            width: 9.3rem;
+            background: rgba(255, 231, 196, 1);
+            border-radius: 20px;
+            height: 1.5rem;
+            margin-top: -0.3rem;
+        }
+
+        .g {
+            width: 7.6rem;
+            height: 1.4rem;
+            position: relative;
+            top: -2.17rem;
+            left: 0.05rem;
+        }
+
+        .WZSM {
+            color: white;
+            font-size: 0.6rem;
+            position: relative;
+            top: -3.3rem;
+        }
+
+        .JXBZ {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 231, 196, 1);
+            border-radius: 20px;
+            position: relative;
+            top: -1.8rem;
+        }
+
+        .JXBZ ul li {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            height: 1.0rem;
+            width: 8rem;
+            border-radius: 10px;
+            margin-bottom: 0.7rem;
+        }
+
+        .JXBZ ul .teshu {
+            width: 4rem;
+        }
+
+        .JXBZ ul .teshu>input {
+            width: 2.3rem;
+        }
+
+        .JXBZ ul .teshu_one {
+            margin-top: -0.9rem;
+        }
+
+        .JXBZ ul .teshu_one>input {
+            width: 3.9rem;
+        }
+
+        .JXBZ ul li>img {
+            width: 0.5rem;
+            height: 0.5rem;
+            margin-left: 0.4rem;
+
+        }
+
+        .JXBZ ul>button {
+            background-color: white;
+            width: 3.5rem;
+            height: 1rem;
+            position: relative;
+            top: -1.7rem;
+            left: 4.5rem;
+            border-radius: 10px;
+            border: 1px solid white;
+            color: #FF9F1C;
+        }
+
+        .JXBZ ul li .SM {
+            margin-left: 0.4rem;
+            border: none;
+        }
+
+        .jieshi {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            top: -2rem;
+        }
+
+        .jieshi>button {
+            background: linear-gradient(0deg, rgba(255, 206, 0, 1), rgba(255, 234, 146, 1));
+            border-radius: 20px;
+            width: 8rem;
+            height: 1rem;
+            position: relative;
+            top: 1.0rem;
+            border: 1px solid rgba(255, 234, 146, 1);
+            color: #FF7324
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sistant_herd">
+        <div class="sistantimg">
+            <div class="backimg">
+                <img src="./image/apply_for_top_banner.png" />
+            </div>
+            <div class="weibu">
+                <div class="centen">
+                    <img src="./image/title_background.png" class="a" />
+                    <p class="IMGP"></p>
+                    <img src="./image/title_background_twe.png" class="g" />
+                    <p class="WZSM">申请返利小助手</p>
+                    <div class="JXBZ">
+                        <ul>
+                            <li>
+                                <img src="./image/apply_for_icon_account.png" />
+                                <input type="number" id="userID" name="userID" class="SM" placeholder="请输入小绿蓝账户">
+                            </li>
+                            <li class="teshu">
+                                <img src="./image/apply_for_icon_verification_code.png" />
+                                <input id="checkCode" name="checkCode" class="SM" placeholder="请输入验证码">
+                            </li>
+                            <button type="button" id="btnSendCode" onclick="getCheckCode()">获取验证码</button>
+                            <li class="teshu_one">
+                                <img src="./image/apply_for_icon_contact.png" />
+                                <input id="contact" name="contact" class="SM" placeholder="请输入微信号或者QQ号">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="jieshi">
+                        <p>(届时将有工作人员联系审核)</p>
+                        <button type="btn" onclick="applyNow()">立即申请</button>
+                    </div>
+                </div>
+            </div>
+            <!-- <div style=" display: none;">
+                <p class="fzcg">申请失败 请在在检查小绿蓝账号</p>
+                <p class="fzcg">申请成功</p>
+            </div> -->
+
+        </div>
+
+
+    </div>
+</body>
+<script>
+    var SM = [];
+    var http = "https://xiaolvlan.walongkeji.com";
+    var userInfo = {
+        userId: GetQueryString("userId"),
+        ticket: GetQueryString("ticket"),
+        memberType: GetQueryString("memberType")
+    };
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)
+            return unescape(r[2]);
+        return "";
+    }
+
+    function Close() {
+        $(".fzcg").show();
+    }
+
+    //倒计时
+    function disabledVerifCode(second) {
+        second--;
+        if (second) {
+            $("#btnSendCode").attr("disabled", "disabled");
+            $("#btnSendCode").html("重新获取(" + second + "秒)");
+            setTimeout("disabledVerifCode(" + second + ")", 1000);
+        } else {
+            $("#btnSendCode").removeAttr("disabled", "true");
+            $("#btnSendCode").html("重新获取");
+        }
+    }
+
+    //获取验证码
+    function getCheckCode() {
+        var phone = $("#userID").val();
+        var regExp = /^[1][3,4,5,7,8][0-9]{9}$/; //验证手机号码
+        if (!regExp.test(phone)) {
+            alert("账号格式错误");
+            return false;
+        }
+        $.ajax({
+            url: http + "/robot/sendCheckCode",
+            type: "get",
+            data: {
+                phone: phone, //手机号码
+                type: "6", //短信类型
+            },
+            success: function (res) {
+                disabledVerifCode(60);
+                if (res.code == "0") { //短信获取成功
+                    disabledVerifCode(60);
+                    alert(res.data);
+                } else {
+                    alert(res.success);
+                }
+            },
+            error: function (res) {
+                alert("验证码获取失败");
+            }
+        });
+    }
+
+
+    //提交
+    function applyNow() {
+        var phone = $("#userID").val();
+        var regExp = /^[1][3,4,5,7,8][0-9]{9}$/; //验证手机号码
+        if (!regExp.test(phone)) {
+            alert("账号格式错误");
+            return false;
+        }
+        var checkCode = $("#checkCode").val();
+        if ($("#checkCode") == null || $("#checkCode") == "") {
+            alert("请输入验证码");
+            return false;
+        }
+        var contact = $("#contact").val();
+        if ($("#contact") == null || $("#contact") == "") {
+            alert("请输入联系方式");
+            return false;
+        }
+
+        $.ajax({
+            url: http + "/robot/robotRegedit",
+            type: "post",
+            data: {
+                phone: phone, //手机号码
+                checkCode: checkCode, //验证码
+                contactlnfo: contact //联系信息
+            },
+            success: function (res) {
+                if (res.success) {
+                    alert("申请成功！");
+                    SM = res.data;
+                    window.location.href = "./success.html";
+                } else {
+                    alert(res.message);
+                }
+            },
+            error: function (res) {
+                alert("提交申请错误");
+            }
+        });
+    }
+</script>
+
+
+</html>

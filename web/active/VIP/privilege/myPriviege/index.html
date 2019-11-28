@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <title>我的特权</title>
+</head>
+
+<body>
+
+    <div class="login" style="display:none">
+        <div class="topBg">
+            <img src="" alt="">
+            <div>
+                <div>
+                    <span class="username"></span>
+                    <img src="" alt="" class="usertype">
+                </div>
+                <p class="vipTitle"></p>
+            </div>
+        </div>
+        <div class="privilege">
+            <div class="noVip" style="display: none">
+                <div>
+                    <div>
+                        <p>我的福利</p>
+                        <ul>
+                            <li>
+                                <img src="./image/mine_vip_icon_privilege_share.png" alt="">
+                                <p>自购分享</p>
+                                <p>最高53%</p>
+                            </li>
+                            <li>
+                                <img src="./image/mine_vip_icon_team_returns.png" alt="">
+                                <p>团队收益</p>
+                                <p>最高5%</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>VIP福利</p>
+                        <ul>
+                            <li>
+                                <img src="./image/mine_vip_icon_kfc.png" alt="">
+                                <p>肯德基</p>
+                                <p>6折起</p>
+                            </li>
+                            <li>
+                                <img src="./image/mine_vip_icon_add_oil.png" alt="">
+                                <p>77城加油</p>
+                                <p>加油6.5折起</p>
+                            </li>
+                            <li>
+                                <img src="./image/mine_vip_icon_haagendas.png" alt="">
+                                <p>哈根达斯</p>
+                                <p>7折起</p>
+                            </li>
+                            <li>
+                                <img src="./image/mine_vip_icon_movies.png" alt="">
+                                <p>特价电影</p>
+                                <p>2折起</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <img src="./image/mine_vip_dotted_line.png" alt="">
+                </div>
+                <button onclick="changeRouter('setupVip')">升级VIP享受更多特权</button>
+
+            </div>
+            <div class="vip" style="display: none">
+                <ul>
+                    <li onclick=" toHGTS()">
+                        <img src="./image/mine_vip_icon_kfc.png" alt="">
+                        <p>肯德基</p>
+                        <span>6折起</span>
+                    </li>
+                    <li onclick="addOil()">
+                        <img src="./image/mine_vip_icon_add_oil.png" alt="">
+                        <p>77城加油</p>
+                        <span>加油6.5折起</span>
+                    </li>
+                    <li onclick="toHGTS()">
+                        <img src="./image/mine_vip_icon_haagendas.png" alt="">
+                        <p>哈根达斯</p>
+                        <span>7折起</span>
+                    </li>
+                    <li onclick="toHGTS()">
+                        <img src="./image/mine_vip_icon_ticket.png" alt="">
+                        <p>特价电影</p>
+                        <span>2折起</span>
+                    </li>
+                    <li onclick="toHGTS()">
+                        <img src="./image/mine_vip_icon_starbucks.png" alt="">
+                        <p>星巴克</p>
+                        <span>8.3折起</span>
+                    </li>
+                    <li onclick="toHGTS()">
+                        <img src="./image/mine_vip_icon_meituan.png" alt="">
+                        <p>美团外卖</p>
+                        <span>8折点餐</span>
+                    </li>
+                    <li onclick="toHGTS()">
+                        <img src="./image/mine_vip_icon_didi.png" alt="">
+                        <p>滴滴出行</p>
+                        <span>9折起</span>
+                    </li>
+                    <li onclick="toHGTS()">
+                        <img src="./image/mine_vip_icon_vqq.png" alt="">
+                        <p>腾讯会员</p>
+                        <span>6.4折起</span>
+                    </li>
+                </ul>
+                <button onclick="changeRouter('toPrivilegeCenter')">查看更多特权</button>
+
+            </div>
+
+        </div>
+        <img src="./image/mine_power_new_user_banner.png" alt="" class="newPersonGift" onclick="changeRouter('toNewbornZone')">
+
+        <!-- 抢好货 -->
+        <div class="goodsH">
+            <div class="content">
+                <div class="tip">
+                    <p></p>
+                    <p>
+                        抢好货
+                    </p>
+                </div>
+
+                <div class="tab">
+                    <div class="countdown">
+                        <div class="str"></div>
+                        <div class="time">
+                            <p class="bj" id="t-h"></p>
+                            <p class="a">:</p>
+                            <p class="bj" id="t-m"></p>
+                            <p class="a">:</p>
+                            <p class="bj" id="t-s"></p>
+                        </div>
+                    </div>
+                    <div class="bjImg">
+                        <div class="rob">
+                            <ul class="slide-box">
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="tail div before">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 好货返场 -->
+        <div class="goodsBack">
+            <img src="./image/mine_power_image_goods_come_back_title.png" alt="">
+            <ul></ul>
+        </div>
+    </div>
+    <div class="nologin" style="display:none">
+        <img src="./image/unlogin.png" alt="">
+        <p>登录失败？点我再来一次</p>
+        <button onclick="tologin()">登录小绿蓝账号</button>
+    </div>
+</body>
+<script src="./js/index.js"></script>
+<script>
+</script>
+
+</html>

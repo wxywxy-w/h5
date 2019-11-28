@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <link rel="stylesheet" href="index.css">
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <title>新人大礼包</title>
+</head>
+
+<body>
+    <div class='getGiftContent'>
+        <img src="./image/new_activitie_background_banner.png" alt="" class='_bg'>
+        <div class='_rules' onclick="openModel(1)">
+            <span>活</span><span>动</span><span>说</span><span>明</span>
+        </div>
+        <div class='content'>
+            <img src="./image/new_activities_top_sign.png" alt="" class='top_sign'>
+            <div class='getV3' onclick="getGift()">
+            </div>
+            <div class='showV3'>
+                <div>
+                    <span>Vip权益体验剩余</span>
+                </div>
+                <div class='countdown'>
+                    <span class='time day'>0</span>
+                    <span>天</span>
+                    <span class='time mun_b'>0</span>
+                    <span class='time mun_s'>0</span>
+                    <span>小</span>
+                    <span>时</span>
+                    <span class='time min_b'>0</span>
+                    <span class='time min_s'>0</span>
+                    <span>分</span>
+                </div>
+                <button onclick="finnlyOrder()">
+                    立即享受特权
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="linear_bg">
+        <div class='showSomeGift'>
+            <div>
+                <div>
+                    <span>尊享vip高等权益</span>
+                </div>
+                <ul>
+                    <li>
+                        <div>
+                            <img src="./image/showV3/new_activitie_sign_coupons.png" alt="">
+                            <div>
+                                <p>大额优惠券礼包</p>
+                                <p>淘宝、天猫、拼多多等大额优惠</p>
+                            </div>
+
+                        </div>
+
+                        <button onclick='togiftBag()'>去领取</button>
+                        <em></em>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="./image/showV3/new_activitie_sign_rotary.png" alt="">
+                            <div>
+                                <p>每日一次免费幸运大转盘</p>
+                                <p>iponex、面膜、果干等惊喜大奖</p>
+                            </div>
+
+                        </div>
+
+                        <button onclick="game()">去抽奖</button>
+                        <em></em>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="./image/showV3/new_activitie_sign_exchange.png" alt="">
+                            <div>
+                                <p>do米币商城</p>
+                                <p>兑换商城各种精美礼品，等你来拿</p>
+                            </div>
+
+                        </div>
+
+                        <button onclick="toShop()">去兑换</button>
+                        <em></em>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="./image/showV3/new_activitie_sign_shop.png" alt="">
+                            <div>
+                                <p>自购分享商品奖励</p>
+                                <p>最高80%</p>
+                            </div>
+
+                        </div>
+
+                        <button onclick="finnlyOrder()">去购买</button>
+                        <em></em>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="./image/showV3/new_activitie_sign_share.png" alt="">
+                            <div>
+                                <p>邀请好友成为团队成员</p>
+                                <p>下单最高得27%奖励</p>
+                            </div>
+
+                        </div>
+
+                        <button onclick="shareQrCode()">去邀请</button>
+                    </li>
+                </ul>
+                <p class='moreGift'>敬请期待更多特权…</p>
+            </div>
+        </div>
+        <div class='footer'>
+            <img src="./image/new_activitie_image_banner_middle.png" alt="">
+            <section class='whoWork'>
+                <div>
+                    <span>五大人群在做小绿蓝</span>
+                </div>
+                <div class="box">
+                    <div>
+                        <img src="./image/showV3/new_activitie_sign_mother.png" alt="">
+                        <p>全职妈妈</p>
+                        <p>空间大</p>
+                    </div>
+                    <div>
+                        <img src="./image/showV3/ew_activitie_sign_no_work.png" alt="">
+                        <p>自由职业</p>
+                        <p>时间灵活</p>
+                    </div>
+                    <div>
+                        <img src="./image/showV3/new_activitie_sign_student.png" alt="">
+                        <p>大学生</p>
+                        <p>有时间</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div>
+                        <img src="./image/showV3/new_activitie_sign_worker.png" alt="">
+                        <p>上班族</p>
+                        <p>空余多</p>
+                    </div>
+                    <div>
+                        <img src="./image/showV3/new_activitie_sign_leadership.png" alt="">
+                        <p>企业高管</p>
+                        <p>有资源</p>
+                    </div>
+                </div>
+            </section>
+            <div>
+                <h3>关于小绿蓝</h3>
+                <p>小绿蓝是近10亿网民都能用的综合性导购优惠返佣创业平台，它集购物，分享，赚钱一体，将各大平台（隐藏）优惠券集合在app中，领取商品优惠券用最低的价格，买高质量的商品。让用户在社交中分享优惠，分享中创造价值帮助更多的人实现创业梦想。</p>
+            </div>
+        </div>
+    </div>
+    <div class="rules-block" id="rules;">
+        <div>
+            <div></div>
+            <div style='z-index: 667' class='maskbox'>
+                <h1 class="rules-title">活动说明</h1>
+                <ul>
+                    <li>1.活动时间：长期有效。</li>
+                    <li>2.参与规则：活动期间未注册的新用户可前往活动页面进行领取，已注册过的老用户无法参加，每个用户仅限使用一个账户参加活动（同一个小绿蓝账号、手机号、移动设备、支付宝及其他信息相同均视为同一账户。</li>
+                    <li>3.小绿蓝新用户定义：未在小绿蓝APP注册且消费的用户。</li>
+                    <li>4.优惠券领取成功即进入vip七天权益时间，（新用户超过七天未领取，则优惠券失效）。</li>
+                    <li>5.如有疑问，可拨打咨询热线：17348534928。</li>
+                    <li>6.在法律允许的情况下本次活动的最终解释权归小绿蓝所有。</li>
+                </ul>
+                <div class="unGet">
+                    <p></p>
+                </div>
+                <div class="rules-footer">
+                    <button id="rulesbtn" type="button" class="rules-btn-c" onclick="closeModel()">知道了</button>
+                    <button id="rulesbtn" type="button" class="rules-btn-o" onclick="toOtherActive()">查看其它活动</button>
+                </div>
+                <img src="./image/details_button_authorization_close.png" alt="" class="closemodel" onclick="closeModel()">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./index.js"></script>
+
+</html>

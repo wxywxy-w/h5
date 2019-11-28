@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <title>优惠大礼包</title>
+</head>
+<style lang="">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+        list-style: none;
+    }
+    
+    html,
+    body {
+        width: 100%;
+        background: rgba(245, 245, 245, 1);
+    }
+    
+    ul {
+        width: 100%;
+        /* padding: 0 0.416667rem; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 0.277778rem;
+    }
+    
+    li {
+        /* width: 9.875rem; */
+        width: 9.583333rem;
+        height: 2.708333rem;
+        margin-top: 0.277778rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-image: url('./bag_bg.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    
+    li .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        position: relative;
+        right: -0.138889rem;
+    }
+    
+    li .left img {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 0.138889rem;
+        margin-right: 0.277778rem;
+        margin-left: 0.222222rem;
+    }
+    
+    li .left>div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        width: 3.861111rem;
+        height: 1.8rem;
+    }
+    
+    li .left>div P {
+        width: 100%;
+        text-align: left;
+    }
+    
+    li .left>div p:nth-child(1) {
+        font-size: 0.388889rem;
+        color: rgba(51, 51, 51, 1);
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+    
+    li .left>div p:nth-child(2) {
+        font-size: 0.333333rem;
+        color: rgba(128, 128, 128, 1);
+    }
+    
+    li .right {
+        width: 2.638889rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    li .right p span {
+        color: rgba(241, 90, 55, 1);
+        line-height: 0.555556rem;
+        font-size: 0.555556rem;
+    }
+    
+    li .right p span:nth-child(1) {
+        font-size: 0.333333rem;
+        display: inline-block;
+        margin-bottom: 0.208333rem;
+    }
+    
+    li .right button {
+        border: none;
+        width: 1.833333rem;
+        height: 0.611111rem;
+        background: linear-gradient(270deg, rgba(255, 143, 82, 1), rgba(255, 71, 71, 1));
+        box-shadow: 0px 0.055556rem 0.083333rem 0px rgba(234, 47, 45, 0.3);
+        border-radius: 0.305556rem;
+        font-size: 0.333333rem;
+        color: rgba(255, 255, 255, 1);
+        line-height: 0.555556rem;
+    }
+</style>
+
+<body>
+    <ul>
+    </ul>
+</body>
+<script>
+    var http = 'http://49.234.229.202:8088',
+        ajaxParams = {
+            page: 0,
+            pageSize: 10,
+            materialId: 13366 + parseInt(Math.random() * 10)
+        },
+        elArr = [];
+    $(document).ready(function() {
+        ajax()
+    });
+
+    function ajax() {
+        ajaxParams.materialId = 13366 + parseInt(Math.random() * 10)
+        $.ajax({
+            type: "get",
+            dataType: "json",
+            async: false,
+            url: http + "/tbk/getTbkGoodsMaterielList",
+            data: ajaxParams,
+            success: function(data) {
+                if (data.code == 0) {
+                    var html = ''
+                    if (data.data.length > 0) {
+                        data.data.forEach((element, index) => {
+                            html += `
+                                <li>
+                                    <div class='left'>
+                                        <img src="` + element.goodsImageUrl + `" alt="">
+                                        <div>
+                                            <p>` + element.goodsName + `</p>
+                                            <p>` + timeFilter(element.couponStartTime, element.couponEndTime) + `</p>
+                                        </div>
+                                    </div>
+                                    <div class='right'>
+                                        <p>
+                                            <span>￥</span>
+                                            <span>` + (parseInt(element.couponDiscount / 100)) + `</span>
+                                        </p>
+                                        <button onclick='toOrderIn(` + (index + elArr.length) + `)' 
+                                                data-goodsId = ` + element.goodsId + ` 
+                                                data-goodsName=` + element.goodsName + ` 
+                                                data-platformType =` + element.platformType + `
+                                                data-count = ` + (index + elArr.length) + ` 
+                                                 >
+                                            立即领券
+                                        </button>
+                                    </div>
+                                </li>
+                                `
+                        });
+                        elArr = elArr.concat(data.data)
+                    }
+                    $('ul').append(html)
+                }
+            },
+            error: function() {
+                alert('错误');
+            }
+        });
+    } 
+    $(document).scroll(function() {     
+        var scroH = $(document).scrollTop(); //滚动高度
+        var viewH = $(window).height(); //可见高度 
+        var contentH = $(document).height(); //内容高度   
+        if (scroH > 100) { //距离顶部大于100px时
+        }
+        if (contentH - (scroH + viewH) <=  100) { //距离底部高度小于100px
+            ajaxParams.page += 1
+            ajax()
+        } 
+    })
+
+    function toOrderIn(i) {
+        for (let index = 0; index < $('button').length; index++) {
+            const element = $('button')[index];
+            if ($(element).attr('data-count') == i) {
+                let data = {
+                    'name': "toOrderIn",
+                    'goodsId': $(element).attr('data-goodsId'),
+                    'goodsName': $(element).attr('data-goodsName'),
+                    'platformType': $(element).attr('data-platformType'),
+                }
+                let _data = JSON.stringify(data)
+                if (/android/i.test(navigator.userAgent)) {
+                    try {
+                        window.android.toOrderIn(_data);
+                    } catch (e) {
+                        console.log('与android链接中断')
+
+                    }
+                } else if (/ios|iphone|ipod|pad/i.test(navigator.userAgent)) {
+                    try {
+                        window.webkit.messageHandlers.toOrderIn.postMessage(data);
+                    } catch (e) {
+                        console.log('与ios交互-----')
+                        console.log('与ios链接中断')
+                    }
+                }
+                break
+            }
+        }
+    }
+
+    function timeFilter(st, et) {
+        var str = ''
+
+        function add0(m) {
+            return m < 10 ? '0' + m : m
+        }
+        if (st && et && et > st) {
+            var stime = new Date(st),
+                syear = stime.getFullYear(),
+                smonth = stime.getMonth() + 1,
+                sday = stime.getDate(),
+                etime = new Date(et),
+                eyear = etime.getFullYear(),
+                emonth = etime.getMonth() + 1,
+                eday = etime.getDate();
+            str = syear + '.' + add0(smonth) + '.' + add0(sday) + '-' + eyear + '.' + add0(emonth) + '.' + add0(eday)
+        }
+        return str
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <title>领券中心</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+        list-style: none;
+    }
+    
+    .header {
+        width: 100%;
+        height: 4.72rem;
+        background-image: url('./image/chuxing/vip_coupons_image_travel_top.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        padding: .8rem 0 0 1.066667rem;
+    }
+    
+    .header>img {
+        width: 3.706667rem;
+        height: 1.04rem;
+    }
+    
+    .header>p {
+        width: 3.48rem;
+        font-size: .373333rem;
+        color: rgba(255, 255, 255, 1);
+        line-height: .533333rem;
+        padding: .266667rem 0 .533333rem 0;
+    }
+    
+    .header ul {
+        display: flex;
+        align-items: center;
+    }
+    
+    .header ul li {
+        width: .8rem;
+        height: .8rem;
+        margin-right: .266667rem;
+    }
+    
+    .header ul li img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .checkblock {
+        width: 100%;
+    }
+    
+    .checkblock ul {
+        width: 100%;
+        overflow-x: scroll;
+        height: 1.466667rem;
+        display: flex;
+        flex-wrap: nowrap;
+        padding-left: 1.066667rem;
+    }
+    
+    .checkblock ul li {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        position: relative;
+        margin-right: .533333rem;
+    }
+    
+    .checkblock ul>section {
+        width: 0;
+        height: 100%;
+        padding-right: 1.066667rem;
+    }
+    
+    .checkblock ul li:nth-last-child(2) {
+        margin-right: 0 !important;
+    }
+    
+    .checkblock ul li span {
+        font-size: .426667rem;
+        color: rgba(51, 51, 51, 1);
+    }
+    
+    .active {
+        color: rgba(241, 90, 55, 1) !important;
+    }
+    
+    .underline {
+        display: none;
+    }
+    
+    .checkblock ul li div {
+        position: absolute;
+        bottom: 0.08rem;
+        left: .3rem;
+        width: calc(100% - .6rem);
+        height: .08rem;
+        background-color: rgba(229, 93, 71, 1);
+        border-radius: 3px;
+    }
+    
+    .coupons {
+        width: 100%;
+        background: rgba(245, 245, 245, 1);
+        padding: .533333rem .4rem;
+    }
+    
+    .coupons ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .coupons ul li {
+        width: 100%;
+        height: 2.346667rem;
+        background-image: url('./image/vip_coupons_background_coupon.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: .266667rem;
+    }
+    
+    .coupons ul li>div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    
+    .coupons ul li>div:nth-child(1) {
+        justify-content: flex-start;
+    }
+    
+    .coupons ul li>div:nth-child(1)>img {
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-right: .4rem;
+        margin-left: .533333rem;
+    }
+    
+    .coupons ul li>div:nth-child(1)>div {
+        height: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .coupons ul li>div:nth-child(1)>div>p:nth-child(1) {
+        width: 3.88rem;
+        font-size: .4rem;
+        line-height: .533333rem;
+        color: rgba(51, 51, 51, 1);
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+    
+    .coupons ul li>div:nth-child(1)>div>p:nth-child(2) {
+        font-size: .373333rem;
+        color: rgba(128, 128, 128, 1);
+        opacity: 0.5;
+    }
+    
+    .coupons ul li>div:nth-child(2) {
+        width: 2.533333rem;
+    }
+    
+    .coupons ul li>div:nth-child(2)>a {
+        width: 1.573333rem;
+        height: 1.573333rem;
+        background: linear-gradient(90deg, rgba(255, 143, 67, 1), rgba(255, 98, 77, 1));
+        box-shadow: 0px .106667rem .106667rem 0px rgba(253, 78, 52, 0.2);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .coupons ul li>div:nth-child(2)>a p {
+        font-size: .373333rem;
+        color: rgba(255, 255, 255, 1);
+    }
+</style>
+
+<body>
+    <div class="header">
+        <img src="" alt="">
+        <p></p>
+        <ul>
+        </ul>
+    </div>
+    <section class="checkblock">
+        <ul>
+
+            <section></section>
+        </ul>
+    </section>
+    <div class="coupons">
+        <ul>
+
+        </ul>
+
+    </div>
+
+
+</body>
+<script src="index.js"></script>
+
+</html>

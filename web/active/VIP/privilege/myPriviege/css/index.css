@@ -1,0 +1,754 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    text-align: center;
+    list-style: none;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.login {
+    padding-top: 2.777778rem !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(245, 245, 245, 1)
+}
+
+.topBg {
+    width: 100%;
+    height: 4.888889rem;
+    background: linear-gradient(90deg, rgba(255, 159, 28, 1), rgba(241, 90, 55, 1));
+    display: flex;
+    padding: 0.833333rem 0 0 0.694444rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.topBg>img {
+    width: 1.388889rem;
+    height: 1.388889rem;
+    border-radius: 50%;
+    margin-right: 0.277778rem;
+}
+
+.topBg>div>div {
+    height: 0.583333rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.138889rem;
+    margin-top: 0.083333rem;
+}
+
+.topBg .username {
+    font-size: 0.444444rem;
+    color: rgba(254, 254, 254, 1);
+}
+
+.topBg>div img {
+    width: 1.611111rem;
+    height: 0.583333rem;
+    margin-left: 0.138889rem;
+}
+
+.topBg>div p {
+    font-size: 0.361111rem;
+    color: rgba(254, 254, 254, 1);
+    text-align: left;
+}
+
+.privilege {
+    width: 9.583333rem;
+    height: 8rem;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0.138889rem 0.555556rem 0px rgba(250, 202, 143, 0.35);
+    border-radius: 0.277778rem;
+    z-index: 9;
+    position: relative;
+}
+
+.noVip>div {
+    position: relative;
+}
+
+.noVip>div>img {
+    position: absolute;
+    width: 1px;
+    height: 4.861111rem;
+    top: 0.388889rem;
+    left: 1.527778rem;
+}
+
+.noVip>div>div {
+    /* height: 2.222222rem; */
+    display: flex;
+    align-items: center;
+    margin-top: 0.555556rem;
+}
+
+.noVip>div>div>p {
+    width: 0.8rem;
+    color: rgba(51, 51, 51, 1);
+    font-size: 0.333333rem;
+    margin-right: 0.972222rem;
+    margin-left: 0.388889rem;
+}
+
+.noVip>div>div>ul {
+    height: 100%;
+    display: flex;
+}
+
+.noVip>div>div>ul>li {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0.319444rem;
+    width: 1.388889rem;
+}
+
+.noVip>div>div>ul>li>img {
+    width: 1.111111rem;
+    height: 1.111111rem;
+    margin-bottom: 0.263889rem;
+}
+
+.noVip>div>div>ul>li>p:nth-child(2) {
+    color: rgba(51, 51, 51, 1);
+    font-size: 0.333333rem;
+}
+
+.noVip>div>div>ul>li>p:nth-child(3) {
+    color: rgba(128, 128, 128, 1);
+    font-size: 0.277778rem;
+}
+
+.noVip button {
+    width: 5.5rem;
+    height: 0.916667rem;
+    line-height: 0.916667rem;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(254, 142, 46, 1), rgba(241, 90, 55, 1));
+    box-shadow: 0px 4px 8px 0px rgba(241, 90, 55, 0.3);
+    border-radius: 0.458333rem;
+    color: rgba(255, 255, 255, 1);
+    font-size: 0.388889rem;
+    position: absolute;
+    bottom: 0.694444rem;
+    left: 2.041667rem;
+    border: none;
+}
+
+.vip {
+    width: 100%;
+    height: 100%;
+}
+
+.vip ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.555556rem 0.777778rem 0 0.777778rem;
+}
+
+.vip ul li {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 1.944444rem;
+    /* margin-right: 0.75rem; */
+    margin-bottom: 0.555556rem;
+}
+
+.vip ul li:nth-child(4n+4) {
+    margin-right: 0 !important;
+}
+
+.vip ul li>img {
+    width: 1.111111rem;
+    height: 1.111111rem;
+    margin-bottom: 0.263889rem;
+}
+
+.vip ul li>p {
+    font-size: 0.388889rem;
+    color: rgba(51, 51, 51, 1);
+}
+
+.vip ul li>span {
+    font-size: 0.333333rem;
+    color: rgba(128, 128, 128, 1);
+}
+
+.vip button {
+    width: 5.5rem;
+    height: 0.916667rem;
+    line-height: 0.916667rem;
+    background: linear-gradient(90deg, rgba(254, 142, 46, 1), rgba(241, 90, 55, 1));
+    box-shadow: 0px 0.055556rem 0.111111rem 0px rgba(241, 90, 55, 0.3);
+    border-radius: 0.458333rem;
+    text-align: center;
+    font-size: 0.388889rem;
+    color: rgba(255, 255, 255, 1);
+    border: none;
+}
+
+.newPersonGift {
+    width: 9.583333rem;
+    height: 3.666667rem;
+    margin-top: 0.277778rem;
+}
+
+.goodsBack {
+    width: 9.583333rem;
+}
+
+.goodsBack>img {
+    width: 100%;
+    margin-top: 0.555556rem;
+    height: 2.305556rem;
+}
+
+.goodsBack ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 0.277778rem;
+}
+
+.goodsBack ul li {
+    width: 4.666667rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.277778rem
+}
+
+.goodsBack ul li:nth-child(odd) {
+    margin-right: 0.208333rem;
+}
+
+.goodsBack ul li>img {
+    width: 4.666667rem;
+    height: 4.583333rem;
+}
+
+.goodsBack ul li>div {
+    padding: 0.277778rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 0.277778rem;
+    width: 100%;
+}
+
+.goodsBack ul li>div>div:nth-child(1) {
+    width: 100%;
+    position: relative;
+}
+
+.goodsBack ul li>div>div:nth-child(1)>img {
+    width: 0.555556rem;
+    height: 0.555556rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.goodsBack ul li>div>div:nth-child(1)>p {
+    text-indent: 0.555556rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    color: rgba(51, 51, 51, 1);
+    line-height: 0.555556rem;
+    font-size: 0.388889rem;
+    text-align: left;
+}
+
+.goodsBack ul li>div>p {
+    text-align: left;
+    font-size: 0.333333rem;
+    line-height: 0.597222rem;
+    color: rgba(128, 128, 128, 1);
+}
+
+.subsidies {
+    display: flex;
+    align-items: center;
+    margin-top: 0.486111rem;
+}
+
+.subsidies>div {
+    height: 100%;
+    min-width: 1.194444rem;
+    background-image: url('../image/list_coupons_small.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-size: 0.333333rem;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+}
+
+.subsidies>p:nth-child(1) {
+    width: 1.194444rem;
+    height: 0.444444rem;
+    background: linear-gradient(90deg, rgba(255, 109, 70, 1), rgba(255, 159, 106, 1));
+    border-radius: 0.222222rem;
+    font-size: 0.333333rem;
+    color: rgba(255, 255, 255, 1);
+    line-height: 0.444444rem;
+    text-align: center;
+}
+
+.subsidies>p:nth-child(3) {
+    margin-left: 0.138889rem;
+    font-size: 0.333333rem;
+    color: rgba(241, 90, 55, 1);
+    line-height: 0.444444rem;
+    width: 2.222222rem;
+    height: 0.444444rem;
+    background: rgba(255, 232, 225, 1);
+    border-radius: 0.222222rem;
+}
+
+._price {
+    display: flex;
+    align-items: baseline;
+}
+
+._price p:nth-child(1) {
+    color: rgba(241, 90, 55, 1);
+    font-size: .373333rem;
+}
+
+._price p:nth-child(1) span {
+    font-size: .533333rem;
+}
+
+._price p:nth-child(2) {
+    font-size: .32rem;
+    position: relative;
+    margin-left: .133333rem;
+    margin-right: .133333rem;
+    color: rgba(128, 128, 128, 1);
+}
+
+._price p:nth-child(2) ._line {
+    width: 100%;
+    height: .026667rem;
+    background: rgba(128, 128, 128, 1);
+    position: absolute;
+    top: .113333rem;
+    left: 0;
+}
+
+.nologin {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(245, 245, 245, 1);
+}
+
+.nologin img {
+    width: 6.111111rem;
+    height: 6.111111rem;
+    margin: 1.319444rem 0 0.555556rem 0;
+}
+
+.nologin p {
+    font-size: 0.388889rem;
+    color: rgba(51, 51, 51, 1);
+    margin-bottom: 0.833333rem;
+}
+
+.nologin button {
+    width: 4.888889rem;
+    height: 1.222222rem;
+    background: rgba(241, 90, 55, 1);
+    border-radius: 0.611111rem;
+    font-size: 0.416667rem;
+    color: rgba(255, 255, 255, 1);
+    border: none;
+}
+
+
+/*抢好货 */
+
+.goodsH {
+    width: 100%;
+    margin-top: 0.277778rem;
+    position: relative;
+}
+
+.goodsH .tip {
+    position: absolute;
+    left: 0;
+    top: 0.402778rem;
+    display: flex;
+    align-items: center;
+}
+
+.goodsH .tip p:nth-child(1) {
+    width: 0.138889rem;
+    height: 0.416667rem;
+    background: rgba(241, 90, 55, 1);
+    border-radius: 0.069444rem;
+    margin-right: 0.069444rem;
+    margin-left: 0.277778rem;
+}
+
+.goodsH .tip p:nth-child(2) {
+    color: rgba(51, 51, 51, 1);
+    font-size: 0.444444rem;
+}
+
+.content {
+    overflow: hidden;
+}
+
+.tab {
+    height: 3rem;
+    background: #FFFFFF;
+}
+
+
+/* .backimg {
+    width: 100%;
+    position: absolute;
+}
+
+.backimg>img {
+    width: 1.9rem;
+    height: 1.1rem;
+} */
+
+#activeli>img {
+    width: 2.28rem;
+    position: absolute;
+    height: 1.32rem;
+    top: -0.15rem;
+    left: -0.24rem;
+    z-index: -1;
+}
+
+#activeli>p {
+    color: white;
+}
+
+.bjImg {
+    background: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.9rem;
+    z-index: 999;
+}
+
+.tab .rob {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.9rem;
+    background: #fff;
+    z-index: 999;
+}
+
+.onactive {
+    color: #f9ff04 !important;
+}
+
+.rob>ul>li>p {
+    font-family: PingFang-SC-Regular;
+    font-weight: 300;
+    line-height: 0.5rem;
+    color: #808080;
+}
+
+.rob .robtime>p {
+    position: relative;
+    top: 0.3rem;
+    left: 0.5rem;
+}
+
+ul,
+li {
+    list-style: none;
+    ;
+}
+
+.slide-box {
+    display: -webkit-box;
+    overflow-x: auto;
+    padding: 0.4rem;
+    z-index: 999;
+}
+
+.slide-item {
+    width: 1.8rem;
+    height: 1.2rem;
+    position: relative;
+    /* margin-right: 0.255rem;
+    text-align: center; */
+}
+
+.slide-box:-webkit-scrollbar {
+    display: none;
+}
+
+.countdown {
+    height: 1.1rem;
+    display: flex;
+    margin-left: 3rem;
+}
+
+.str {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.str>img {
+    width: 0.45rem;
+    height: 0.45rem;
+}
+
+.str>p {
+    font-size: 0.41rem;
+    font-family: PingFang-SC-Regular;
+    font-weight: 200;
+    color: #333333;
+    padding: 0.1rem;
+}
+
+.time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 0.5rem;
+}
+
+.time>p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1rem;
+}
+
+.time .bj {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #F15A37;
+    border-radius: 0.1rem;
+}
+
+.time .a {
+    color: #F15A37;
+    font-size: 0.4rem;
+}
+
+.tail {
+    width: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.robbed {
+    width: 9.4rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 0.45rem;
+    display: flex;
+    align-items: center;
+    margin-top: 0.4rem;
+}
+
+.goodurl>img {
+    width: 3.7rem;
+    height: 3.7rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    margin: 0.2rem;
+}
+
+.r-bcw {
+    width: 100%;
+    height: 4.0rem;
+    display: flex;
+    align-self: end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.r-bcw .jing {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 0.15rem;
+    margin-top: -0.3rem;
+}
+
+.r-bcw>p {
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: #333333;
+    margin: 0.05rem;
+    width: 4.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    font-size: 0.4rem;
+    margin-top: -0.3rem;
+    text-align: -webkit-left;
+}
+
+.r-bcw .xiao {
+    width: 100%;
+    color: rgba(128, 128, 128, 1);
+    margin-top: -1.0rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.xiao>p {
+    text-align: left;
+}
+
+.Alreadyrobbed .yq {
+    height: 0.43rem;
+    background: #FF5043;
+    border-radius: 0.2rem;
+    position: absolute;
+    left: 4.43rem;
+}
+
+.Alreadyrobbed .bf {
+    width: 2.9rem;
+    height: 0.43rem;
+    background: rgb(247, 220, 213);
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.4rem;
+    color: white;
+    overflow: hidden;
+}
+
+.bf>p {
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Alreadyrobbed .subsidy {
+    color: rgba(241, 90, 55, 1);
+    position: relative;
+    left: 2.5rem;
+    top: -0.3rem;
+}
+
+.money-m {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -0.17rem;
+    right: 0.5rem;
+}
+
+.money-m .money {
+    font-size: 0.47rem;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(241, 90, 55, 1);
+}
+
+.money-m .price {
+    text-decoration: line-through;
+    color: rgba(128, 128, 128, 1);
+}
+
+.Alreadyrobbed .btn {
+    width: 1.7rem;
+    height: 0.6rem;
+    background: linear-gradient(270deg, rgba(255, 143, 82, 1), rgba(255, 71, 71, 1));
+    box-shadow: 0px 4px 6px 0px rgba(234, 47, 45, 0.3);
+    border-radius: 22px;
+    color: white;
+    margin-left: 3.1rem;
+    position: relative;
+    top: -0.8rem;
+    border: 1px solid rgba(255, 159, 28, 1)
+}
+
+.Alreadyrobbed .btn-Y {
+    width: 1.7rem;
+    height: 0.6rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 22px;
+    color: rgba(255, 159, 28, 1);
+    margin-left: 3.1rem;
+    position: relative;
+    top: -0.85rem;
+    border: 1px solid #FF9F1C
+}
+
+.money-y .price {
+    text-decoration: line-through;
+    color: rgba(128, 128, 128, 1);
+}
+
+.myProgress {
+    position: relative;
+    right: 3.1rem;
+    background-color: #FF5043;
+    border-radius: 20px;
+}
+
+div#loadbar {
+    width: 2.9rem;
+    height: 0.4rem;
+    text-align: center;
+    border-radius: 0.25rem;
+    margin-top: -2.5rem;
+}
+
+
+/*预约*/
+
+.appo_remind {
+    background: #FF9F1C;
+}
+
+
+/*预约完成*/
+
+.appo_done {
+    background: rgba(255, 255, 255, 1);
+}

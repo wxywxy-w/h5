@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./index.css">
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <title>0元购</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div class='header'>
+        <p>活动时间:8月22日-10月1日</p>
+        <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/zerobuy/image/keynote_icon.png" alt="">
+    </div>
+    <div class='notice' style="display: none">
+        <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/zerobuy/image/notice_icon.png" alt="">
+        <span>活动提示：先下单付款购买商品，平台再将补贴转入您的账户。</span>
+    </div>
+    <div class='scrollbar'>
+        <ul>
+        </ul>
+    </div>
+    <div class="buyCount">
+        <p>
+            当前累计邀请人数为0人
+        </p>
+        <div>
+            <p>我的额外抢购次数：<span>0</span></p>
+            <span>
+                    每场可免费抢购1次，每邀请2位新人注册，加1次抢购数量
+            </span>
+        </div>
+
+
+    </div>
+    <div class='goodslist'>
+        <div class='diagram'>
+            <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/zerobuy/image/diagram_icon.png" alt="">
+        </div>
+        <div class='listmain'>
+            <div class='redblock'></div>
+            <div class='grop'>
+                <div class='underblock'>
+                    <ul>
+                    </ul>
+                </div>
+
+            </div>
+            <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/zerobuy/image/up_icon.png" alt="" class='end'>
+        </div>
+
+        <div class='_footer'>
+            <div>
+                <button onclick="showModel(4)">我的抢购记录</button>
+                <button onclick='shareGoodsDtails()'>分享好友得次数</button>
+            </div>
+            <section>
+                活动规则：<br> 1.活动时间：2019年8月22日至2019年10月1日
+                         <br>2.参与要求：app内用户均可参与
+                   <br>3.参与活动，红包每件商品只能领取一次，领取红包后请尽快使用，（红包有效时间是自领取开始推迟24小时）
+           <br>4.红包仅限指定商品使用，红包下单直减。领取的红包可在【手机淘宝】-我的淘宝内查询
+      <br>5.每场商品不参与返佣，单个商品每个账户仅可购买一次，（此活动为小绿蓝专享活动）有任何疑问可联系小绿蓝客服
+     <br>6.活动过程中，如果出现因网络攻击，黑客攻击，数据泄露等原因导致活动无法继续，小绿蓝有权利提前终止活动：
+ <br>7.部分活动商品青海，甘肃，宁县，内蒙，新疆，西藏等偏远地区不包邮
+ <br>8.最终解释权归小绿蓝所有
+ <br>9.此活动与苹果公司无关
+            </section>
+        </div>
+    </div>
+    <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/zerobuy/image/down_icon.png" alt="" class='down_icon'>
+    <section class='modelbox'>
+        <div>
+            <div class='shadowmask' onclick="hideModel()"></div>
+            <div class='box orderstatus'>
+                <div class="buy">
+                    <h1>确认抢购该商品</h1>
+                    <div>
+                        <div class="knock">
+                            <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/zerobuy/image/attention.png" alt="">
+                        </div>
+                        <div class="ct">
+                            <div class='_goodsImg'>
+                                <img src="" alt="">
+                            </div>
+                            <div class="_content">
+                                <p class="_"></p>
+                                <div class='_c'>
+                                    <p>限量一份</p>
+                                </div>
+                                <div class="_b">
+                                    <span style='font-size:.426667rem;color:#fe327c'>￥0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick='showModel(0)'>确认抢购</button>
+                    </div>
+
+                </div>
+                <div class="success">
+                    <div>
+                        <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/zerobuy/image/success_light .png" alt="">
+                        <p>免单已到达，请查收</p>
+                        <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/zerobuy/image/success_right.png" alt="">
+                    </div>
+                    <p></p>
+                    <div class="copy" id='Clipboard' data-clipboard-text='' data-clipboard-action="copy" onclick=''>点击复制
+                    </div>
+                    <span>点击复制后，打开淘宝，领取免单商品</span>
+                </div>
+
+                <div class="fail">
+                    <div>
+                        <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/zerobuy/image/fail_light.png" alt="">
+                        <p>免单商品被其他人抢走了</p>
+                        <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/zerobuy/image/fail_right.png" alt="">
+                    </div>
+                    <p>不要灰心，去看看其他商品吧</p>
+                    <button onclick="hideModel()">再去看看</button>
+                </div>
+                <div class="loading">
+                    <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/zerobuy/image/loading.png" alt="">
+                    <p> 免单商品正在快马加鞭赶来，请稍等...</p>
+                </div>
+                <div class="buyLogs">
+                    <h1>我的抢购记录</h1>
+                    <div>
+                        <div class="thead">
+                            <span style="position: relative;right: -0.208333rem;">时间</span>
+                            <span>淘口令</span>
+                            <span style="position: relative;left: -0.208333rem;">操作</span>
+                        </div>
+                        <ul>
+
+                        </ul>
+                    </div>
+                    <button onclick="hideModel()">我知道了</button>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <div class='tipbox'>
+        <div>
+            <div></div>
+            <p class='ctx'>
+            </p>
+
+        </div>
+
+
+    </div>
+</body>
+<script src="./index.js"></script>
+
+</html>

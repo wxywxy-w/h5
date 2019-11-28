@@ -1,0 +1,326 @@
+<!--预约机器人-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>预约机器人</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+    <style>
+        .App_herd {
+            width: 100%;
+            background: rgba(255, 179, 40, 1);
+            overflow: hidden;
+        }
+
+        .bady {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+        }
+
+        .banner {
+            margin-bottom: 0.8rem;
+        }
+
+        .banner>img {
+            width: 100%;
+            background: rgba(255, 179, 40, 1);
+        }
+
+        .writtg {
+            text-align: center;
+            color: white;
+            font-size: 0.45rem;
+            font-family: PingFang SC;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .iphone {
+            width: 8rem;
+            height: 0.7rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 1);
+            border: 2px solid rgba(255, 150, 0, 1);
+            border-radius: 44px;
+            font-size: 0.35rem;
+            padding: 0.2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .iphone>input {
+            border: none;
+            font-size: 0.4rem;
+            color: rgba(255, 179, 40, 1);
+        }
+
+        .iphone>button {
+            color: white;
+            width: 2.0rem;
+            height: 0.8rem;
+            border: 1px solid rgba(255, 150, 0, 1);
+            background: rgba(255, 150, 0, 1);
+            border-radius: 36px;
+        }
+
+        .lunbo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lunbo>img {
+            width: 100%;
+        }
+
+        ol,
+        li {
+            list-style: none;
+        }
+
+        .zhushou {
+            font-size: 0.45rem;
+            color: white;
+        }
+
+        .swiper-container {
+            width: 95%;
+            height: 400px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+
+            transition: 300ms;
+            /*缩放大小*/
+            transform: scale(0.8);
+            /*透明度*/
+            opacity: 0.6;
+
+        }
+
+        .swiper-slide-active,
+        .swiper-slide-duplicate-active {
+            /*中间位置缩放大小*/
+            transform: scale(1);
+            /*透明度*/
+            opacity: 1;
+            /*层级顶上*/
+            z-index: 9;
+        }
+
+        .rule {
+            color: white;
+            width: 95%;
+            padding: 1rem 0;
+            margin: 0 auto;
+            font-size: 0.3rem;
+            line-height: 0.4rem;
+        }
+
+        .rule p {
+            margin: 0.1rem 0;
+        }
+
+        .rule>.title {
+            font-size: 0.45rem;
+            margin-bottom: .3rem;
+        }
+
+        /* .userAccount {
+            outline: none;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="App_herd">
+        <div class="bady">
+            <div class="banner">
+                <img src="./image/make_appointment_top_banner.png" />
+            </div>
+
+            <div class="writtg">
+                <p>预约成功</p>
+                <p>我们将挑选1000名幸运用户永久免费</p>
+            </div>
+            <div class="iphone">
+                <input class="userAccount" placeholder="请输入手机号码"></input>
+                <button onclick="checkMobile()">立即预约</button>
+            </div>
+
+            <div class="lunbo">
+                <p class="zhushou">助手内容介绍</p>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="./image/make_appointment_img_one.png" alt="Shrine"
+                                width="100%"></div>
+                        <div class="swiper-slide"><img src="./image/make_appointment_img_twe.png" alt="Shrine"
+                                width="100%"></div>
+                        <div class="swiper-slide"><img src="./image/make_appointment_img_three.png" alt="Shrine"
+                                width="100%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule">
+                <p class="title">活动规则说明</p>
+                <p>1.绿蓝助手将从预约人数中挑选1000名赠送永久免费资格。</p>
+                <p>2.绿蓝助手赠送资格会发送短信至您的手机，届时请使用预约的手机号码登陆注册。</p>
+                <p>3.名额有限,送完即止。</p>
+            </div>
+        </div>
+
+        <div class="yuyeu" style="display: none;">
+            <p class="ok">预约成功</p>
+        </div>
+    </div>
+
+</body>
+
+<!-- Load jQuery -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 2, //显示数量
+        initialSlide: 0, //默认显示第一个
+        spaceBetween: -70, //间距
+        centeredSlides: true, //居中
+        loop: true, //循环
+
+        pagination: {
+            clickable: true,
+            touchRatio: 1,
+            observer: true, //修改swiper自己或子元素时，自动初始化swiper
+            observeParents: true, //修改swiper的父元素时，自动初始化swiper
+        },
+    });
+    var http = "https://xiaolvlan.walongkeji.com",
+
+        userInfo = {
+            userId: " ",
+            ticket: " ",
+            memberType: ""
+
+        };
+    userInfo.userId = GetQueryString("userId");
+    userInfo.ticket = GetQueryString("ticket");
+    userInfo.memberType = GetQueryString("memberType");
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)
+            return unescape(r[2]);
+        return "";
+    }
+    let data = {
+        phone: ""
+
+    }
+    var iphone = []
+    $.ajax({
+        url: http + "/robot/phoneRegedit",
+        type: "post",
+        data: data,
+        success: function (res) {
+            // console.log("ajaxtime");
+            if (res.success) {
+                iphone = res.data;
+            }
+        }
+    });
+
+    //正则匹配手机号
+    function checkMobile(str) {
+        var str = $("input").val()
+        if (str == "") {
+            alert("手机号不能为空！");
+        } else {
+            var re = /^1\d{10}$/ //以1开始后面加10位数字
+            if (re.test(str)) {
+                // $(".ok").hide();
+                // setTimeout(function () {
+                //     $(".ok").show()
+                // }, 5000);
+                alert("预约成功！");
+            } else {
+                alert("手机号格式错误！");
+            }
+        }
+    }
+
+    // function checkMobile() {
+    //     var userAccount = $(".userAccount").val().trim();
+    //     var tell = /^1(3|4|5|7|8)\d{9}$/;
+    //     if (!userAccount) {
+    //         $.alert("请输入手机号码");
+    //         return false;
+    //     } else if (!tell.test(userAccount)) {
+    //         $.alert("请输入正确的手机号码!");
+    //         return false;
+    //     } else {
+    //         $.ajax({
+    //             url: http + "/robot/phoneRegedit", //获取接口
+    //             type: "post",
+    //             data: {
+    //                 phone: "" //获取接口参数
+    //             },
+    //         });
+    //     }
+    // }
+
+    // function disabledVerifCode(second){
+    //     second--;
+    //     if(second){
+    //         $("#btnSendCode").attr("disabled","disabled");
+    //         $("#btnSendCode").html("重新获取("+second+"秒)");
+    //         setTimeout("disabledVerifCode("+second+")", 1000);
+    //     }else{
+    //         $("#btnSendCode").removeAttr("disabled");
+    //         $("#btnSendCode").html("重新获取");
+    //     }
+    // }
+    // success: function (obj) {
+    //                 disabledVerifCode(60);
+    //                 if (obj.message == "OK") { //短信获取成功
+    //                     disabledVerifCode(60);
+    //                 } else {
+    //                     $.alert(obj.message);
+    //                 }
+    //             },
+    //             error: function (data) {
+    //                 $.alert("验证码获取失败");
+    //             }
+</script>
+
+</html>

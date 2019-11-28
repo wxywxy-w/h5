@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/index.css">
+  <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+  <title>新人专区</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: PingFang-SC-Regular;
+      font-weight: 400;
+      text-align: center;
+      list-style: none;
+    }
+
+    .centen {
+      width: 100%;
+      margin-top: 0.3rem;
+    }
+
+    .centen .p {
+      width: 100%;
+      height: 0.1rem;
+      background-color: darkgray;
+      opacity: 0.4;
+    }
+
+    .centen #p {
+      height: 0.2rem;
+    }
+
+    .gm>img {
+      width: 100%;
+      background: rgba(255, 255, 255, 1);
+      padding: 0.25rem;
+    }
+
+    .wz {
+      display: flex;
+      padding: 0.3rem;
+      color: #333333;
+      font-size: 0.45rem;
+    }
+
+    .yq>img {
+      width: 100%;
+      background: rgba(255, 255, 255, 1);
+      padding: 0.25rem;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="centen">
+    <div class="yq">
+      <div class="gm" onclick="toGuide()">
+        <p class="wz">1.新手指南-手把手教你</p>
+        <img src="./image/strategy.png">
+      </div>
+      <p class="p" id="p"></p>
+      <div class="yq" onclick="toNewPersonGift()">
+        <p class="wz">2.新人大礼包-专享精彩福利</p>
+        <img src="./image/giftpack.png">
+      </div>
+    </div>
+  </div>
+
+
+</body>
+<script>
+  userInfo = {
+    userId: " ",
+    ticket: " ",
+    memberType: ""
+  };
+  userInfo.userId = GetQueryString("userId");
+  userInfo.ticket = GetQueryString("ticket");
+  userInfo.memberType = GetQueryString("memberType");
+
+  function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null)
+      return unescape(r[2]);
+    return "";
+  }
+
+  function toGuide() {
+    window.location.href = window.location.origin + '/guide/index.html?userId=' + userInfo.userId + '&ticket=' +
+      userInfo.ticket + '&memberType=' + userInfo.memberType
+  }
+
+  function toNewPersonGift() {
+    window.location.href = window.location.origin + '/newPersonGift/index.html?userId=' + userInfo.userId + '&ticket=' +
+      userInfo.ticket + '&memberType=' + userInfo.memberType
+  }
+
+</script>
+
+</html>

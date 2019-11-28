@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"
+    integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
+  <title>活动中心</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: SourceHanSansSC-Light;
+    font-weight: 300;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    -webkit-overflow-scrolling: touch;
+    background: #fafafa;
+  }
+
+  button {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .taskcenter {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top_background {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 4.45rem;
+  }
+
+  .taskcenter ul {
+    width: 9.2rem;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 8px 0px rgba(128, 128, 128, 0.2);
+    border-radius: .28rem;
+    margin-top: .42rem;
+    padding: .43rem .44rem 0 .44rem;
+    position: relative;
+  }
+
+  .taskcenter ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .42rem 0;
+  }
+
+  .line {
+    position: absolute;
+    right: 0;
+    width: 7.2rem;
+    height: 2px;
+    background: rgba(240, 240, 240, 1);
+  }
+
+  .taskcenter ul>p {
+    font-size: .426667rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: .25rem;
+  }
+
+  .taskcenter ul li img {
+    width: 1.28rem;
+    height: 1.28rem;
+  }
+
+  .taskcenter ul li section {
+    display: flex;
+  }
+
+  .taskcenter ul li button {
+    width: 1.466667rem;
+    height: .586667rem;
+    line-height: .586667rem;
+    text-align: center;
+    border-radius: .293333rem;
+    font-size: .31rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    border: none;
+  }
+
+  .godbit {
+    background: rgba(255, 159, 28, 1);
+  }
+
+  .silverbit {
+    background: rgba(241, 90, 55, 1);
+    ;
+  }
+
+  .taskcenter ul li section div {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: .28rem;
+    /* padding-right: 0.28rem; */
+  }
+
+  .taskcenter ul li div span:nth-child(1) {
+    font-size: .39rem;
+    color: rgba(0, 0, 0, 1);
+  }
+
+  .taskcenter ul li div span:nth-child(2) {
+    font-size: .34rem;
+    color: rgba(136, 136, 136, 1);
+  }
+
+</style>
+
+<body>
+  <div class='taskcenter'>
+    <img src="./img/index.png" alt="" class='top_background'>
+    <ul>
+      <p>金币任务</p>
+      <li>
+        <section>
+          <img src="./img/er wei ma.png" alt="">
+          <div>
+            <span>分享你的二维码</span>
+            <span>分享你的二维码给好友，邀请加入</span>
+          </div>
+        </section>
+        <button class='godbit' onclick='shareQrCode()'>赚金币</button>
+
+      </li>
+      <span class='line'></span>
+      <!-- <li>
+                <section>
+                    <img src="./img/fen xiang shang pin .png" alt="">
+                    <div>
+                        <span>分享满意的商品</span>
+                        <span>给好友分享自己满意的商品</span>
+                    </div>
+
+                </section>
+
+                <button class='godbit' onclick="shareGood()">赚金币</button>
+
+            </li> -->
+      <!-- <span class='line'></span> -->
+      <li>
+        <section>
+          <img src="./img/shopping.png" alt="">
+          <div>
+            <span>完成订单</span>
+            <span>购买自己喜爱的商品，完成订单</span>
+          </div>
+
+        </section>
+
+        <button class='godbit' onclick="finnlyOrder()">赚金币</button>
+
+      </li>
+    </ul>
+    <ul>
+      <p>do米任务</p>
+      <li>
+        <section>
+          <img src="./img/qian dao.png" alt="">
+          <div>
+            <span>今日签到</span>
+            <span>每日签到可以拿do米哦~</span>
+          </div>
+
+        </section>
+
+        <button class='silverbit' onclick="check()">赚do米</button>
+
+      </li>
+      <span class='line'></span>
+      <li>
+        <section>
+          <img src="./img/chou jiang.png" alt="">
+          <div>
+            <span>转盘抽奖</span>
+            <span>幸运大转盘，惊喜转不停！</span>
+          </div>
+
+        </section>
+
+        <button class='silverbit' onclick="goTurnTable()">赚do米</button>
+      </li>
+    </ul>
+
+  </div>
+
+</body>
+<script>
+  var https, userId, ticket
+  // 获取url参数
+  function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg); //search,查询？后面的参数，并匹配正则
+    if (r != null) return decodeURIComponent(r[2]);
+    return null;
+  }
+  // 判断url是否携带参数
+  userId = GetQueryString("userId") == null ? 45 : GetQueryString("userId")
+  ticket = GetQueryString("ticket") == null ? 'VG1jOVBRPT07TWpNeTs2Ng==' : GetQueryString("ticket")
+  // 签到跳转
+  function check() {
+    window.location.href = window.location.origin + '/active/checkin/index.html?userId=' + userId + '&ticket=' + ticket
+  }
+  // 转盘跳转
+  function goTurnTable() {
+    window.location.href = 'http://test.laifadan.com/game/game.html?userId=' + userId + '&ticket=' + ticket
+  }
+  // 分享二维码
+  function shareQrCode() {
+    if (/android/i.test(navigator.userAgent)) {
+      try {
+        window.android.shareQrCode();
+      } catch (e) {
+
+      }
+    } else if (/ios|iphone|ipod|pad/i.test(navigator.userAgent)) {
+      try {
+        window.webkit.messageHandlers.shareQrCode.postMessage({
+          'name': 'shareQrCode'
+        });
+      } catch (e) {
+
+      }
+    }
+
+
+  }
+  // 分享商品
+  function shareGood() {
+
+    if (/android/i.test(navigator.userAgent)) {
+      try {
+        window.android.shareGood();
+      } catch (e) {
+
+      }
+    } else if (/ios|iphone|ipod|pad/i.test(navigator.userAgent)) {
+      try {
+        window.webkit.messageHandlers.shareGood.postMessage({
+          'name': 'shareGood'
+        });
+      } catch (e) {
+
+      }
+    }
+
+  }
+  // 完成订单
+  function finnlyOrder() {
+    if (/android/i.test(navigator.userAgent)) {
+      try {
+        window.android.finnlyOrder();
+      } catch (e) {
+
+      }
+    } else if (/ios|iphone|ipod|pad/i.test(navigator.userAgent)) {
+      try {
+        window.webkit.messageHandlers.finnlyOrder.postMessage({
+          'name': 'finnlyOrder'
+        });
+      } catch (e) {
+
+      }
+    }
+
+
+  }
+
+</script>
+
+</html>

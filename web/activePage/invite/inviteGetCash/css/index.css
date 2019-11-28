@@ -1,0 +1,326 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    text-align: center;
+    list-style: none;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(238, 186, 46, 1);
+}
+
+body>img {
+    width: 100%;
+    height: 8.444444rem;
+}
+
+body>div {
+    width: 9.583333rem;
+    height: 6.527778rem;
+    background: rgba(255, 207, 77, 1);
+    border-radius: 0.277778rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.416667rem;
+}
+
+body>div>div {
+    width: 9.194444rem;
+    height: 6.111111rem;
+    background: rgba(255, 244, 233, 1);
+    border-radius: 0.277778rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.activeRule {
+    width: 0.833333rem;
+    height: 1.222222rem;
+    border-radius: 0px 0px 0.305556rem 0.305556rem;
+    position: absolute;
+    top: 0;
+    right: 0.416667rem;
+    overflow: hidden;
+}
+
+.activeRule>div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activeRule>div>div {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+    opacity: 0.6;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.activeRule>div>p {
+    position: relative;
+    z-index: 11;
+    width: 0.638889rem;
+    /* height: 0.763889rem; */
+    font-size: 0.28rem;
+    color: rgba(255, 255, 255, 1);
+    line-height: 0.444444rem;
+}
+
+body>div>div .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.416667rem;
+}
+
+body>div>div .title em {
+    width: 1.819444rem;
+    height: 0.027778rem;
+    background-image: url('../image/dotline.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+body>div>div .title p {
+    font-size: 0.5rem;
+    color: rgba(51, 51, 51, 1);
+    font-weight: 500;
+    margin: 0 0.069444rem;
+}
+
+.taskProgress>div .content {}
+
+.hasProgress {
+    display: none;
+}
+
+.hasProgress>p {
+    font-size: 0.361111rem;
+    color: rgba(51, 51, 51, 1);
+    width: 100%;
+    text-align: left;
+    margin-top: 0.958333rem;
+    margin-bottom: 0.277778rem;
+}
+
+.noProgress {
+    font-size: 0.416667rem;
+    color: rgba(253, 80, 0, 1);
+    margin: 1.5rem 0 1.583333rem 0;
+    display: none;
+}
+
+.taskProgress>div button {
+    position: absolute;
+    bottom: 0.527778rem;
+    width: 5.5rem;
+    height: 1.222222rem;
+    background: linear-gradient(90deg, rgba(255, 149, 0, 1), rgba(253, 80, 0, 1));
+    box-shadow: 0px 0.055556rem 0.111111rem 0px rgba(232, 73, 0, 0.79);
+    border-radius: 0.611111rem;
+    font-size: 0.444444rem;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 500;
+    border: none;
+}
+
+.myCash .cash {
+    background-image: url('../image/_rights.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 8.583333rem;
+    height: 3.666667rem;
+    line-height: 3.666667rem;
+    text-align: center;
+    font-size: 0.611111rem;
+    font-family: DFPYaSongW9;
+    font-weight: 400;
+    color: rgba(255, 212, 139, 1);
+    margin-top: 0.65rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.myCash .nocash {
+    width: 8.583333rem;
+    height: 3.666667rem;
+    background-image: url('../image/no\ rights.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: none;
+    margin-top: 0.65rem;
+}
+
+.rule {
+    width: 9.583333rem;
+}
+
+.rule>h1 {
+    font-size: 0.416667rem;
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 0.416667rem;
+    text-align: left;
+}
+
+.rule ul {
+    width: 100%;
+    margin-bottom: 0.555556rem;
+}
+
+.rule ul li {
+    font-size: 0.333333rem;
+    color: rgba(255, 255, 255, 1);
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0.277778rem;
+}
+
+#progressBar {
+    width: 8.5rem;
+}
+
+#progressBar ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+#progressBar ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 11;
+}
+
+.activeColor {
+    color: rgba(253, 80, 0, 1) !important;
+}
+
+#progressBar ul li>img {
+    width: 0.472222rem;
+    height: 0.472222rem;
+    position: relative;
+    z-index: 11;
+}
+
+#progressBar ul li>p {
+    position: absolute;
+    bottom: -0.486111rem;
+    min-width: 1.666667rem;
+    color: rgba(170, 170, 170, 1);
+}
+
+#progressBar .line {
+    width: calc(100% - 0.194444rem);
+    height: 0.083333rem;
+    background: rgba(184, 184, 184, 1);
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    left: 0.097222rem;
+    ;
+}
+
+#progressBar .line>div {
+    width: 0;
+    height: 100%;
+    background: red;
+    position: relative;
+}
+
+.mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    display: none;
+}
+
+.mask>div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 901;
+}
+
+.mask>div>div:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+    opacity: 0.6;
+    z-index: 902;
+}
+
+.mask>div>div:nth-child(2) {
+    width: 7.333333rem;
+    height: 4.888889rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 0.277778rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 903;
+}
+
+.mask h1 {
+    font-size: 0.444444rem;
+    color: rgba(51, 51, 51, 1);
+}
+
+.mask p {
+    width: 4.763889rem;
+    font-size: 0.388889rem;
+    color: rgba(128, 128, 128, 1);
+    line-height: 0.555556rem;
+    margin: 0.541667rem 0 1.041667rem 0;
+}
+
+.mask .btngroup {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mask .btngroup button {
+    width: 2.444444rem;
+    height: 0.833333rem;
+    background: linear-gradient(270deg, rgba(199, 134, 52, 1), rgba(213, 163, 99, 1));
+    border-radius: 0.416667rem;
+    color: rgba(255, 255, 255, 1);
+    font-size: 0.388889rem;
+    border: none;
+}
+
+.mask .btngroup button:nth-child(1) {
+    background: rgba(240, 240, 240, 1) !important;
+    color: rgba(128, 128, 128, 1) !important;
+    margin-right: 0.555556rem;
+}

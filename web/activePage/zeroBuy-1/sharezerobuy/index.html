@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <title>分享0元购</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    .centen {
+        background: rgba(253, 206, 61, 1);
+    }
+
+    .title>img {
+        width: 100%;
+        background: rgba(253, 206, 61, 1);
+    }
+
+    .head {
+        width: 100%;
+        background: rgba(253, 206, 61, 1);
+        margin-top: -1.3rem;
+    }
+
+    .tt {
+        width: 6.6rem;
+        height: 0.9rem;
+        position: relative;
+        left: 1.7rem;
+    }
+
+    .tt_p {
+        color: white;
+        position: relative;
+        right: 3.3rem;
+        top: 0.2rem;
+        font-size: 0.35rem;
+    }
+
+    .enjoyv3 {
+        display: flex;
+        justify-content: center;
+        margin-top: -0.9rem;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .enjoyv3 .zv3 {
+        width: 6.6rem;
+        height: 0.9rem;
+    }
+
+    .enjoyv3>p {
+        color: white;
+        position: relative;
+        top: 0.6rem;
+    }
+
+    .enjoyv3 .title5 {
+        width: 9.0rem;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 0.35rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 0.3rem;
+    }
+
+    .list {
+        margin-top: 1.0rem;
+    }
+
+    .robbed-r {
+        width: 9.0rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .juxing {
+        background: rgba(255, 255, 255, 1);
+        margin: 0.3rem;
+        background-color: #F5F5F5;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .juxing>img {
+        width: 3.5rem;
+        height: 3.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rbcw {
+        margin-top: -0.35rem;
+        line-height: 0.6rem;
+    }
+
+    .rbcw>p {
+        font-size: 0.25rem;
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+        color: #333333;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
+
+    .Alreadyrobbed-r {
+        position: relative;
+        top: 0.3rem;
+    }
+
+    .Alreadyrobbed-r .money-r {
+        font-size: 0.30rem;
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+        color: #808080;
+    }
+
+    .tx .btn {
+        width: 1.7rem;
+        height: 0.6rem;
+        background: linear-gradient(86deg, rgba(254, 31, 59, 1), rgba(254, 87, 41, 1));
+        border-radius: 22px;
+        color: white;
+        border: 1px solid rgba(254, 31, 59, 1);
+        margin-right: 0.3rem;
+    }
+
+    .tx {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.6rem;
+        color: #808080;
+        font-weight: 300;
+        font-size: 0.45rem;
+        opacity: 0.8;
+    }
+
+    .tx>p {
+        color: #F15A37;
+    }
+
+    .bj {
+        width: 100%;
+        height: 0.3rem;
+        background-color: #F5F5F5;
+        margin-top: 0.5rem;
+    }
+
+    .timg {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .timg>img {
+        width: 0.375rem;
+        height: 1.375rem;
+    }
+
+    .tab {
+        width: 9.0rem;
+        border-radius: 20px;
+        flex-direction: column;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0.5rem;
+        margin-top: -0.9rem;
+    }
+
+    .tab .tit {
+        height: 6px;
+        color: #FFA801;
+        margin-top: 0.3rem;
+        font-size: .40rem;
+    }
+
+    ._footer {
+        width: 9.0rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        margin-top: .546667rem;
+        padding-bottom: .506667rem;
+        background: rgba(251, 246, 222, 1);
+    }
+
+    ._footer section {
+        width: 9.0rem;
+        text-align: left;
+        font-size: .34rem;
+        color: #5E4C00;
+        position: relative;
+        z-index: 10;
+        line-height: .533333rem;
+        padding: 0.3rem;
+    }
+
+    .to {
+        display: flex;
+    }
+
+    .abc,
+    .cba {
+        display: flex;
+        position: relative;
+        right: 3.5rem;
+        top: 0.25rem;
+        align-items: baseline;
+    }
+
+    .cba {
+        left: -3.12rem;
+    }
+
+    .abc>p,
+    .cba>p {
+        margin: 0.035rem;
+    }
+
+    .a {
+        width: .10rem;
+        height: .1375rem;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 3px;
+    }
+
+    .b {
+        width: .10rem;
+        height: .2375rem;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 3px;
+    }
+
+    .c {
+        width: .10rem;
+        height: .3375rem;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 3px;
+    }
+
+    .b_tn {
+        font-size: 0.42rem;
+        width: 5rem;
+        height: 1.2rem;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0px 6px 12px 1px rgba(249, 87, 19, 0.2);
+        border-radius: 44px;
+        position: relative;
+        top: -5.3rem;
+        left: 2.5rem;
+        font-weight: bold;
+        color: rgba(253, 156, 61, 1);
+        border: 1px solid white;
+    }
+
+    .Invitation,
+    .cope {
+        position: relative;
+        top: -4.2rem;
+        right: 2.0rem;
+        color: white;
+        font-size: 0.40rem;
+    }
+
+    .cope {
+        color: rgba(253, 156, 61, 1);
+        background-color: white;
+        border-radius: 20px;
+        width: 1.4rem;
+        border: 1px solid white;
+    }
+
+    .YQInv {
+        width: 6.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.45rem;
+        font-family: PingFang SC;
+        font-weight: 200;
+        color: rgba(255, 255, 255, 1);
+        background: rgba(255, 134, 37, 1);
+        border-radius: 0px 28px 28px 0px;
+        position: relative;
+        top: 1.2rem;
+    }
+
+    .kbdiv {
+        width: 100%;
+        height: 1.3rem;
+    }
+
+    /* tipbox */
+
+    .tipbox {
+        display: none;
+        position: absolute;
+        min-width: 3.2rem;
+        /* height: 1.2rem; */
+        z-index: 999;
+        /* overflow: hidden; */
+    }
+
+    .tipbox>div {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        padding: 0.277778rem 0.277778rem;
+        border-radius: 0.277778rem;
+    }
+
+    .tipbox>div>div {
+        background: #000;
+        opacity: 0.6;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 901;
+    }
+
+    .tipbox>div>p {
+        width: 100%;
+        height: 100%;
+        font-size: .4rem;
+        color: #fff;
+        text-align: center;
+        line-height: 1.2rem;
+        z-index: 902;
+        position: relative;
+    }
+</style>
+
+<body>
+    <div class="centen">
+        <div class="title">
+            <p class="YQInv">您的好友小绿蓝邀请您参与</p>
+            <img src="./image/画.png" alt="" />
+            <button type="button" class="b_tn" onclick="buy()">点击下载 抢0元商品</button>
+            <span class="Invitation"></span>
+            <button type="button" class="cope" id='Clipboard' data-clipboard-text=''
+                data-clipboard-action="copy">复制</button>
+        </div>
+        <div class="head">
+            <div class="to">
+                <img src="./image/title_snap_up_background.png" alt="" class="tt" />
+                <div class="abc">
+                    <p class="a"></p>
+                    <p class="b"></p>
+                    <p class="c"></p>
+                </div>
+                <p class="tt_p">天天0元抢好货</p>
+                <div class="cba">
+                    <p class="c"></p>
+                    <p class="b"></p>
+                    <p class="a"></p>
+                </div>
+            </div>
+            <div class="enjoyv3">
+                <div class="title5">
+                    <div class="list">
+
+
+
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="timg">
+            <img src="./image/dec_snap_up.png">
+            <img src="./image/dec_snap_up.png">
+        </div>
+        <!---活动规则-->
+        <div class="tab">
+            <div class="tit">
+                <p>活动规则</p>
+            </div>
+            <div class='_footer'>
+                <section>
+                    1.活动时间：2019年8月22日至2019年10月1日 <br> 2.参与要求：app内用户均可参与 <br> 参与活动，红包每件只能领取一次，领取红包后请尽快
+                    使用，（红包有效时间是自领取开始推迟24小时）
+                    <br> 4.红包仅限指定商品使用，红包下单直减。领取的红 包可在【手机淘宝】-我的淘宝内查询
+                    <br> 5.每场商品不参与返佣，单个商品每个账户仅可购买 一次，（此活动为小绿蓝专享活动）有任何疑问可联 系小绿蓝客服
+                    <br> 6.活动过程中，如果出现因网络攻击，黑客攻击，数 据泄露等原因导致活动无法继续，小绿蓝有权利提前 终止活动：
+                    <br> 7.部分活动商品青海，甘肃，宁县，内蒙，新疆，西藏等偏远地区不包邮
+                    <br> 8.最终解释权归小绿蓝所有
+                    <br> 9.此活动与苹果公司无关
+                </section>
+            </div>
+        </div>
+        <div class="kbdiv">
+        </div>
+    </div>
+
+    <div class='tipbox'>
+        <div>
+            <div></div>
+            <p class='ctx'>
+            </p>
+
+        </div>
+
+
+    </div>
+</body>
+<script>
+    http = 'https://xiaolvlan.walongkeji.com',
+        webAddress = 'http://test.laifadan.com'
+    userInfo = {
+            userId: '',
+            ticket: ''
+        },
+        clipboard = new ClipboardJS('#Clipboard');
+
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)
+            return unescape(r[2]);
+        return "";
+    }
+    userInfo.userId = GetQueryString('userId')
+    userInfo.ticket = GetQueryString('ticket')
+    $(document).ready(function () {
+        $('.Invitation').html('邀请码 :' + userInfo.userId)
+        $('#Clipboard').attr('data-clipboard-text', userInfo.userId)
+        $.ajax({
+            type: "get",
+            url: http + "/goodsRush/getGoodsRushList",
+            success: function (res) {
+                if (res.success) {
+                    var html = ''
+                    let data = res.data
+                    data[0].items.forEach(e => {
+                        html += `
+                        <div class="robbed-r">
+                            <div class="juxing">
+                                <img src="` + e.goodsThumbnailUrl + `" alt="">
+                            </div>
+                            <div class="rbcw">
+                                <p>` + e.goodsName + ` </p>
+                                <p>` + e.goodsDesc + `</p>
+                                <div class="Alreadyrobbed-r">
+                                    <span class="money-r">原价` + (e.minNormalPrice / 100) + `</span>
+                                </div>
+                                <div class="tx">
+                                    <p>0元免单</p>
+                                    <button type="button" class="btn" id="qbtn" onclick='buy()'>立即去抢</button>
+                                </div>
+                            </div>
+                        </div>
+                           
+                        `
+
+                    });
+                    $('.list').html(html)
+
+                } else {}
+            }
+        });
+
+    })
+
+    function showTipModel(ctx) {
+        $('.ctx').text(ctx)
+        var top = ($(window).height() - $('.tipbox').height()) / 2;
+        var left = ($(window).width() - $('.tipbox').width()) / 2;
+        var scrollTop = $(document).scrollTop();
+        var scrollLeft = $(document).scrollLeft();
+        $('.tipbox').css({
+            position: 'absolute',
+            'top': top + scrollTop,
+            left: left + scrollLeft
+        }).show();
+        setTimeout(() => {
+            $('.tipbox').hide()
+        }, 1500);
+    }
+
+    function buy() {
+        window.location.href = webAddress + '/shareapp/shareapp.html?userId=' + userInfo.userId + '&ticket=' + userInfo
+            .ticket
+    }
+
+    clipboard.on('success', function (e) {
+        showTipModel('复制成功！')
+
+        e.clearSelection();
+    });
+
+    clipboard.on('error', function (e) {
+        showTipModel('复制失败！')
+    });
+</script>
+
+</html>

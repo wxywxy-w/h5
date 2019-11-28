@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <title>搜券步骤</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+    }
+
+    .header {
+        background: linear-gradient(0deg, rgba(255, 186, 85, 1), rgba(255, 185, 58, 1));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .sp_Img>img {
+        width: 100%;
+    }
+
+    .centen,
+    .centen_two {
+        width: 9.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0px 0px 10px 0px rgba(253, 182, 25, 1);
+        border-radius: 5px 5px 5px 5px;
+        background-color: white;
+        margin-top: -1.7rem;
+    }
+
+    .centen_two {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+
+    }
+
+    .a {
+        width: 8.5rem;
+        margin-top: -0.5rem;
+    }
+
+    .IMGP {
+        width: 9.3rem;
+        border-radius: 5px 5px 5px 5px;
+        height: 1.5rem;
+        background-color: white;
+        margin-top: -0.3rem;
+    }
+
+    .g {
+        width: 7.7rem;
+        position: relative;
+        top: -1.93rem;
+        left: 0.1rem;
+    }
+
+    .WZSM {
+        color: white;
+        font-size: 0.50rem;
+        position: relative;
+        top: -3rem;
+    }
+
+    .JXBZ {
+        margin-top: -2.5rem;
+    }
+
+    .JXBZ ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 0.5rem;
+    }
+
+    .JXBZ ul li>img {
+        width: 4.0rem;
+        margin-right: 0.2rem;
+        margin-left: 0.2rem;
+    }
+
+    .JXBZ ul li .BZ {
+        text-align: center;
+        position: relative;
+        top: 0.5rem;
+        color: white;
+    }
+
+    .JXBZ ul li .SM {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.35rem;
+        color: rgba(51, 51, 51, 1);
+    }
+</style>
+
+<body>
+    <div class="header">
+        <div class="sp_Img">
+            <img src="./image/steps_bg.png"></img>
+        </div>
+        <div class="centen">
+            <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods a_search box b.png"
+                class="a" />
+            <p class="IMGP"></p>
+            <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods a_search box a.png"
+                class="g" />
+            <p class="WZSM"> 方法一 直接在搜索框搜索</p>
+            <div class="JXBZ">
+                <ul>
+                    <li>
+                        <p class="BZ">第一步</p>
+                        <img
+                            src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods a_one .png" />
+                        <p class="SM">打开小绿蓝</p>
+                        <p class="SM">首页点击搜索框</p>
+                    </li>
+                    <li>
+                        <p class="BZ">第二步</p>
+                        <img
+                            src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods a_two.png" />
+                        <p class="SM">输入我们想要</p>
+                        <p class="SM">搜索的商品名称</p>
+                    </li>
+                    <li>
+                        <p class="BZ">第三步</p>
+                        <img
+                            src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods b_three.png" />
+                        <p class="SM">找到想要</p>
+                        <p class="SM">购买的商品</p>
+                    </li>
+                    <li>
+                        <p class="BZ">第四步</p>
+                        <img
+                            src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods a_four.png" />
+                        <p class="SM">领取隐藏</p>
+                        <p class="SM">大额优惠</p>
+                    </li>
+                    <li>
+                        <p class="BZ">第五步</p>
+                        <img
+                            src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods a_five.png" />
+                        <p class="SM">下单时</p>
+                        <p class="SM">直接抵扣</p>
+                        <p class="KB"></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="centen_two">
+            <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods a_search box b.png"
+                class="a" />
+            <p class="IMGP"></p>
+            <img src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods a_search box a.png"
+                class="g" />
+            <p class="WZSM"> 方法二 从淘宝复制标题查询</p>
+            <div class="JXBZ">
+                <ul>
+                    <li>
+                        <p class="BZ">第一步</p>
+                        <img
+                            src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods a_one .png" />
+                        <p class="SM">淘宝复制想要的</p>
+                        <p class="SM">商品标题</p>
+                    </li>
+                    <li>
+                        <p class="BZ">第二步</p>
+                        <img
+                            src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods a_two.png" />
+                        <p class="SM">回到小绿蓝</p>
+                        <p class="SM">粘贴刚复制的标题</p>
+                    </li>
+                    <li>
+                        <p class="BZ">第三步</p>
+                        <img
+                            src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods b_three.png" />
+                        <p class="SM">点击领取</p>
+                        <p class="SM">小绿蓝专属券</p>
+                    </li>
+                    <li>
+                        <p class="BZ">第四步</p>
+                        <img
+                            src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods a_four.png" />
+                        <p class="SM">领取隐藏</p>
+                        <p class="SM">大额优惠券</p>
+                    </li>
+                    <li>
+                        <p class="BZ">第五步</p>
+                        <img
+                            src="http://xiaolvlan.oss-cn-hangzhou.aliyuncs.com/active/newPersonGuide/steps_methods a_five.png" />
+                        <p class="SM">下单时</p>
+                        <p class="SM">直接抵扣</p>
+                        <p class="KB"></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

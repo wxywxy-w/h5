@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+  <script src="./js/clipboard.min.js"></script>
+  <title>客服</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      position: relative;
+      width: 100%;
+    }
+
+    .title {
+      width: 100%;
+      /* overflow: hidden; */
+    }
+
+    .title .ti {
+      width: 100%;
+      height: 0.5rem;
+      background-color: #F5F5F5;
+    }
+
+    div .c {
+      width: 100%;
+      height: 1.0rem;
+      /* padding-left: 
+            padding-top: 0.4rem; */
+      padding: 0.5rem;
+      font-size: 0.4rem;
+    }
+
+    #xp {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f1f1f1;
+      width: 100%;
+      display: none;
+    }
+
+    #xp>p {
+      color: #808080;
+      line-height: 0.6rem;
+      font-size: 0.4rem;
+      padding: 0.3rem;
+    }
+
+    .lb {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem;
+      border-bottom: 1px solid whitesmoke;
+    }
+
+    .lb>img {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+
+    .lb>p {
+      font-size: 0.4rem;
+      color: #333333;
+      width: 5.9rem;
+      margin-left: -0.4rem;
+    }
+
+    .lb .jian {
+      width: 0.4rem;
+      height: 0.4rem;
+    }
+
+    .wb {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0.3rem;
+    }
+
+    .wb>button {
+      width: 4.0rem;
+      height: 1.3rem;
+      background: linear-gradient(270deg, rgba(6, 210, 234, 1), rgba(6, 162, 234, 1));
+      box-shadow: 3px 7px 15px 1px rgba(6, 162, 234, 0.2);
+      border-radius: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba(6, 210, 234, 1);
+    }
+
+    .wb .wx-lx {
+      background: linear-gradient(270deg, rgba(2, 211, 179, 1), rgba(37, 182, 61, 1));
+      box-shadow: 3px 7px 15px 1px rgba(37, 182, 61, 0.2);
+    }
+
+    .wb>button>img {
+      width: 0.7rem;
+      height: 0.7rem;
+    }
+
+    #btn {
+      color: white;
+    }
+
+    .customer {
+      margin-top: 0.6rem;
+    }
+
+    .kf {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .kf>img {
+      margin: 0.1rem;
+      width: 0.5rem;
+      height: 0.5rem;
+    }
+
+    .kfsj {
+      text-align: center;
+    }
+
+    .centent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-shadow: 0px 0px 5px black;
+      z-index: 99;
+    }
+
+    .xs {
+      width: 8.0rem;
+      height: 5.3rem;
+      background-color: white;
+      border-radius: 0.6rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      top: -5.2rem;
+      line-height: 0.7rem;
+    }
+
+    .xs .jxhj {
+      width: 1.7rem;
+      height: 0.6rem;
+      background: rgba(240, 240, 240, 1);
+      border-radius: 30px;
+      margin: 0.3rem;
+      border: 1px solid #F0F0F0;
+    }
+
+    .jxhj>a {
+      color: black;
+    }
+
+    .xs .ckjd {
+      width: 1.7rem;
+      height: 0.6rem;
+      color: white;
+      background: linear-gradient(90deg, rgba(254, 142, 46, 1), rgba(241, 90, 55, 1));
+      border-radius: 30px;
+      border: 1px solid #F15A37;
+    }
+
+    .xs .btn-b {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="title">
+    <div class="ti"></div>
+    <p class="c">猜你想问?</p>
+    <ul>
+      <li>
+        <div class="lb">
+          <img src="./image/service_icon_wrong.png">
+          <p class="commodity">商品不想要了/信息有误如何取消</p>
+          <img src="./image/service_icon_arrow_down.png" class="jian">
+        </div>
+        <div class="xq section" id="xp">
+          <p class="q">
+            在商品未发货前，可进入进入个人中心—“个人订单”—精选订单—点击“退款”通过qq或微信联系客服处理。
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="lb">
+          <img src="./image/service_icon_address.png">
+          <p class="modify">修改收货信息</p>
+          <img src="./image/service_icon_arrow_down.png" alt="" class="jian">
+        </div>
+        <div class="xq section" id="xp">
+          <p class="q">
+            进入个人订单—“联系客服”—通过QQ或微信与客服沟通后修改收货地址
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="lb">
+          <img src="./image/service_icon_return.png">
+          <p class="retreat">退换流程</p>
+          <img src="./image/service_icon_arrow_down.png" alt="" class="jian">
+        </div>
+        <div class="xp section" id="xp">
+          <p class="q">
+            进入个人中心—“个人订单”—精选订单—点击要处理的订单—点击“申请售后”通过qq或微信联系客服处理。
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="lb" id="a">
+          <img src="./image/service_icon_withdrawal.png">
+          <p class="money">金币提现温馨提示</p>
+          <img src="./image/service_icon_arrow_down.png" alt="" class="jian">
+        </div>
+        <div class="xq section" id="xp">
+          <p class="q">
+            提现温馨提示: 每月25日结算淘宝、天猫、拼多多已确认收货的订单，提现时间为1~3个工作日， 已经提现的小伙伴们不要着急。
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="lb">
+          <img src="./image/service_icon_found.png">
+          <p class="order">小绿蓝精选订单如何查看</p>
+          <img src="./image/service_icon_arrow_down.png" alt="" class="jian">
+        </div>
+        <div class="xq section" id="xp">
+          <p class="q">
+            进入小绿蓝APP，点击【我的】-【个人订单】-【精选订单】，即可查看您提交的订单。
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="lb">
+          <img src="./image/service_icon_delivery_time.png">
+          <p class="selected">精选订单发货时间</p>
+          <img src="./image/service_icon_arrow_down.png" alt="" class="jian">
+        </div>
+        <div class="xq section" id="xp">
+          <p class="q">
+            您下单支付成功后3个工作日内可以发货（工作日不含周末、法定节假日）。 温馨提示：若遇大型活动或是预售商品时，商家销售的商品订单发货量大， 发货时间一般会在商品详情页面注明发货时间，给您带来不便，请谅解）。
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="lb">
+          <img src="./image/service_icon_fruit.png">
+          <p class="fruits">水果生鲜售后注意事项</p>
+          <img src="./image/service_icon_arrow_down.png" alt="" class="jian">
+        </div>
+        <div class="xq section" id="xp">
+          <p class="q">
+            生鲜类商品（蔬菜水果、水产海鲜、肉禽蛋奶）由于受季节、气候、生长环境等因素，不同批次略有差异属正常现象。2、生鲜类商品，买家拒绝签收的，导致生鲜类商品出现损坏、变质、腐烂死亡情形的，相关运费以及商品相应损失买家承担，不支持售后。3、生鲜售后申请时效在收到商品的48小时内拍照并申请售后，APP进入【我的】-【我的订单】-【精选订单】提交售后。若该商品极易受时间、环境等客观因素影响而发生变质，买家逾期举证的，小绿蓝不支持售后。收到商品时间以快递公司系统记录签收时间为准。
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="lb">
+          <img src="./image/service_icon_return.png">
+          <p class="fruits">关于七天无理由退货说明</p>
+          <img src="./image/service_icon_arrow_down.png" alt="" class="jian">
+        </div>
+        <div class="xq section" id="xp">
+          <p class="q">
+            在商品完好不影响二次销售的情况下，支持签收之日起的无理由退货（生鲜类，食品类，海淘产品不支持无理由）退换货及无理由拒签，运费由买家承担。因商品质量问题，破损错发等非买家原因导致的退货（过敏快递延误等除外），支持签收后内7天内退货，退货运费由小绿蓝承担
+          </p>
+        </div>
+      </li>
+    </ul>
+    <div class="wb">
+      <button class="qq-lx" onclick="qqContact()">
+        <img src="./image/service_icon_qq.png" alt="">
+        <p id="btn" class="qqlx" qq="3007291321">QQ联系</p>
+      </button>
+      <button class="wx-lx" onclick="wechatContact()">
+        <img src="./image/service_icon_wachat.png" alt="">
+        <p id="btn" class="wxlx" wx="17348534928">微信联系</p>
+      </button>
+    </div>
+    <div class="customer">
+      <div class="kf" onclick="telContact()">
+        <img src="./image/service_icon_phone.png">
+        <p class="custom">客服热线</p>
+      </div>
+      <p class="kfsj">客服工作时间9:30-18:30</p>
+    </div>
+  </div>
+  <div class="centent" style="display: none">
+    <div class="xs">
+      <p>联系客服</p>
+      <p>上述解答未解决您的疑惑？</p>
+      <p>建议您使用QQ/微信方式联系客服</p>
+      <div class="btn-b">
+        <!-- <a href="tel:17348534928" class="a">继续呼叫</a> -->
+        <button type="button" class="jxhj" tel="17348534928">继续呼叫</button>
+        <button type="button" class="ckjd">查看解答</button>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    //获取高度
+    var kheight = $("body").height() + "px";
+    $("body").height();
+    console.log(kheight);
+    $(".centent").css("height", kheight);
+    console.log($(".centent").height());
+
+    //列表
+    // $(".lb").click(function () {
+    //     $(this).siblings().toggle();
+    // });
+    $("li").click(function () {
+      $(this).children('.section').slideToggle().parent('li').siblings('li').children('.section')
+        .slideUp();
+      //console.log("click:"+ $(this).index());
+    });
+
+
+    // $(".custom").click(function () {
+    //     $(".centent").show();
+    // });
+    // $(".ckjd").click(function () {
+    //     $(".centent").hide();
+    // });
+
+    //QQ
+    // var qqClipboard = new ClipboardJS('.qqlx', {
+    //     text: function () {
+    //         return $(".qqlx").attr("qq");
+    //     }
+    // });
+    // qqClipboard.on('success', function (e) {
+    //     alert("复制成功!");
+    // });
+    // qqClipboard.on('error', function (e) {
+    //     console.log(e);
+    // });
+
+    //wechat
+    // var wechatClipboard = new ClipboardJS('.wxlx', {
+    //     text: function () {
+    //         return $(".wxlx").attr("wx");
+    //     }
+    // });
+    // wechatClipboard.on('success', function (e) {
+    //     alert("复制成功!");
+    // });
+    // wechatClipboard.on('error', function (e) {
+    //     console.log(e);
+    // });
+
+    // //tel
+    // var telClipboard = new ClipboardJS('.jxhj', {
+    //     text: function () {
+    //         return $(".jxhj").attr("tel");
+    //     }
+    // });
+    // telClipboard.on('success', function (e) {
+    //     alert("复制成功!");
+    // });
+    // telClipboard.on('error', function (e) {
+    //     console.log(e);
+    // });
+
+    //QQ
+    function qqContact() {
+      let data = {
+        qq: '3007291321',
+        name: 'qqContact'
+      }
+      if (/android/i.test(navigator.userAgent)) {
+        try {
+
+          window.android.qqContact(JSON.stringify(data));
+        } catch (e) {
+          console.log('与android链接中断')
+
+        }
+      } else if (/ios|iphone|ipod|pad/i.test(navigator.userAgent)) {
+        try {
+          window.webkit.messageHandlers.qqContact.postMessage(data);
+        } catch (e) {
+          console.log('与ios链接中断')
+        }
+      }
+    }
+
+    //微信
+    function wechatContact() {
+      let data = {
+        wx: '17348534928',
+        name: 'wechatContact'
+      }
+      if (/android/i.test(navigator.userAgent)) {
+        try {
+
+          window.android.wechatContact(JSON.stringify(data));
+        } catch (e) {
+          console.log('与android链接中断')
+
+        }
+      } else if (/ios|iphone|ipod|pad/i.test(navigator.userAgent)) {
+        try {
+          window.webkit.messageHandlers.wechatContact.postMessage(data);
+        } catch (e) {
+          console.log('与ios链接中断')
+        }
+      }
+    }
+
+    //电话
+    function telContact() {
+      let data = {
+        tel: '17348534928',
+        name: 'telContact'
+      }
+      if (/android/i.test(navigator.userAgent)) {
+        try {
+          window.android.telContact(JSON.stringify(data));
+        } catch (e) {
+          console.log('与android链接中断')
+        }
+      } else if (/ios|iphone|ipod|pad/i.test(navigator.userAgent)) {
+        try {
+          window.webkit.messageHandlers.telContact.postMessage(data);
+        } catch (e) {
+          console.log('与ios链接中断')
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>

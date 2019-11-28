@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <meta charset="UTF-8">
+                <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+                <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+                <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+                <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+                <title>百团大战活动入口-报名失败</title>
+            </head>
+<style>
+#BMfail{
+    width: 100%;
+   height: 100%;
+}
+    .fail-img{
+        width: 100%;
+        height: 100%;
+     
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+    }
+    
+    html,body {
+        width: 100%;
+        /* height: 100%
+        -webkit-text-size-abjust:none */
+    }
+    #showimg{
+        width: 8rem;
+        height: 1.3rem;
+        background:linear-gradient(90deg,rgba(254,142,46,1) 0%,rgba(241,90,55,1) 100%);
+        box-shadow:0px 4px 12px 0px rgba(247,78,56,0.64);
+        border-radius: 2.75rem;
+        margin-top: -2.5rem;
+        position: absolute;
+        left: 0.9rem;
+    }
+    .bmcj{
+        width: 8rem;
+        height: 1.3rem;
+        font-size: 0.90rem;
+        font-family:PingFang-SC-Regular;
+        font-weight: 300;
+        color:rgba(255,255,255,1);
+    }
+    .BM-f{
+        width: 4.6875rem;
+        height: 1.4375rem;
+        font-size: 0.4rem;
+        font-family:PingFang-SC-Regular;
+        font-weight:400;
+        color:rgba(51,51,51,1);
+        position: absolute;
+        top: 11.5rem;
+        left: 1.5rem;
+        color: gray;
+        
+    }
+    .BM-a{
+        width: 8.0rem;
+        height: 1.6rem;
+        background:rgba(241,172,36,1);
+        border-radius: 0.2rem;
+        position: absolute;
+        opacity:0.8;
+        top: 12.3rem;
+        left: 1.1rem;
+    }
+.BM-i{
+    width: 0.9rem;
+    height: 1.5rem;
+    font-size: 0.6rem;
+    background:rgba(255,255,255,1);
+    border-radius: 0.24rem;
+    font-family:PingFang-SC-Regular;
+    font-weight:300;
+    color:rgba(51,51,51,1);
+    margin-left: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    list-style: none;
+}
+.bmfailimg{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: -17.9rem;
+}
+.bmcgimg{
+    width: 100%;
+    position: relative;
+    top: -14.8rem
+}
+.hdsj{
+    position: relative;
+    top: -0.8rem;
+    left: 3.5rem;
+}
+.tddkssj{
+    top: -17.3rem;
+    position: relative;
+    left: 3.9rem;
+    color: coral;
+}
+.sj{
+    top: -17.3rem;
+    position: relative;
+    left: 3.9rem;
+    color: coral;
+}
+.bmfail1img{
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    /* background:rgba(0,0,0,1);
+    opacity:0.8; */
+}
+#hideimg{
+    width: 6rem;
+        height: 0.9rem;
+        background:linear-gradient(90deg,rgba(254,142,46,1) 0%,rgba(241,90,55,1) 100%);
+        box-shadow:0px 4px 12px 0px rgba(247,78,56,0.64);
+        border-radius: 2.75rem;
+        top: -15.1rem;
+        position: relative;
+        left: 1.9rem;
+        /* display: none; */
+}
+.qck{
+    width: 6rem;
+        height: 0.9rem;
+        font-size: 0.50rem;
+        font-family:PingFang-SC-Regular;
+        font-weight: 300;
+        color:rgba(255,255,255,1);
+}
+.Enrolled{
+    font-size:0.5rem;
+    font-family:PingFang-SC-Regular;
+    font-weight:300;
+    color:rgba(241,90,55,1);
+    position: relative;
+    top: -3.9rem;
+    left: 2.1rem;
+    opacity: 0.1;
+}
+.sz{
+    width:127px;
+    height:28px;
+    font-size:0.6rem;
+    font-family:PingFang-SC-Regular;
+    font-weight:300;
+    color:rgba(241,90,55,1);
+    background-color: white;
+}
+#bmcsimg{
+        width: 8rem;
+        height: 1.3rem;
+        background:linear-gradient(90deg,rgba(254,142,46,1) 0%,rgba(241,90,55,1) 100%);
+        box-shadow:0px 4px 12px 0px rgba(247,78,56,0.64);
+        border-radius: 2.75rem;
+        top: 15.1rem;
+        position: absolute;
+        left: 1.1rem;
+        opacity: 0.2;
+    }
+    .bmcs{
+        width: 8rem;
+        height: 1.3rem;
+        font-size: 0.90rem;
+        font-family:PingFang-SC-Regular;
+        font-weight: 300;
+        color:rgba(255,255,255,1);
+    }
+    #title1{
+        width: 100%;
+    height: 17.5rem;
+    background-color: black;
+    }
+    .hdsj-j{
+        position: relative;
+    top: -1.5rem;
+    left: 3.5rem;
+    }
+</style>
+
+<body style="height: 100%">
+    <div id="BMfail" style="height: 100%">
+            <p class="BM-f">已报名:</p>
+            <ul class="BM-a">
+                <li class="BM-i">0</li>
+                <li class="BM-i">1</li>
+                <li class="BM-i">2</li>
+                <li class="BM-i">3</li>
+                <li class="BM-i">4</li>
+                <li class="BM-i">5</li>
+                <li class="BM-i">人</li>
+            </ul>
+       
+            <div class="title" style="text-align: center;height: 100%">
+                    <img src="image/group_enter_bg.png" class="fail-img">
+                </div>
+
+        <button id="showimg" value="报名参加"><p class="bmcj">报名参赛</p></button>
+        <p class="hdsj">活动时间: 6月20-8月20</p>
+        
+        <div class="bmfailimg" style="height: 100%">
+            <div id="title1" style="text-align: center;height: 100%;">
+                  <img src="image/group_enter_bg.png" class="bmfail1img">
+            </div>
+            <span class="Enrolled">已有<b class="sz">869328</b>人报名成功</span>
+            <button id="bmcsimg" value="报名参赛"><p class="bmcs">报名参赛</p></button>
+            <p class="hdsj-j">活动时间: 6月20-8月20</p>
+            <img src="image/fail_icon.png" class="bmcgimg">
+            <p class="tddkssj">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请确认</p>
+            <p class="sj">是否达到报名要求</p>
+            <button id="hideimg" value="去查看"><p class="qck">去查看</p></button>
+        </div>
+    </div>
+</body>
+
+<script>
+    //报名参加
+    $(function(){
+        $('#showimg').click(function(){
+            //  alert('hjnj');
+            $(".bmfailimg").toggle();
+
+            });
+            $('#hideimg').click(function(){
+            
+            $(".bmfailimg").toggle();
+            
+
+            });
+
+        });
+       
+</script>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./index.css">
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <title>0元购</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div class='header'>
+        <p>活动时间:6月1日-7月1日</p>
+        <img src="./image/keynote_icon.png" alt="">
+    </div>
+    <div class='notice'>
+        <img src="./image/notice_icon.png" alt="">
+        <span>活动提示：先下单付款购买商品，平台再将补贴转入您的账户。</span>
+    </div>
+    <div class='scrollbar'>
+        <ul>
+        </ul>
+    </div>
+    <div class='goodslist'>
+        <div class='diagram'>
+            <img src="./image/diagram_icon.png" alt="">
+        </div>
+        <div class='listmain'>
+            <div class='redblock'></div>
+            <div class='grop'>
+                <div class='underblock'>
+                    <ul>
+                    </ul>
+                </div>
+
+            </div>
+            <img src="./image/up_icon.png" alt="" class='end'>
+        </div>
+        <div class='_footer'>
+
+            <section>
+                活动规则：<br> 1. 活动时间6月1号至7月1号。 <br> 2. 切记付款金额要和券后价或补贴金额一致，超过不补贴。 <br> 3. 0元购商品通过先购买后补贴的方式。 <br> 4. 在本活动内购买的商品，不参与分佣模式，不参与拉新奖励。<br> 5. 返还金币（随时可以提现）和do米币时间为确认收货50天内到账。<br> 6. 每人每款商品仅可购买一次（超过一次不补贴），若经举报或者平台技术监测到用户存在作弊行为（包括不限于洗钱，虚假交易，赌博，恶意套现，做弊，恶意刷单等），则此用户在此活动内的资格将自动取消，已获得的返利金币将自动失效，若用户的作弊行为给其他用户，合作伙伴造成所示，用户需要承担相应的法律责任。<br>                7.若用户在账户收到返还的金币后取消交易，申请退款等，已经返还的金币自动失效，若用户已经部分使用，或全部使用该金币的，用户可以选择如下方式之一：1.取消使用金币支付的交易：2.用货币补充支付金币的款项。在用户做出选择之前，平台有权暂停用户使用该金币支付的交易并采取其他合法方式要求用户返还已使用的金币。
+                <br> 8. 一切解释权归小绿蓝所有。
+
+            </section>
+        </div>
+    </div>
+    <img src="./image/down_icon.png" alt="" class='down_icon'>
+    <section class='modelbox'>
+        <div>
+            <div class='shadowmask' onclick="hideModel()"></div>
+            <div class='box'>
+                <div class='tipicon'>
+                    <img src="./image/point_icon.png" alt="">
+                </div>
+                <div class='tip_content'>
+                    <p>商品下单￥<span class='_price'></span> </p>
+                    <div>
+                        <p class='coin'>小绿蓝将补贴<span class='_coin'> </span>金币+<span class='_domi'></span>do米币</p>
+                        <p>（每人限购1件,多买无补贴）</p>
+                    </div>
+                    <button onclick="toOrderIn()">
+                            立即下单
+                        </button>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="./index.js"></script>
+
+</html>

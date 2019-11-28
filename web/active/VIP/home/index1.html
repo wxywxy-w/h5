@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <link rel="stylesheet" href="index.css">
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <title>我的会员</title>
+</head>
+
+<body>
+    <div class='topbg'></div>
+    <div class='vip_header'>
+        <div class="card">
+            <div class='noVip' style="display: none">
+                <div>
+                    <img src="./image/mine_vip_icon_user_head.png" alt="">
+                    <div class='name'>
+                        <p></p>
+                        <img src="" alt="">
+                    </div>
+
+                </div>
+                <div class="vipProgress">
+                    <p class="progressLine"></p>
+                    <div class="progressHeader"></div>
+                </div>
+
+                <p>距离成为VIP只差一步</p>
+                <section onclick="changeRouter('setupVip')">立即成为VIP</section>
+            </div>
+            <div class="vip" style="display: none">
+                <div>
+                    <img src="./image/mine_vip_icon_user_head.png" alt="">
+                    <div class='name'>
+                        <p></p>
+                        <img src="" alt="">
+                    </div>
+
+                </div>
+                <div class="vipProgress">
+                    <p class="progressLine"></p>
+                    <div class="progressHeader"></div>
+                </div>
+                <p class="invitepanter"></p>
+                <section>
+                    <button onclick="changeRouter('addtime')">增加天数</button>
+                    <p class="remainTime"></p>
+                </section>
+
+            </div>
+            <div class="partner" style="display: none">
+                <p>合伙人特权已为您赚</p>
+                <p>￥ <span class="_m">1223.11</span> </p>
+                <button onclick="lookupPanter()">查看我的合伙人排名</button>
+            </div>
+
+        </div>
+    </div>
+    <div style="padding: 0 0.416667rem;">
+        <div class="privilege">
+            <div>
+                <div>
+                    <p>平台福利</p>
+                    <ul>
+                        <li>
+                            <img src="./image/mine_vip_icon_privilege_share.png" alt="">
+                            <p>自购分享</p>
+                            <p>最高80%</p>
+                        </li>
+                        <li>
+                            <img src="./image/mine_vip_icon_team_returns.png" alt="">
+                            <p>团队收益</p>
+                            <p>最高27%</p>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p>其他福利</p>
+                    <ul>
+                        <li>
+                            <img src="./image/mine_vip_icon_kfc.png" alt="">
+                            <p>肯德基</p>
+                            <p>6折起</p>
+                        </li>
+                        <li>
+                            <img src="./image/mine_vip_icon_add_oil.png" alt="">
+                            <p>77城加油</p>
+                            <p>加油9折起</p>
+                        </li>
+                        <li>
+                            <img src="./image/mine_vip_icon_haagendas.png" alt="">
+                            <p>哈根达斯</p>
+                            <p>7折起</p>
+                        </li>
+                        <li>
+                            <img src="./image/mine_vip_icon_movies.png" alt="">
+                            <p>特价电影</p>
+                            <p>2折起</p>
+                        </li>
+                    </ul>
+                </div>
+                <img src="./image/mine_vip_dotted_line.png" alt="">
+            </div>
+            <button onclick="changeRouter('toPrivilegeCenter')">查看更多VIP权益</button>
+        </div>
+        <!-- 没有会员时展示 -->
+        <div class="setupVip">
+            <p>升级会员 仅需一步</p>
+            <ul>
+            </ul>
+            <section>
+                <p onclick="changeRouter('toVipGift')">查看更多VIP大礼包</p>
+                <img src="./image/mine_icon_forward_small_white.png" alt="">
+            </section>
+
+
+
+        </div>
+
+    </div>
+
+    <!-- 会员券 -->
+    <div class="vipCoupon">
+        <ul>
+            <li class='foods' style='display: none'>
+                <div>
+                    <p></p>
+                    <p>美食券</p>
+                </div>
+                <div onclick="getCoupons()">
+                    <p>立即去领</p>
+                    <img src="./image/mine_icon_forward_small_white.png" alt="">
+                </div>
+            </li>
+            <li class='travel'>
+                <div>
+                    <p></p>
+                    <p class="travel_color">出行券</p>
+                </div>
+                <div onclick="getCoupons(3)">
+                    <p class="travel_color">立即去领</p>
+                    <img src="./image/mine_icon_forward_small_white (1).png" alt="">
+                </div>
+            </li>
+            <li class='take_outl'>
+                <div>
+                    <p></p>
+                    <p>外卖券</p>
+                </div>
+                <div onclick="getCoupons(2)">
+                    <p>立即去领</p>
+                    <img src="./image/mine_icon_forward_small_white.png" alt="">
+                </div>
+            </li>
+            <li class='movies'>
+                <div>
+                    <p></p>
+                    <p class="movies_color">娱乐券</p>
+                </div>
+                <div onclick="getCoupons(1)">
+                    <p class="movies_color">立即去领</p>
+                    <img src="./image/mine_icon_forward_small_white.png" alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="instructions">
+        <div class='howToMakeOrSave'>
+            <P>小绿蓝如何省钱赚钱</P>
+            <section>
+                <div>
+                    <div>
+                        <div></div>
+                        <img src="./image/mine_vip_icon_introduce_save_money.png" alt="">
+                        <span>省钱</span>
+                    </div>
+
+                </div>
+                <p>
+
+                    在淘宝，天猫，拼多多平台，看到想要的商品，复 制商品标题，打开小绿蓝app，搜索商品名称，即可看到该商 品的最低价格，领取优惠券后下单，比直接购买省了不少钱， 更有小绿蓝专享补贴
+
+                </p>
+
+
+            </section>
+            <section>
+                <div>
+                    <div>
+                        <div></div>
+                        <img src="./image/mine_vip_icon_introduce_make_money.png" alt="">
+                        <span>赚钱</span>
+                    </div>
+
+                </div>
+                <p>
+                    邀请好友，成为团队成员，好友购物，即可赚钱， 好友越多，赚的越多
+                </p>
+            </section>
+
+        </div>
+        <div class="about">
+            <p>关于小绿蓝</p>
+            <section>
+
+                小绿蓝是近10亿网民都能用的综合性导购优惠返佣创业平台， 它集购物，分享，赚钱一体，将各大平台（隐藏）优惠券集合 在app中，领取商品优惠券用最低的价格，买高质量的商品。 让用户在社交中分享优惠，分享中创造价值帮助更多的人实现 创业梦想。
+
+            </section>
+        </div>
+
+    </div>
+    <div class="mask">
+        <div>
+            <div>
+
+            </div>
+            <div>
+                <section style="display:none">
+                    <h1>您当前的等级不足</h1>
+                    <p>本权益为小绿蓝vip会员专享 需升级身份后才可领取</p>
+                    <div class="btngroup">
+                        <button onclick="closeMaskModel()">暂不升级</button>
+                        <button onclick="changeRouter('setup')">立即升级</button>
+                    </div>
+                </section>
+                <section style="display:none">
+                    该功能还在开发中,敬请期待~~
+                </section>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+<script>
+    function getCoupons(type) {
+        if (!type) return false
+        if (!memberType || memberType == 1) {
+            showModel(1)
+        } else {
+            window.location.href = window.location.origin + '/active/VIP/CouponsCenter?type=' + type
+
+        }
+
+    }
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg); //search,查询？后面的参数，并匹配正则
+        if (r != null) return decodeURIComponent(r[2]);
+        return null;
+    }
+
+    var http = 'https://xiaolvlan.walongkeji.com',
+        userId = '',
+        ticket = "",
+        memberType = 1;
+    userId = GetQueryString('userId')
+    ticket = GetQueryString('ticket')
+    memberType = GetQueryString('memberType')
+
+
+
+    $(document).ready(function() {
+
+        // 获取用户信息
+        $.ajax({
+            type: "get",
+            url: http + "/user/auth/getMemberSystem",
+            beforeSend: function(request) {
+                request.setRequestHeader('userId', userId);
+                request.setRequestHeader('ticket', ticket);
+            },
+            success: function(response) {
+                if (response.code == 0) {
+
+                    $('.name').find('p').text(response.data.nickName).parent().siblings('img').attr('src', response.data.headImg)
+                    $('.invitepanter').html(`已邀请` + response.data.inviteNum + `个VIP <br> 还差` + response.data.differInviteNum + `个升级到合伙人`)
+                    $('.remainTime').html(`VIP天数剩余` + Math.ceil(response.data.remainTime / 86400) + `天`)
+                    $('.partner').find('._m').html(parseInt(response.data.accumulateEarnings) / 100)
+                    let w = (response.data.inviteNum / (response.data.inviteNum + response.data.differInviteNum)) * $('.vipProgress').width() + 'px'
+                    $('.vipProgress>p').animate({
+                        'width': w
+                    }, 2000, 'swing')
+                    var level = '';
+                    memberType == response.data.memberType
+
+                    switch (response.data.memberType) {
+                        case 1:
+                            //普通会员
+                            level = './image/level_one.png'
+                            console.log($('.card>.noVip')[0]);
+
+                            $('.card>.noVip').show()
+                            break;
+                        case 2:
+                            //vip  
+                            level = './image/level_vip.png'
+                            $('.card>.vip').show()
+                            break;
+                        case 3:
+                            //panter
+                            level = './image/level_three.png'
+                            $('.card>.partner').show()
+                            break;
+                        case 21:
+                            //临时
+                            level = './image/level_sevendays.png'
+                            $('.card>.vip').show()
+                            break;
+                    }
+                    $('.name').find('img').attr('src', level)
+
+                } else {
+                    alert(response.message)
+                }
+            },
+        });
+        // 获取vip礼包列表
+        let _data = {
+                page: 0,
+                pageSize: 3,
+                plateId: 2
+            },
+            elArr = [];
+        $.ajax({
+            type: "get",
+            dataType: "json",
+            async: false,
+            url: http + "/plateGoods/getPlateGoodsList",
+            data: _data,
+            success: function(data) {
+                if (data.code == 0) {
+                    var html = ''
+                    if (data.data.length > 0) {
+                        data.data.forEach((element, index) => {
+                            html += `
+                            <li onclick='toDetails(` + element.id + `, ` + element.plateId + `)'>
+                                <img src="` + element.sOGoods.goodsImageUrl + `" alt="">
+                                <div class="right">
+                                        <p>` + element.sOGoods.goodsName + `</p>
+                                    <div>
+                                        <span>价格</span>
+                                        <p>￥<span>` + (element.sOGoods.minGroupPrice / 100) + `</span></p>
+                                    </div>
+                                    <button>送365天vip权益</button>
+                                </div>
+
+                            </li>
+                                `
+                        });
+                        elArr = elArr.concat(data.data)
+                    }
+                    $('.setupVip ul').append(html)
+                }
+            },
+            error: function() {
+                alert('错误');
+            }
+        });
+
+    })
+
+    function showModel(type) {
+
+        var top = ($(window).height() - $('.mask>div>div:nth-child(2)').height()) / 2;
+        var left = ($(window).width() - $('.mask>div>div:nth-child(2)').width()) / 2;
+        var scrollTop = $(document).scrollTop();
+        var scrollLeft = $(document).scrollLeft();
+        $('.mask').css('height', ($('body').height() + 'px')).fadeIn()
+        $('.mask>div>div:nth-child(2)').css({
+            'top': top + scrollTop,
+            left: left + scrollLeft
+        }).fadeIn();
+        console.log(type);
+
+        if (type == 1) {
+            $('.mask>div>div:nth-child(2)>section:nth-child(1)').show()
+
+        } else {
+            $('.mask>div>div:nth-child(2)>section:nth-child(2)').show()
+            setTimeout(() => {
+                closeMaskModel()
+            }, 2000)
+        }
+
+    }
+
+    function closeMaskModel() {
+        $('.mask>div>div:nth-child(2)').fadeOut();
+        $('.mask').fadeOut()
+        setTimeout(() => {
+            $('.mask>div>div:nth-child(2)>section').hide()
+        }, 500)
+    }
+
+    function changeRouter(opt) {
+        let u = ''
+        switch (opt) {
+            case 'toPrivilegeCenter':
+                u = '/active/VIP/privilege/privilegeCenter/index.html?userId=' + userId + '&ticket=' + ticket + '&memberType=' + memberType
+                break;
+            case 'setupVip':
+                u = '/active/VIP/privilege/privilegeCenter/index.html?userId=' + userId + '&ticket=' + ticket + '&memberType=' + memberType
+                break;
+            case 'setup':
+                u = '/active/MissionCenter/index.html?userId=' + userId + '&ticket=' + ticket + '&memberType=' + memberType
+                closeMaskModel()
+                break;
+            case 'toVipGift':
+                u = '/active/VIP/gift/index.html?userId=' + userId + '&ticket=' + ticket + '&memberType=' + memberType
+                break;
+            case 'addtime':
+                u = '/active/MissionCenter/index.html?userId=' + userId + '&ticket=' + ticket + '&memberType=' + memberType
+                break;
+            case 'toNewbornZone':
+                u = '/active/MissionCenter/NewbornZone.html?userId=' + userId + '&ticket=' + ticket + '&memberType=' + memberType
+                break;
+            case 'toGrabgoodgoods':
+                u = '/active/Grabgoodgoods/index.html?userId=' + userId + '&ticket=' + ticket + '&memberType=' + memberType
+                break;
+        }
+        let data = {
+            name: 'changeRouter',
+            url: window.location.origin + u
+        }
+        console.log(data.url);
+
+
+        if (/android/i.test(navigator.userAgent)) {
+            try {
+                window.android.changeRouter(JSON.stringify(data));
+            } catch (e) {
+                console.log('与android链接中断')
+            }
+        } else if (/ios|iphone|ipod|pad/i.test(navigator.userAgent)) {
+            try {
+                window.webkit.messageHandlers.changeRouter.postMessage(data);
+            } catch (e) {
+                console.log('与ios链接中断')
+            }
+        }
+    }
+
+    function toDetails(id, plateId) {
+        let data = {
+            name: 'toDetails',
+            url: window.location.origin + '/active/goodsDetails/index.html?userId=' + userId + '&ticket=' + ticket + '&memberType=' + memberType + '&id=' + id + '&plateId=' + plateId
+        }
+
+        if (/android/i.test(navigator.userAgent)) {
+            try {
+                window.android.toDetails(JSON.stringify(data));
+            } catch (e) {
+                console.log('与android链接中断')
+            }
+        } else if (/ios|iphone|ipod|pad/i.test(navigator.userAgent)) {
+            try {
+                window.webkit.messageHandlers.toDetails.postMessage(data);
+            } catch (e) {
+                console.log('与ios链接中断')
+            }
+        }
+    }
+
+    function lookupPanter() {
+        showModel(2)
+    }
+</script>
+
+</html>

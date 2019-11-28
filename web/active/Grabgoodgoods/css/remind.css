@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+/* 提醒 */
+.robbed-r {
+    width: 9.9rem;
+    height: 4.1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #F0F0F0;
+    padding: 0.3rem;
+}
+
+.goodurl {
+    width: 3.5rem;
+    margin-top: 1.0rem;
+}
+
+.goodurl>img {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.goodurl>p {
+    width: 3.5rem;
+    height: 0.6rem;
+    font-size: 0.4rem;
+    background: linear-gradient(270deg, rgba(255, 71, 71, 1), rgba(255, 143, 82, 1));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    top: -0.7rem;
+    font-size: 0.45rem;
+
+}
+
+.rbcw {
+    width: 100%;
+    padding: 0.3rem;
+}
+
+.rbcw>p {
+    font-family: PingFang-SC-Regular;
+    font-weight: 300;
+    width: 5.6rem;
+    color: #333333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 0.45rem;
+}
+
+.Alreadyrobbed-r {
+    position: relative;
+    top: 0.3rem;
+}
+
+.Alreadyrobbed-r .money-r {
+    font-size: 0.45rem;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: rgba(241, 90, 55, 1);
+}
+
+.Alreadyrobbed-r .price-r {
+    text-decoration: line-through;
+    color: rgba(128, 128, 128, 1);
+}
+
+.tx .btn {
+    width: 1.7rem;
+    background-color: white;
+    border-radius: 22px;
+    color: rgba(241, 90, 55, 1);
+    border: 1px solid rgba(255, 159, 28, 1)
+}
+
+.tx {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.6rem;
+    color: #808080;
+    font-weight: 300;
+    font-size: 0.45rem;
+    opacity: 0.8;
+}
+
+.bj {
+    width: 100%;
+    height: 0.3rem;
+    background-color: #F5F5F5;
+    margin-top: 0.5rem;
+}

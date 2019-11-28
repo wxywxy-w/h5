@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <title>任务中心</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: PingFang-SC-Regular;
+            font-weight: 400;
+            text-align: center;
+            list-style: none;
+        }
+        
+        .centen {
+            width: 100%;
+        }
+        
+        .centen>p {
+            width: 100%;
+            height: 0.1rem;
+            background-color: darkgray;
+            opacity: 0.4;
+        }
+        
+        .gm>img {
+            width: 100%;
+            background: rgba(255, 255, 255, 1);
+            padding: 0.3rem;
+        }
+        
+        .yq>img {
+            width: 100%;
+            background: rgba(255, 255, 255, 1);
+            padding: 0.3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centen">
+        <div class="gm" onclick="tovipgift()">
+            <img src="./image/giftbags_icon.png">
+        </div>
+        <p></p>
+        <div class="yq" onclick="" style="display: none">
+            <img src="./image/member_icon.png">
+        </div>
+    </div>
+
+
+</body>
+<script>
+    userInfo = {
+        userId: " ",
+        ticket: " ",
+        memberType: ""
+    };
+    userInfo.userId = GetQueryString("userId");
+    userInfo.ticket = GetQueryString("ticket");
+    userInfo.memberType = GetQueryString("memberType");
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)
+            return unescape(r[2]);
+        return "";
+    }
+
+    function tovipgift() {
+        window.location.href = window.location.origin + '/active/VIP/gift/index.html?userId=' + userInfo.userId + '&ticket=' + userInfo.ticket + '&memberType=' + userInfo.memberType
+    }
+</script>
+
+</html>

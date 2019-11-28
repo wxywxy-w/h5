@@ -1,0 +1,84 @@
+<!--申请成功页面-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <title>申请成功</title>
+
+    <style>
+        .success_herd {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 1.2rem;
+        }
+
+        .erweima {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .erweima>img {
+            width: 8rem;
+
+        }
+
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 8rem;
+            height: 1.2rem;
+            background: rgba(255, 159, 28, 1);
+            border: 1px solid rgba(255, 159, 28, 1);
+            border-radius: 44px;
+            margin-bottom: 2.5rem;
+            color: white;
+            font-size: 0.45rem;
+        }
+
+        .wen_An {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 2.5rem;
+            font-size: 0.45rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="success_herd">
+        <div class="erweima">
+            <img src="./image/application_approved_img_submit_successfully.png" />
+        </div>
+        <div class="wen_An">
+            <p>您的申请已成功提交</p>
+            <p>请耐心等待工作人员与您联系</p>
+        </div>
+
+        <button class="confirm" onclick="toconfirm()">确认</button>
+
+        <div class="wen_An">
+            <p>工作人员工作时间</p>
+            <p>周一至周五 09:00-18:30</p>
+        </div>
+    </div>
+</body>
+<script>
+    function toconfirm() {
+        window.location.href = "./index.html";
+    }
+</script>
+
+</html>

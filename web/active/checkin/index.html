@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+  <title>签到中心</title>
+</head>
+<style>
+
+</style>
+
+<body>
+  <div class='checkin'>
+    <!-- <img src="./img/di tu.png" alt=""> -->
+
+    <p class='checkin_tip'></p>
+    <section class='calendar'>
+      <table>
+        <caption>
+          <h1 class="calendar__banner--month"></h1>
+        </caption>
+        <thead>
+          <tr>
+            <th class="calendar__day__header">日</th>
+            <th class="calendar__day__header">一</th>
+            <th class="calendar__day__header">二</th>
+            <th class="calendar__day__header">三</th>
+            <th class="calendar__day__header">四</th>
+            <th class="calendar__day__header">五</th>
+            <th class="calendar__day__header">六</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </section>
+    <section class='giftbox'>
+      <dl class="barbox">
+        <dd class="barline">
+          <div style="width:0px;" class="charts"></div>
+        </dd>
+        <div class='gift_describe'>
+          <div>
+            <span class='integral'></span>
+            <img src="./img/money.png" alt="" class='slivecoin'>
+            <span class='day'>1天</span>
+          </div>
+          <div>
+            <span class='integral'></span>
+            <img src="./img/money.png" alt="" class='slivecoin'>
+            <span class='day'>2天</span>
+          </div>
+          <div>
+            <span class='integral'></span>
+            <img src="./img/money.png" alt="" class='slivecoin'>
+            <span class='day'>3天</span>
+          </div>
+          <div>
+            <span class='integral'></span>
+            <img src="./img/money.png" alt="" class='slivecoin'>
+            <span class='day'>4天</span>
+          </div>
+          <div>
+            <span class='integral'></span>
+            <img src="./img/money.png" alt="" class='slivecoin'>
+            <span class='day'>5天</span>
+          </div>
+          <div>
+            <span class='integral'></span>
+            <img src="./img/money.png" alt="" class='slivecoin'>
+            <span class='day'>6天</span>
+          </div>
+          <div class='surprise'>
+            <p class='jiang'>奖</p>
+            <span class='integral' style='opacity: 0;'>+500</span>
+            <img src="./img/surprise.png" alt="" onclick='getgift()'>
+            <span class='day'>7天</span>
+          </div>
+        </div>
+      </dl>
+      <div class='checkin_btn' onclick="checkinbtn()">
+        <!-- <img src="./img/sign in.png" alt=""> -->
+        <span></span>
+      </div>
+      <div class='attention'>
+        <p>注意：</p>
+        <p>累计签到7天可获取抽奖机会。签到中断，则从首日开始计算。</p>
+      </div>
+    </section>
+    <section class='moretask'>
+      <p>更多任务</p>
+      <ul>
+        <li>
+          <div>
+            <img src="./img/turntable-icon@3x.png" alt="">
+            <div><span>转盘抽奖</span><span>幸运大转盘，惊喜转不停！</span></div>
+          </div>
+          <button onclick='toDraw()'>前往</button>
+        </li>
+        <li>
+          <div>
+            <img src="./img/sharefriend-icon@3x.png" alt="">
+            <div><span>分享邀好友</span><span>分享你的二维码给好友，邀请加入</span></div>
+          </div>
+          <button onclick='shareQrCode()'>前往</button>
+        </li>
+        <!-- <li>
+          <div>
+            <img src="./img/sharegoods-icon@3x.png" alt="">
+            <div><span>分享满意的商品</span><span>给好友分享自己满意的商品</span></div>
+          </div>
+          <button onclick="shareGood()">前往</button>
+        </li> -->
+        <li>
+          <div>
+            <img src="./img/order-icon@3x.png" alt="">
+            <div><span>完成订单</span><span>购买自己喜欢的商品，完成订单</span></div>
+          </div>
+          <button onclick="finnlyOrder()">前往</button>
+        </li>
+      </ul>
+
+    </section>
+  </div>
+  <!-- 遮罩层 -->
+  <section class='modelbox'>
+    <div>
+      <div class='bottom_ground' onclick="model_box_close()"></div>
+      <div class='model_content'>
+        <div>
+          <div class='top'>
+            <img src="./img/success.png" alt="">
+          </div>
+          <div class='model_tip'>
+            <p>签到成功</p>
+            <p>恭喜获得</p>
+            <p class='checkinContent'>do米+<span class='some_doMI'></span>，do米可兑换商品</p>
+            <div class='btn_group'>
+              <button class='iknow' onclick='model_box_close()'>知道了</button>
+              <button class='toShop' onclick='toShop()'>去兑换</button>
+              <button class='toDraw' onclick='toDraw()'>去抽奖</button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/index.js"></script>
+
+</html>

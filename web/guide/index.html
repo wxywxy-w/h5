@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+    <title>新手指南</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: PingFang-SC-Regular;
+        font-weight: 400;
+    }
+    
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .classbox {
+        width: 100%;
+        height: 1.50rem;
+        /* background: linear-gradient(90deg, rgba(255, 159, 28, 1) 0%, rgba(241, 90, 55, 1) 100%); */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .classbox div {
+        width: 50%;
+        height: 1.03rem;
+        position: relative;
+        /* border-radius: 0.51rem; */
+    }
+    
+    .classbox div p {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 1.03rem;
+        font-size: .426667rem;
+        font-weight: 500;
+        color: rgba(51, 51, 51, 1);
+    }
+    
+    .strategy {
+        padding: 0.44rem 0.54rem 0 0.44rem;
+    }
+    
+    .strategy ul .title {
+        font-size: .426667rem;
+        color: rgba(241, 90, 55, 1);
+        padding-bottom: .21rem;
+    }
+    
+    .strategy ul .content {
+        width: 9.04rem;
+        font-size: .373333rem;
+        color: rgba(51, 51, 51, 1);
+        padding-bottom: .83rem;
+    }
+    
+    .person {
+        display: block;
+    }
+    
+    .team {
+        display: none;
+    }
+    
+    .imgbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: .82rem;
+        width: 100%;
+    }
+    
+    .imgbox img {
+        width: 5.866667rem;
+    }
+    
+    .active {
+        color: rgba(241, 90, 55, 1) !important;
+        border-bottom: .053333rem solid rgba(241, 90, 55, 1)
+    }
+    
+    .default_active {
+        color: rgba(51, 51, 51, 1) !important;
+        border-bottom: none
+    }
+</style>
+
+<body>
+    <!-- 分类栏 -->
+    <div class='classbox'>
+        <div onclick="showperson()">
+            <p class='_p active'>个人攻略</p>
+        </div>
+        <div onclick="showteam()">
+            <p class='_t'>
+                团队攻略
+            </p>
+        </div>
+    </div>
+    <!-- 攻略内容 -->
+    <div class='strategy'>
+        <!-- 个人攻略 -->
+        <ul class='person'>
+            <li>
+                <p class='title'>1.找到心仪的宝贝</p>
+                <p class='content'>通过小绿蓝app各类推荐榜单、分类或搜索找到您心仪的宝贝</p>
+                <div class='imgbox'>
+                    <img src="./image/image1.png" alt="">
+                </div>
+
+            </li>
+            <li>
+                <p class='title'>2.领取限量优惠券</p>
+                <p class='content'>
+                    打开该商品详情页,点击领取页面中的优惠券,用券后即可购买特惠商品
+                </p>
+                <div class='imgbox'>
+                    <img src="./image/image2.png" alt="">
+                </div>
+            </li>
+            <li>
+                <p class='title'>3.额外金币奖励</p>
+                <p class='content'>该订单确认收货后,可在我的订单和消息中查看金币奖励情况,金币存入余额中可提现到支付宝哦~</p>
+                <div class='imgbox'>
+                    <img src="./image/image3.png" alt="">
+                </div>
+            </li>
+        </ul>
+        <!-- 团队攻略 -->
+        <ul class='team'>
+            <li>
+                <p class='title'>1.分享给好友</p>
+                <p class='content'>进入个人中心将小绿蓝APP分享给好友或微信群,好友填写您的专属邀请码后即成为您的团队成员</p>
+                <div class='imgbox'>
+                    <img src="./image/image4.png" alt="">
+                </div>
+            </li>
+            <li>
+                <p class='title'>2.好友省钱 你来赚钱</p>
+                <p class='content'>团队内所有成员(包括您的直属成员及其再发展的直属成员)在APP内或通过链接分享购买商品,您都能获得对应的金币奖励</p>
+                <div class='imgbox'>
+                    <img src="./image/image5.png" alt="">
+                </div>
+            </li>
+            <li>
+                <p class='title'>3.团队壮大 躺着赚钱</p>
+                <p class='content'>您的直属成员及其再发展的直属成员都属于您的团队成员,人数越多,金币奖励预估越丰厚哦~</p>
+                <div class='imgbox'>
+                    <img src="./image/image6.png" alt="">
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+
+
+
+
+</body>
+<script>
+    function showperson() {
+        $('.person').show().siblings('.team').hide()
+        $('.classbox p').removeClass('active')
+        $('._p').addClass('active')
+    }
+
+    function showteam() {
+        $('.person').hide().siblings('.team').show()
+        $('.classbox p').removeClass('active')
+        $('._t').addClass('active')
+    }
+</script>
+
+</html>
